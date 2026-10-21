@@ -22,6 +22,14 @@ export async function requireAdmin(req:Request):Promise<{ok:true;db:SupabaseClie
  const db=adminDb(),auth=publicAuth();if(!db||!auth||!process.env.ADMIN_EMAIL)return {ok:false,status:503,message:'Admin backend is not configured.'};
  const token=req.headers.get('authorization')?.match(/^Bearer (.+)$/)?.[1];if(!token)return {ok:false,status:401,message:'Sign in required.'};
  const {data,error}=await auth.auth.getUser(token);
- if(error||!data.user||data.user.email?.toLowerCase()!==process.env.ADMIN_EMAIL.toLowerCase())return {ok:false,status:403,message:'Not authorized.'};
+ if(error||!data.user?.email||!data.user.email_confirmed_at)return{ok:false,status:403,message:'Not authorized.'};
+ const email=data.user.email.toLowerCase();
+ if(email!==process.env.ADMIN_EMAIL.toLowerCase()){
+  const resource=new URL(req.url).pathname.split('/api/admin/')[1]?.split('/')[0];
+  const permission=resource==='upload'?'media':resource;
+  if(!['products','orders','messages','settings','media'].includes(permission))return{ok:false,status:403,message:'Permission denied.'};
+  const {data:member}=await db.from('site_team').select('active,permissions').eq('email',email).maybeSingle();
+  if(!member?.active||!Array.isArray(member.permissions)||!member.permissions.includes(permission))return{ok:false,status:403,message:'Permission denied.'};
+ }
  return {ok:true,db};
 }
