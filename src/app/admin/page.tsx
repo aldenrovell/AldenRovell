@@ -1,1 +1,3 @@
-import {getProducts,getSettings}from '@/lib/store';import {AdminConsole}from '@/components/admin-console';export const dynamic='force-dynamic';export const metadata={title:'Store Admin',robots:{index:false,follow:false}};export default async function Admin(){const [p,s]=await Promise.all([getProducts(),getSettings()]);return <AdminConsole initialProducts={p} initialSettings={s}/>}
+import {AdminConsole} from '@/components/admin-console';
+export const dynamic='force-dynamic';export const metadata={title:'Store Admin',robots:{index:false,follow:false}};
+export default function Admin(){return <AdminConsole/>;}
