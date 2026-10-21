@@ -1,3 +1,1 @@
-import {AdminConsole} from '@/components/admin-console';
-export const dynamic='force-dynamic';export const metadata={title:'Store Admin',robots:{index:false,follow:false}};
-export default function Admin(){return <AdminConsole/>;}
+import {ControlPanel} from '@/components/control-panel';export const dynamic='force-dynamic';export const metadata={title:'Alden Rovell Control Panel',robots:{index:false,follow:false}};export default function Admin(){return <ControlPanel/>;}
