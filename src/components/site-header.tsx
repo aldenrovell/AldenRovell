@@ -1,0 +1,1 @@
+import {Header}from './header';import {getSiteContent,getCategories}from '@/lib/site-cms';export async function SiteHeader(){const [brand,cats]=await Promise.all([getSiteContent('brand'),getCategories()]);return <Header brand={brand} categories={cats}/>;}
