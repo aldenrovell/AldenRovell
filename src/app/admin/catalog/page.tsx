@@ -1,0 +1,1 @@
+import {AdminConsole}from '@/components/admin-console';export const dynamic='force-dynamic';export default function Catalog(){return <div className='container standard-page'><a href='/admin' className='btn btn-outline'>← Back to Control Panel</a><AdminConsole/></div>;}
