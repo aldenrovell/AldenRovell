@@ -1,5 +1,6 @@
 import {NextResponse} from 'next/server';
 import {requireAdmin,getProducts} from '@/lib/store';
+import {staff,permitted} from '@/lib/permissions';
 const invalid=(error:string,status=400)=>NextResponse.json({error},{status});
 export async function GET(req:Request){const a=await requireAdmin(req);if(!a.ok)return invalid(a.message,a.status);return NextResponse.json({products:await getProducts()});}
 export async function POST(req:Request){return save(req,true);}
@@ -18,6 +19,11 @@ async function save(req:Request,creating:boolean){
  if(!Array.isArray(d.features)||d.features.length>30||d.features.some(v=>typeof v!=='string'||v.length>400))return invalid('Invalid features');
  const images=x.images;if(!Array.isArray(images)||images.length>12||images.some(v=>!v||typeof v!=='object'||typeof v.src!=='string'||v.src.length>1500||!(v.src.startsWith('/products/')||v.src.startsWith('https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/'))||typeof v.alt!=='string'||v.alt.length>300||typeof v.role!=='string'||v.role.length>80))return invalid('Invalid image gallery');
  if(x.published&&(!x.imagesApproved||!x.salesUnitVerified||x.pricePkr===null||x.stock===null||images.length===0))return invalid('Verify photos, stock, selling unit and price before publishing');
+ const actor=await staff(req);if(!actor)return invalid('Unauthorized',403);
+ if(actor.role!=='owner'&&!permitted(actor,'prices')){
+  const {data:existing}=await a.db.from('store_products').select('price_pkr').eq('id',id).maybeSingle();
+  if(x.pricePkr!==(existing?.price_pkr??null))return invalid('Pricing permission required',403);
+ }
  const record={id,price_pkr:x.pricePkr,stock:x.stock,is_published:x.published,images_approved:x.imagesApproved,sales_unit_verified:x.salesUnitVerified,details:{title:d.title,slug:d.slug,category:d.category,shortDescription:d.shortDescription,description:d.description,features:d.features,sku:d.sku,reviewNote:typeof d.reviewNote==='string'?d.reviewNote:'',seoTitle:typeof d.seoTitle==='string'?d.seoTitle:d.title,metaDescription:typeof d.metaDescription==='string'?d.metaDescription:d.shortDescription},images,is_archived:false,updated_at:new Date().toISOString()};
  const duplicate=await a.db.from('store_products').select('id').neq('id',id).contains('details',{slug:d.slug}).limit(1);if(duplicate.error)return invalid('Could not validate slug',500);if(duplicate.data?.length)return invalid('Another product uses this URL slug',409);
  const q=creating?await a.db.from('store_products').insert(record):await a.db.from('store_products').update(record).eq('id',id).select('id');
