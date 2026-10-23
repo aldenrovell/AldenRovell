@@ -9,3 +9,14 @@ export function validateOrderPayload(input:unknown):{ok:true;value:{customer:{na
  const idempotencyKey=str(x.idempotencyKey);if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(idempotencyKey))return{ok:false,message:'Order token missing.'};
  return{ok:true,value:{customer,items:items.map(item=>({id:item.id as string,quantity:item.quantity as number})),idempotencyKey}};
 }
+export type ContactPayload={customer_name:string;email:string;phone:string;subject:string;body:string};
+export type ContactResult={ok:true;honeypot:boolean;value:ContactPayload}|{ok:false;message:string};
+export function validateContactPayload(input:unknown):ContactResult{
+ if(!input||typeof input!=='object'||Array.isArray(input))return {ok:false,message:'Invalid message.'};
+ const x=input as Record<string,unknown>;
+ const field=(k:string)=>typeof x[k]==='string'?(x[k] as string).trim():'';
+ const data={customer_name:field('name'),email:field('email'),phone:field('phone'),subject:field('subject'),body:field('body')};
+ if(field('website'))return {ok:true,honeypot:true,value:data};
+ if(data.customer_name.length<2||data.customer_name.length>120||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)||data.email.length>254||data.phone.length>40||data.subject.length<2||data.subject.length>160||data.body.length<10||data.body.length>5000)return {ok:false,message:'Please check your message details.'};
+ return {ok:true,honeypot:false,value:data};
+}

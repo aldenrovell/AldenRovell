@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {validatePkPhone,validateOrderPayload} from '../src/lib/validate.ts';
+import {validatePkPhone,validateOrderPayload,validateContactPayload} from '../src/lib/validate.ts';
 const valid={customer:{name:'Example Customer',phone:'03001234567',city:'Karachi',province:'Sindh',address:'House 15, Example Road, Karachi',notes:''},items:[{id:'P01',quantity:1}],idempotencyKey:'fd0bdab2-5485-4582-824c-0a0c54e019a1'};
 test('accepts Pakistani mobile numbers',()=>{assert.equal(validatePkPhone('03001234567'),true);assert.equal(validatePkPhone('+923001234567'),true);assert.equal(validatePkPhone('0300-1234567'),true);});
 test('rejects invalid mobile numbers',()=>{assert.equal(validatePkPhone('123'),false);assert.equal(validatePkPhone('0213314567'),false);});
@@ -19,4 +19,19 @@ test('rejects non-object cart entries without throwing',()=>{
  for(const entry of [null,undefined,5,'bad',[]]){
   assert.equal(validateOrderPayload({...valid,items:[entry]}).ok,false);
  }
+});
+
+test('rejects malformed contact bodies without server crashes',()=>{
+ for(const body of [null,[],false,5,'text',{}, {name:'A',email:'bad'}]){
+  assert.equal(validateContactPayload(body).ok,false);
+ }
+});
+test('accepts valid contact forms and ignores bot honeypot',()=>{
+ const valid={name:'Example Customer',email:'example@example.com',phone:'',subject:'A question',body:'Please tell me more about this product.'};
+ const good=validateContactPayload(valid);
+ assert.equal(good.ok,true);
+ if(good.ok){assert.equal(good.honeypot,false);assert.equal(good.value.customer_name,'Example Customer');}
+ const bot=validateContactPayload({...valid,website:'https://spam.example'});
+ assert.equal(bot.ok,true);
+ if(bot.ok)assert.equal(bot.honeypot,true);
 });
