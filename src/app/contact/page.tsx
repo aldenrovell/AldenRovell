@@ -1,1 +1,18 @@
-import Link from 'next/link';import {ArrowUpRight,Mail,MessageCircle}from 'lucide-react';import {getSiteContent}from '@/lib/site-cms';export const dynamic='force-dynamic';export const metadata={title:'Contact Alden Rovell'};export default async function Contact(){const c=await getSiteContent('contact');const email=(c.email||'info@aldenrovell.com').trim();const backup='aldenrovell@gmail.com';const raw=(c.whatsapp||'').replace(/\D/g,'');const wa=raw.startsWith('0')?'92'+raw.slice(1):raw;return <div className="container content-page ar-contact-page"><span className="eyebrow">WE'D LOVE TO HEAR FROM YOU</span><h1>Let's stay <span className="ar-title-soft">connected.</span></h1><p className="content-lede">Questions about an order, a product or your next find? Reach us directly. No forms, no complicated steps.</p><div className="ar-contact-panel"><div className="ar-contact-primary"><span className="ar-contact-icon"><Mail size={27}/></span><span className="ar-contact-kicker">GENERAL ENQUIRIES</span><h2>Just an email away.</h2><a className="ar-contact-email" href={'mailto:'+email}>{email}<ArrowUpRight size={21}/></a><p>Our dedicated business inbox is being set up. Until then, please use the working backup email below.</p><a href={'mailto:'+backup} className="ar-contact-backup">Email our team: {backup} <ArrowUpRight size={15}/></a></div><div className="ar-contact-secondary"><span className="ar-contact-icon"><MessageCircle size={25}/></span><h2>Prefer WhatsApp?</h2><p>Send us an enquiry about products, orders or availability.</p>{/^92\d{10}$/.test(wa)?<a href={'https://wa.me/'+wa} target="_blank" rel="noopener noreferrer" className="btn btn-outline">Chat with our team <ArrowUpRight size={16}/></a>:<Link href="/faq" className="btn btn-outline">Browse FAQs <ArrowUpRight size={16}/></Link>}</div></div></div>}
+import {Mail,ArrowUpRight,ShieldCheck} from 'lucide-react';
+export const metadata={title:'Contact Alden Rovell'};
+export default function Contact(){
+ const email='aldenrovell@gmail.com';
+ return <section className="container content-page ar-contact-simple">
+  <div className="ar-contact-top"><span className="eyebrow">CONTACT / ALDEN ROVELL</span><h1>Every connection <span className="ar-title-soft">matters.</span></h1><p className="content-lede">Questions about a product, your order or our collections? Reach us directly by email.</p></div>
+  <div className="ar-contact-single ar-reveal-entrance">
+   <div className="ar-contact-orbit" aria-hidden="true"><span/><span/></div>
+   <div className="ar-contact-mail-symbol"><Mail size={34} strokeWidth={1.55}/></div>
+   <span className="eyebrow">THE ALDEN ROVELL INBOX</span>
+   <h2>Let's talk.</h2>
+   <a className="ar-contact-single-link" href={'mailto:'+email}>{email}<ArrowUpRight size={23}/></a>
+   <p>Send us your question with the product or order reference, if you have one.</p>
+   <a href={'mailto:'+email+'?subject=Alden%20Rovell%20Enquiry'} className="btn btn-accent">Write an email <ArrowUpRight size={18}/></a>
+  </div>
+  <div className="ar-contact-note"><ShieldCheck size={19}/><span>One direct contact. No forms, no unnecessary steps.</span></div>
+ </section>;
+}
