@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {useId,useState} from 'react';
 import {ArrowUpRight,Plus} from 'lucide-react';
 export const storeFaqs=[
- {q:'Do you deliver across Pakistan?',a:'Yes. Alden Rovell offers free delivery across Pakistan. The delivery fee is Rs. 0. Orders are subject to product availability and confirmation before dispatch.'},
+ {q:'Do you deliver across Pakistan?',a:'Yes. One item has Rs. 199 delivery; two or more items in the same order qualify for free delivery across Pakistan.'},
  {q:'How do I place an order?',a:'Choose a collection, open the product you like and follow the checkout steps. Our team reviews and confirms your order before dispatch.'},
  {q:'Can I request a return?',a:'Contact our team within 7 days of delivery if your order is incorrect, different from what you ordered, or incomplete. Every request is reviewed according to our return policy.'},
  {q:'When will my order arrive?',a:'Delivery timing depends on your destination, product availability and dispatch confirmation. Your available delivery estimate is shared with your order.'},

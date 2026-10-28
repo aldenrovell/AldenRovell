@@ -4,3 +4,5 @@ export type CartItem={id:string;quantity:number};
 export type StoreSettings={codEnabled:boolean;shippingFeePkr:number|null;notice:string|null};
 export const formatPrice=(n:number|null)=> n===null?'Price pending':`Rs. ${n.toLocaleString('en-PK')}`;
 export const canPurchase=(p:Product)=>p.published&&p.imagesApproved&&p.salesUnitVerified&&p.pricePkr!==null&&p.stock!==null&&p.stock>0;
+
+export const getDeliveryFee=(quantity:number):number=>quantity>=2?0:quantity===1?199:0;

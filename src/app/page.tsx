@@ -30,7 +30,7 @@ export default async function Home(){
   </div></section>
   <div className="ar-marquee" aria-label="Our collections"><div className="ar-marquee-track" aria-hidden="true">{[0,1].map(copy=><div className="ar-marquee-group" key={copy}>{['JEWELLERY','✦','FOOTWEAR','✦','MASSAGERS','✦','THOUGHTFULLY CURATED','✦'].map((label,i)=><span key={i}>{label}</span>)}</div>)}</div></div>
   <div className="container ar-service-strip" aria-label="Store highlights">
-   <div className="ar-benefit-item"><Truck size={23} strokeWidth={1.6}/><div><strong>Delivery on us</strong><span>Free shipping across Pakistan</span></div></div>
+   <div className="ar-benefit-item"><Truck size={23} strokeWidth={1.6}/><div><strong>Free delivery on 2+ items</strong><span>One item: Rs. 199 delivery</span></div></div>
    <div className="ar-benefit-item"><RefreshCcw size={22} strokeWidth={1.6}/><div><strong>7-day return requests</strong><span>For eligible order issues</span></div></div>
    <div className="ar-benefit-item"><ShieldCheck size={22} strokeWidth={1.6}/><div><strong>Considered selections</strong><span>Discover products by collection</span></div></div>
   </div>
@@ -53,6 +53,6 @@ export default async function Home(){
    </div>
   </section>
   <section className="container ar-faq-section"><div className="ar-faq-intro"><div><span className="eyebrow">GOOD TO KNOW</span><h2>Questions, <span className="ar-title-soft">answered.</span></h2><p>All the essentials about shopping with Alden Rovell.</p><Link href="/faq" className="ar-text-cta">Visit our FAQ page <ArrowUpRight size={18}/></Link></div><span className="ar-faq-decor" aria-hidden="true">?</span></div><FaqList compact/></section>
-  <section className="ar-invite-section"><div className="container ar-invite-panel"><div><span className="eyebrow">ALDEN ROVELL</span><h2>Something worth <span>discovering.</span></h2><p>Explore our collections, with delivery across Pakistan on us.</p></div><Link href="/shop" className="btn btn-light">Browse collections <ArrowDownRight size={20}/></Link></div></section>
+  <section className="ar-invite-section"><div className="container ar-invite-panel"><div><span className="eyebrow">ALDEN ROVELL</span><h2>Something worth <span>discovering.</span></h2><p>Explore our collections, and unlock free delivery with two or more items.</p></div><Link href="/shop" className="btn btn-light">Browse collections <ArrowDownRight size={20}/></Link></div></section>
  </>;
 }
