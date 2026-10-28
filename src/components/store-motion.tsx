@@ -88,12 +88,5 @@ export function StoreMotion(){
     };
   },[pathname,enabled,systemReduced,mounted]);
 
-  return <div className="ar-motion-prefs">
-    <button type="button" className="ar-motion-toggle" aria-pressed={enabled&&!systemReduced}
-      onClick={()=>setEnabled(current=>!current)} disabled={!mounted||systemReduced}
-      title={systemReduced?'Animations disabled by your device accessibility settings':'Toggle decorative animations'}>
-      <span className="ar-motion-indicator" aria-hidden="true"/>
-      Motion: {enabled&&!systemReduced?'On':'Off'}
-    </button>
-  </div>;
+  return null;
 }

@@ -28,17 +28,17 @@ export default async function Home(){
    </div>
    <div className="hero-visual ar-multi-product-visual"><div className="hero-photo"><HeroProductCarousel products={showcase}/></div><div className="hero-artline"><span>THE ALDEN ROVELL EDIT</span><span>MADE TO BE DISCOVERED</span></div></div>
   </div></section>
-  <div className="ar-marquee" aria-label="Our collections"><div className="ar-marquee-track" aria-hidden="true">{[0,1].map(copy=><div className="ar-marquee-group" key={copy}>{['JEWELLERY','✦','FOOTWEAR','✦','MASSAGERS','✦','THOUGHTFULLY CURATED','✦'].map((label,i)=><span key={i}>{label}</span>)}</div>)}</div></div>
+  <div className="ar-marquee" aria-label="Our collections"><div className="ar-marquee-track" aria-hidden="true">{[0,1].map(copy=><div className="ar-marquee-group" key={copy}>{['CURATED WITH INTENTION','✦','FOOTWEAR','✦','JEWELLERY','✦','EVERYDAY FINDS','✦','MASSAGERS','✦'].map((label,i)=><span key={i}>{label}</span>)}</div>)}</div></div>
   <div className="container ar-service-strip" aria-label="Store highlights">
    <div className="ar-benefit-item"><Truck size={23} strokeWidth={1.6}/><div><strong>Free delivery on 2+ items</strong><span>One item: Rs. 199 delivery</span></div></div>
    <div className="ar-benefit-item"><RefreshCcw size={22} strokeWidth={1.6}/><div><strong>7-day return requests</strong><span>For eligible order issues</span></div></div>
    <div className="ar-benefit-item"><ShieldCheck size={22} strokeWidth={1.6}/><div><strong>Considered selections</strong><span>Discover products by collection</span></div></div>
   </div>
   <section className="ar-category-section container" aria-label="Shop store categories">
-   <div className="ar-section-intro"><div><span className="eyebrow">EXPLORE THE EDIT</span><h2>Find your next <span className="ar-title-soft">favorite.</span></h2></div><p>Three collections. A world of details.</p></div>
+   <div className="ar-section-intro"><div><span className="eyebrow">EXPLORE THE EDIT</span><h2>Explore something <span className="ar-title-soft">special.</span></h2></div><p>Discover footwear, jewellery and essentials with a more considered touch.</p></div>
    <div className="ar-category-tiles">{featuredCategories.map((cat,i)=><Link key={cat.id} href={'/shop?category='+encodeURIComponent(cat.name)} className={'ar-category-tile ar-category-tile-'+i}>
     <div className="ar-category-info"><span className="ar-category-label">COLLECTION / {String(i+1).padStart(2,'0')}</span><h3>{cat.name}</h3><span className="ar-category-action">Discover the collection <ArrowUpRight size={17}/></span></div>
-    <div className="ar-category-photo">{cat.thumbnail?<Image src={cat.thumbnail} alt={cat.name+' curated collection'} fill unoptimized sizes="(max-width:720px) 100vw, 33vw" className="ar-category-product"/>:<span aria-hidden="true">{cat.name.charAt(0)}</span>}</div>
+    <div className="ar-category-photo">{cat.thumbnail?<Image src={cat.thumbnail} alt={cat.name+' category'} fill unoptimized sizes="(max-width:720px) 100vw, 33vw" className="ar-category-product"/>:<span aria-hidden="true">{cat.name.charAt(0)}</span>}</div>
    </Link>)}</div>
   </section>
   <section className="ar-depth-section" aria-label="A closer look at Alden Rovell">

@@ -42,6 +42,6 @@ export async function Footer(){
    <h3>CONNECT WITH ALDEN ROVELL</h3>
    <div className="footer-social-icons">{social.map(({name,url,icon})=><a key={name} className="footer-social-icon" href={url||'#'} target="_blank" rel="noopener noreferrer" aria-label={'Follow Alden Rovell on '+name} title={name}>{icon}</a>)}</div>
   </section>}
-  <div className="container foot-bottom"><span>{content.copyright||'© Alden Rovell. All rights reserved.'}</span></div>
+  <div className="container foot-bottom ar-footer-bottom"><span>© 2026 Alden Rovell. All rights reserved.</span><div><Link href="/privacy">Privacy</Link><span aria-hidden="true">·</span><Link href="/terms">Terms</Link></div></div>
  </footer>;
 }
