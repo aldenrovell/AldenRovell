@@ -28,7 +28,7 @@ export default async function Home(){
    </div>
    <div className="hero-visual ar-multi-product-visual"><div className="hero-photo"><HeroProductCarousel products={showcase}/></div><div className="hero-artline"><span>THE ALDEN ROVELL EDIT</span><span>MADE TO BE DISCOVERED</span></div></div>
   </div></section>
-  <div className="ar-marquee" aria-label="Our collections"><div className="ar-marquee-track" aria-hidden="true">{[0,1].map(copy=><div className="ar-marquee-group" key={copy}>{['CURATED WITH INTENTION','✦','FOOTWEAR','✦','JEWELLERY','✦','EVERYDAY FINDS','✦','MASSAGERS','✦'].map((label,i)=><span key={i}>{label}</span>)}</div>)}</div></div>
+  <div className="ar-marquee ar-marquee-balanced" aria-label="Our collections"><div className="ar-marquee-track" aria-hidden="true">{[0,1,2,3].map(copy=><div className="ar-marquee-group" key={copy}>{['CURATED WITH INTENTION','✦','FOOTWEAR','✦','JEWELLERY','✦','EVERYDAY FINDS','✦','MASSAGERS','✦'].map((label,i)=><span key={i}>{label}</span>)}</div>)}</div></div>
   <div className="container ar-service-strip" aria-label="Store highlights">
    <div className="ar-benefit-item"><Truck size={23} strokeWidth={1.6}/><div><strong>Free delivery on 2+ items</strong><span>One item: Rs. 199 delivery</span></div></div>
    <div className="ar-benefit-item"><RefreshCcw size={22} strokeWidth={1.6}/><div><strong>7-day return requests</strong><span>For eligible order issues</span></div></div>
