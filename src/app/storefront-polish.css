@@ -214,3 +214,64 @@ html[data-ar-motion="off"] .ar-public-main .ar-marquee-balanced .ar-marquee-trac
 @media(max-width:900px){.ar-public-main .cart-layout{grid-template-columns:1fr}.ar-public-main .order-summary{position:static}}
 @media(max-width:560px){.ar-public-main .cart-line{padding:13px;gap:12px}.ar-public-main .cart-img{width:86px;height:86px;flex-basis:86px}.ar-public-main .order-summary{padding:20px}.ar-public-main .ar-review-item{grid-template-columns:53px minmax(0,1fr)!important}.ar-public-main .ar-review-thumb{width:53px!important;height:53px!important;min-width:53px!important;max-width:53px!important}.ar-public-main .ar-review-item>b{grid-column:2;text-align:left}.ar-public-main .ar-faq-section{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.ar-offer-roll .ar-offer-message{animation:none!important;filter:none!important;opacity:0}.ar-offer-roll .ar-offer-message:first-child{opacity:1}}
+
+
+/* 2026-10-29 targeted regressions: explicit layout contracts */
+/* Product nav: pill cards with circle at left, label / price at right */
+.site-header .desktop-nav .cp-nav-group .ar-product-menu{width:410px!important;max-width:calc(100vw - 40px);padding:18px!important;top:calc(100% + 7px)!important}
+.site-header .desktop-nav .ar-product-menu .ar-product-menu-items{display:flex!important;flex-direction:column!important;gap:10px!important;padding-top:13px!important}
+.site-header .desktop-nav .ar-product-menu .ar-product-menu-item{display:grid!important;grid-template-columns:62px minmax(0,1fr) 18px!important;align-items:center!important;column-gap:14px!important;width:100%!important;min-height:76px!important;padding:8px 12px 8px 8px!important;border:1px solid #eadbd5!important;border-radius:999px!important;background:#fff!important;text-align:left!important;white-space:normal!important;box-shadow:0 4px 14px #2714110b}
+.site-header .desktop-nav .ar-product-menu .ar-product-menu-item:hover{background:#f9eeec!important;transform:translateX(3px)!important}
+.site-header .desktop-nav .ar-product-menu .ar-product-menu-photo{position:relative!important;display:block!important;width:60px!important;height:60px!important;min-width:60px!important;border-radius:50%!important;overflow:hidden!important}
+.site-header .desktop-nav .ar-product-menu .ar-product-menu-photo img{position:absolute!important;width:100%!important;height:100%!important;inset:0!important;object-fit:contain!important;padding:4px!important}
+.site-header .desktop-nav .ar-product-menu .ar-product-menu-description{display:flex!important;flex-direction:column!important;gap:5px!important;min-width:0!important}
+.site-header .desktop-nav .ar-product-menu .ar-product-menu-description strong{font-size:12px!important;font-weight:700!important;color:#28201e!important;line-height:1.32!important}
+.site-header .desktop-nav .ar-product-menu .ar-product-menu-description small{font-size:11px!important;color:#a3182b!important;font-weight:700!important}
+.site-header .desktop-nav .ar-product-menu-item>svg{color:#a51928!important;flex:none}
+.site-header .desktop-nav .ar-product-menu-header{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:15px!important}
+.site-header .desktop-nav .ar-product-menu-header a{font-size:11px!important}
+/* Prevent a position:relative element from becoming the containing block for page-filling images */
+.ar-public-main .ar-story-page{overflow:hidden}
+.ar-public-main .ar-story-hero{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:6%!important;align-items:center!important;padding-top:85px!important;padding-bottom:90px!important}
+.ar-public-main .ar-story-lead{min-width:0}
+.ar-public-main .ar-story-lead h1{font-size:clamp(43px,5vw,75px)!important;line-height:1.09!important}
+.ar-public-main .ar-story-lead p{max-width:460px;line-height:1.85}
+.ar-public-main .ar-story-visual{position:relative!important;width:100%!important;min-width:0!important;height:490px!important;min-height:490px!important;overflow:visible!important}
+.ar-public-main .ar-story-image{position:absolute!important;inset:12px 28px 25px 12px!important;display:block!important;overflow:hidden!important;border-radius:32px!important;background:#eee6df!important;box-shadow:0 28px 65px #25190c17}
+.ar-public-main .ar-story-image>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important;padding:28px!important}
+.ar-public-main .ar-story-floating-tag{position:absolute!important;bottom:5px!important;right:0!important;background:#fff!important;border-radius:12px!important;z-index:2!important;padding:14px 17px!important;font-size:10px!important;color:#5f4740!important;box-shadow:0 10px 30px #22161021!important}
+.ar-public-main .ar-story-manifesto{background:#211c1d!important;color:white!important;padding:95px 0!important}
+.ar-public-main .ar-story-manifesto-inner{display:grid!important;gap:25px!important}
+.ar-public-main .ar-story-manifesto p{max-width:900px!important;font-size:clamp(35px,5.1vw,77px)!important;font-weight:800!important;line-height:1.17!important;color:#fff!important}
+.ar-public-main .ar-story-values{padding-top:95px!important;padding-bottom:95px!important}
+.ar-public-main .ar-story-value-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important}
+.ar-public-main .ar-story-value-grid article{background:#f5eee9!important;border-radius:24px!important;border:1px solid #e9ddd7!important;padding:33px!important;min-height:260px!important}
+.ar-public-main .ar-story-value-grid article h3{font-size:24px!important}
+.ar-public-main .ar-story-value-grid article p{line-height:1.8!important;color:#746963!important}
+.ar-public-main .ar-story-feature{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:8%!important;align-items:center!important;padding-bottom:100px!important}
+.ar-public-main .ar-story-feature-img{position:relative!important;width:100%!important;aspect-ratio:1.25!important;height:auto!important;min-height:340px!important;max-height:560px!important;overflow:hidden!important;border-radius:30px!important;background:#f1e7df!important}
+.ar-public-main .ar-story-feature-img>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;padding:28px!important}
+/* Checkout card: no overlapping numbers/text */
+.ar-public-main .ar-review-totals{display:block!important}
+.ar-public-main .ar-review-totals>div{display:flex!important;justify-content:space-between!important;gap:20px!important;align-items:baseline!important;width:100%!important;margin:0!important;padding:12px 0!important;font-size:13px!important}
+.ar-public-main .ar-review-totals>div>span{flex:1!important;min-width:0!important;line-height:1.55!important;color:#685f59!important}
+.ar-public-main .ar-review-totals>div>b,.ar-public-main .ar-review-totals>div>strong{flex:none!important;white-space:nowrap!important;text-align:right!important}
+.ar-public-main .ar-review-totals>.ar-review-final{margin-top:12px!important;padding-top:22px!important}
+.ar-public-main .ar-review-offer{display:flex!important;gap:13px!important;align-items:flex-start!important;line-height:1.5!important}
+.ar-public-main .ar-review-offer>svg{flex:none!important;margin-top:3px!important}
+.ar-public-main .ar-review-offer>div{display:flex!important;flex-direction:column!important;gap:6px!important;min-width:0!important}
+.ar-public-main .ar-review-offer strong{font-size:12px!important;line-height:1.5!important}
+.ar-public-main .ar-review-offer span{font-size:11px!important;line-height:1.6!important}
+.ar-public-main .ar-checkout-back{justify-content:space-between!important;flex-wrap:wrap!important}
+.ar-public-main .ar-checkout-back>a{display:inline-flex!important;align-items:center!important;gap:8px!important}
+.ar-public-main .ar-easy-form,.ar-public-main .ar-easy-review{border-radius:26px!important}
+@media(max-width:850px){
+ .ar-public-main .ar-story-hero,.ar-public-main .ar-story-feature{grid-template-columns:1fr!important}
+ .ar-public-main .ar-story-visual{height:420px!important;min-height:420px!important}
+ .ar-public-main .ar-story-value-grid{grid-template-columns:1fr!important}
+}
+@media(max-width:540px){
+ .ar-public-main .ar-story-visual{height:320px!important;min-height:320px!important}
+ .ar-public-main .ar-story-image{inset:6px 18px 15px 6px!important}
+ .ar-public-main .ar-story-feature-img{min-height:250px!important}
+}

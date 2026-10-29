@@ -19,3 +19,14 @@
 @media(max-width:800px){.cards{grid-template-columns:1fr}.card{min-height:0}.page{padding-top:58px}.intro{margin-bottom:30px}}
 @media(max-width:540px){.page{width:calc(100% - 32px)}.card{padding:28px 24px;border-radius:23px}.intro h1{font-size:46px}.mail{font-size:16px}}
 @media(prefers-reduced-motion:reduce){.card,.action{transition:none}.card:hover,.action:hover{transform:none}}
+/* Restore the original premium dark inbox feeling, in two intentional cards. */
+.card{position:relative;isolation:isolate;overflow:hidden;box-shadow:0 21px 55px #281c1c19;min-height:445px}
+.card:before{content:'';pointer-events:none;position:absolute;z-index:-1;right:-130px;bottom:-160px;width:310px;height:310px;border:1px solid #c46a844a;border-radius:50%;box-shadow:0 0 0 55px #c45c7710}
+.light{background:radial-gradient(circle at 95% 0%,#4c3e43,#2a2125 66%);color:white;border:1px solid #3d3136}
+.dark{background:radial-gradient(circle at 85% 8%,#4f3e44,#201a1e 66%);color:white;border:1px solid #403034}
+.light .tag,.dark .tag{color:#f0a0ad}
+.light .icon,.dark .icon{background:#ffffff15;color:#fac2cb;border:1px solid #ffffff25}
+.light .action,.dark .action{background:#b30e23;color:white;border:1px solid #d6394b}
+.light .action:hover,.dark .action:hover{background:#8e0d1e;color:white}
+.card h2,.card p,.card .mail{color:#fff!important}
+.card p{opacity:.84}
