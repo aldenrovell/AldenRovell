@@ -1,10 +1,45 @@
-import Image from 'next/image';import Link from 'next/link';import {ArrowUpRight,MoveUpRight,Box,Truck,HeartHandshake} from 'lucide-react';import {getProducts} from '@/lib/store';
-export const dynamic='force-dynamic';export const metadata={title:'The Alden Rovell Story'};
-export default async function About(){const products=(await getProducts()).filter(x=>x.published&&x.images[0]?.src);const image=products.find(p=>p.category.startsWith('Jewellery'))||products[0];const shoe=products.find(p=>p.category.startsWith('Footwear'))||products[1];
- return <div className="ar-story-page">
-  <section className="container ar-story-hero"><div className="ar-story-lead"><span className="eyebrow">THE ALDEN ROVELL STORY / PAKISTAN</span><h1>Not just things. <span>Things worth finding.</span></h1><p>We believe everyday shopping should feel a little more considered. A good find should bring joy long after the page is closed.</p><Link href="/shop" className="btn btn-accent">Explore our collections <ArrowUpRight size={18}/></Link></div><div className="ar-story-visual">{image&&<div className="ar-story-image"><Image src={image.images[0].src} alt={image.title} fill unoptimized sizes="(max-width:850px) 90vw,45vw"/></div>}<span className="ar-story-floating-tag">CURATED FINDS / ALDEN ROVELL</span></div></section>
-  <section className="ar-story-manifesto"><div className="container ar-story-manifesto-inner"><span className="eyebrow">OUR POINT OF VIEW</span><p>Less noise. <em>More discovery.</em> A collection that feels thoughtful, clear and worth coming back to.</p><span>01 / WHY WE EXIST</span></div></section>
-  <section className="container ar-story-values"><div className="ar-story-value-head"><span className="eyebrow">THE EXPERIENCE</span><h2>A better way to <span className="ar-title-soft">discover.</span></h2></div><div className="ar-story-value-grid"><article><Box size={27}/><small>01 / EXPLORE</small><h3>Find your category.</h3><p>Footwear, jewellery and useful essentials, organised to make discovery easy.</p></article><article><HeartHandshake size={27}/><small>02 / CHOOSE</small><h3>Details make it yours.</h3><p>Clear product information and a straightforward path from product to order.</p></article><article><Truck size={27}/><small>03 / RECEIVE</small><h3>Made for Pakistan.</h3><p>Rs. 199 delivery for one item, or free delivery on two or more in the same order.</p></article></div></section>
-  <section className="container ar-story-feature"><div className="ar-story-feature-copy"><span className="eyebrow">ALDEN ROVELL COLLECTIONS</span><h2>Everyday, <span className="ar-title-soft">elevated.</span></h2><p>Find a piece you love. Or explore something entirely new. There's always more to discover.</p><Link href="/shop" className="ar-text-cta">Shop the edit <MoveUpRight size={18}/></Link></div>{shoe&&<div className="ar-story-feature-img"><Image src={shoe.images[0].src} alt={shoe.title} fill unoptimized sizes="(max-width:850px) 90vw,43vw"/></div>}</section>
+import Image from 'next/image';
+import Link from 'next/link';
+import {ArrowUpRight, PackageCheck, Truck, HeartHandshake, Sparkles} from 'lucide-react';
+import styles from './about.module.css';
+
+export const metadata={title:'Our Story | Alden Rovell'};
+const pillars=[
+ {number:'01',title:'A more thoughtful edit',description:'Discover jewellery, footwear and everyday essentials through a simple, considered shopping experience.',icon:Sparkles},
+ {number:'02',title:'Confidence in the details',description:'Explore clear product information and place an order without unnecessary steps.',icon:PackageCheck},
+ {number:'03',title:'Connected across Pakistan',description:'Delivery for one item costs Rs. 199. Add two or more items in one order to unlock free delivery.',icon:Truck}
+];
+export default function About(){
+ return <div className={styles.about}>
+  <section className={styles.hero}>
+   <div className={styles.copy}><span className={styles.eyebrow}>THE ALDEN ROVELL STORY</span>
+    <h1>Everyday finds.<br/><span>Thoughtfully chosen.</span></h1>
+    <p>We believe the joy of shopping lives in the details. Alden Rovell brings together carefully selected collections and makes exploring them feel effortless.</p>
+    <Link href="/shop" className={styles.primary}>Discover the collections <ArrowUpRight size={18}/></Link>
+   </div>
+   <div className={styles.brandPanel}>
+    <div className={styles.halo} aria-hidden="true"/>
+    <span className={styles.panelEyebrow}>EST. IN PAKISTAN / CURATED FOR YOU</span>
+    <Image className={styles.logo} src="/brand/primary-header-white.png" alt="Alden Rovell" width={1160} height={250} unoptimized priority/>
+    <span className={styles.panelCaption}>A DIFFERENT WAY TO DISCOVER</span>
+   </div>
+  </section>
+  <section className={styles.manifesto}>
+   <div className={styles.manifestoInner}><span className={styles.eyebrow}>WHY WE'RE HERE</span>
+    <h2>Less searching.<br/><em>More discovering.</em></h2>
+    <p>It's not about offering everything. It's about making each collection easier to explore, so you can find something that feels right for you.</p>
+   </div>
+  </section>
+  <section className={styles.values}>
+   <div className={styles.valuesIntro}><span className={styles.eyebrow}>OUR APPROACH</span><h2>Designed around <span>the little things.</span></h2></div>
+   <div className={styles.grid}>{pillars.map(({number,title,description,icon:Icon})=><article className={styles.card} key={number}>
+    <div className={styles.cardTop}><span>{number}</span><Icon size={25} strokeWidth={1.65}/></div>
+    <h3>{title}</h3><p>{description}</p>
+   </article>)}</div>
+  </section>
+  <section className={styles.end}>
+   <div><span className={styles.eyebrow}>ALDEN ROVELL COLLECTIONS</span><h2>Your next favourite <span>starts here.</span></h2></div>
+   <Link href="/shop">Explore the edit <ArrowUpRight size={19}/></Link>
+  </section>
  </div>;
 }
