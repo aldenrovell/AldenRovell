@@ -1,4 +1,19 @@
-import {ArrowUpRight,Mail,Headset,Handshake,LifeBuoy} from 'lucide-react';
+import {ArrowUpRight,Mail,Headset,Handshake} from 'lucide-react';
+import styles from './contact.module.css';
 export const metadata={title:'Contact Alden Rovell'};
-const addresses=[{title:'General enquiries & collaborations',email:'contact@aldenrovell.com',description:'Questions about our brand, partnerships, selling your products with Alden Rovell, or just getting in touch.',icon:Handshake,kicker:'CONNECT & COLLABORATE',tone:'light'},{title:'Orders & customer support',email:'support@aldenrovell.com',description:'Questions about an existing order, delivery, returns, wrong items, or help with your purchase.',icon:Headset,kicker:'WE ARE HERE TO HELP',tone:'dark'}];
-export default function Contact(){return <section className="container content-page ar-contact-2026"><div className="ar-contact-2026-intro"><span className="eyebrow">CONTACT THE ALDEN ROVELL TEAM</span><h1>The right conversation <span className="ar-title-soft">starts here.</span></h1><p>Whether you're exploring a partnership or need help with an order, we've made it simple to reach the right team.</p></div><div className="ar-contact-2026-grid">{addresses.map(({title,email,description,icon:Icon,kicker,tone})=><article className={'ar-contact-2026-card ar-contact-'+tone} key={email}><div className="ar-contact-2026-head"><span>{kicker}</span><span className="ar-contact-2026-symbol"><Icon size={27} strokeWidth={1.6}/></span></div><h2>{title}</h2><p>{description}</p><div className="ar-contact-2026-address"><Mail size={19}/><span>{email}</span></div><a href={'mailto:'+email} className="ar-contact-2026-cta">Compose an email <ArrowUpRight size={19}/></a></article>)}</div><p className="ar-inbox-status"><LifeBuoy size={17}/> These are our planned business addresses. Email receiving will work after the domain mailboxes and DNS are configured.</p></section>}
+const boxes=[
+  {title:'General enquiries & collaborations',email:'contact@aldenrovell.com',description:'Brand enquiries, partnerships, collaborations, and proposals to sell your products through Alden Rovell.',tag:'LET’S CONNECT',icon:'collab'},
+  {title:'Orders & customer support',email:'support@aldenrovell.com',description:'Existing orders, delivery updates, return requests, wrong items, and help with a purchase.',tag:'HERE TO HELP',icon:'support'}
+] as const;
+export default function Contact(){
+ return <section className={styles.page}>
+  <div className={styles.intro}><span className={styles.kicker}>CONTACT / ALDEN ROVELL</span><h1>Let's stay <span>connected.</span></h1><p>Two ways to reach the right team. Simple, personal and always clear.</p></div>
+  <div className={styles.cards}>{boxes.map((box,i)=><article key={box.email} className={styles.card+' '+(i?styles.dark:styles.light)}>
+    <div className={styles.icon}>{box.icon==='collab'?<Handshake size={28} strokeWidth={1.7}/>:<Headset size={28} strokeWidth={1.7}/>}</div>
+    <span className={styles.tag}>{box.tag}</span><h2>{box.title}</h2><p>{box.description}</p>
+    <a className={styles.mail} href={'mailto:'+box.email}><Mail size={18}/><span>{box.email}</span></a>
+    <a className={styles.action} href={'mailto:'+box.email+'?subject='+encodeURIComponent('Alden Rovell enquiry')}>Send an email <ArrowUpRight size={18}/></a>
+  </article>)}</div>
+  <p className={styles.note}>These addresses are reserved for our business. Email delivery starts after both domain mailboxes are activated and verified.</p>
+ </section>
+}

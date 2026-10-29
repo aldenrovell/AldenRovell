@@ -1,0 +1,20 @@
+.page{width:min(1110px,calc(100% - 48px));margin:0 auto;padding:90px 0 110px;color:#251e1c}
+.hero{border-radius:33px;background:linear-gradient(130deg,#f3e8e0,#faf7f3);padding:clamp(32px,5.5vw,70px);position:relative;border:1px solid #e9dad0}
+.kicker{font-size:10px;font-weight:800;letter-spacing:.16em;color:#a91627}
+.hero h1{font-family:'Outfit','Nunito',system-ui,sans-serif!important;font-size:clamp(43px,5.4vw,74px);font-weight:800;letter-spacing:-.055em;line-height:1.1;margin:20px 0;color:#201b1b}
+.hero h1 span{color:#b31629}.hero p{font-size:15px;color:#71655d;line-height:1.85;max-width:650px}
+.icon{color:#a5192c;margin-top:23px}
+.layout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:65px;margin-top:48px;align-items:start}
+.nav{display:flex;flex-direction:column;gap:8px;position:sticky;top:120px}
+.nav a{padding:12px 14px;border-radius:13px;color:#665853;font-size:12px;font-weight:700;transition:background .2s,color .2s}
+.nav a:hover{color:#a81728;background:#f1e6e1}
+.sections{display:grid;gap:18px}
+.article{padding:29px 32px;background:#fff;border:1px solid #ebe1dc;border-radius:23px;scroll-margin-top:120px;box-shadow:0 5px 18px rgba(40,20,12,.025)}
+.article small{font-size:10px;letter-spacing:.13em;color:#a7192a;font-weight:800}
+.article h2{font-family:'Outfit','Nunito',system-ui,sans-serif!important;font-weight:750;font-size:clamp(23px,2.5vw,31px);margin:13px 0;color:#241d1b;letter-spacing:-.028em}
+.article p{font-size:14px;line-height:1.95;color:#6f625d;margin:0}
+.article a{display:inline-flex;gap:7px;align-items:center;margin-top:18px;color:#a31a2b;font-weight:700;font-size:12px}
+.bottom{margin-top:24px;border-radius:22px;padding:25px 30px;background:#211c1e;color:white;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13px}
+.bottom a{color:#ffd8df;display:inline-flex;gap:7px;align-items:center;font-weight:700}
+@media(max-width:800px){.layout{grid-template-columns:1fr;gap:22px}.nav{position:static;flex-direction:row;flex-wrap:wrap}.page{padding-top:55px}.hero{border-radius:24px}}
+@media(max-width:540px){.page{width:calc(100% - 32px)}.article{padding:25px 21px}.hero{padding:35px 22px}.nav a{padding:8px 9px;font-size:11px}}

@@ -1,0 +1,21 @@
+.page{width:min(1220px,calc(100% - 48px));margin:0 auto;padding:90px 0 105px;box-sizing:border-box}
+.intro{margin-bottom:47px;max-width:820px}.kicker,.tag{font-size:11px;font-weight:750;letter-spacing:.16em;color:#ab1b2d}
+.intro h1{font-family:'Outfit','Nunito',system-ui,sans-serif!important;font-size:clamp(44px,5.8vw,80px);line-height:1.1;letter-spacing:-.055em;font-weight:800;margin:20px 0 17px;color:#211c1b}
+.intro h1 span{color:#b21728}.intro p{font-size:15px;line-height:1.8;color:#71665f;max-width:630px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.card{padding:clamp(29px,4.5vw,59px);border-radius:32px;min-width:0;min-height:405px;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 15px 42px rgba(48,28,19,.08);transition:transform .3s ease,box-shadow .3s ease}
+.card:hover{transform:translateY(-5px);box-shadow:0 23px 48px rgba(48,28,19,.14)}
+.light{background:#f0e8e0;color:#251f1c;border:1px solid #e8dcd3}.dark{background:#211e20;color:#fff;border:1px solid #332e30}
+.icon{width:64px;height:64px;display:grid;place-items:center;border-radius:18px;margin-bottom:35px;background:#fff;color:#ab1828}
+.dark .icon{background:#403238;color:#f9ced2}
+.dark .tag{color:#ec9ea7}.card h2{font-family:'Outfit','Nunito',system-ui,sans-serif!important;font-weight:750;font-size:clamp(25px,3vw,38px);letter-spacing:-.035em;line-height:1.18;color:inherit;margin:14px 0 12px}
+.card p{font-size:13px;line-height:1.9;max-width:420px;margin:0 0 29px;color:inherit;opacity:.8}
+.mail{display:flex;gap:10px;align-items:center;color:inherit;font-weight:700;font-size:clamp(14px,1.5vw,20px);max-width:100%;overflow-wrap:anywhere;line-height:1.5}
+.mail>span{overflow-wrap:anywhere}.mail svg{flex:none}
+.action{display:inline-flex;align-items:center;gap:9px;border-radius:999px;background:#ad1325;color:#fff;padding:13px 21px;font-size:12px;font-weight:750;margin-top:24px;transition:background .3s,transform .3s}
+.action:hover{background:#891022;transform:translateY(-2px)}
+.dark .action{background:#fff;color:#241e1e}.dark .action:hover{background:#f2dce0}
+.note{font-size:12px;line-height:1.7;color:#81736e;text-align:center;max-width:720px;margin:24px auto 0}
+@media(max-width:800px){.cards{grid-template-columns:1fr}.card{min-height:0}.page{padding-top:58px}.intro{margin-bottom:30px}}
+@media(max-width:540px){.page{width:calc(100% - 32px)}.card{padding:28px 24px;border-radius:23px}.intro h1{font-size:46px}.mail{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.card,.action{transition:none}.card:hover,.action:hover{transform:none}}
