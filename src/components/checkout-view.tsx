@@ -1,5 +1,5 @@
-import styles from './checkout-layout.module.css';
 'use client';
+import styles from './checkout-layout.module.css';
 import {useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
