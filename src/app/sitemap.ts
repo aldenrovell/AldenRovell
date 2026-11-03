@@ -1,6 +1,6 @@
 import type {MetadataRoute} from 'next';
 import {getProducts} from '@/lib/store';
-import {SITE_URL} from '@/lib/seo';
+import {SITE_URL,absoluteUrl} from '@/lib/seo';
 
 export const revalidate=3600;
 export default async function sitemap():Promise<MetadataRoute.Sitemap>{
@@ -19,6 +19,13 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap>{
  const products=(await getProducts()).filter(p=>p.published&&p.slug);
  return [
   ...pages.map(({path,priority,changeFrequency})=>({url:SITE_URL+path,priority,changeFrequency})),
-  ...products.map(p=>({url:SITE_URL+'/product/'+encodeURIComponent(p.slug),priority:0.7,changeFrequency:'weekly' as const}))
+  ...products.map(p=>({
+   url:SITE_URL+'/product/'+encodeURIComponent(p.slug),
+   priority:0.7,
+   changeFrequency:'weekly' as const,
+   ...(p.imagesApproved?{
+    images:p.images.slice(0,10).map(image=>image.src).filter(Boolean).map(absoluteUrl)
+   }:{}),
+  }))
  ];
 }

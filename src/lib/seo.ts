@@ -15,12 +15,13 @@ export function cleanDescription(value:string|undefined,fallback=SITE_DESCRIPTIO
 export function pageSeo({title,description,path,image='/brand/landscape-cover.png'}:{title:string;description:string;path:string;image?:string}):Metadata{
  const url=absoluteUrl(path);
  const clean=cleanDescription(description);
+ const pageTitle=/\balden rovell\b/i.test(title)?title:`${title} | ${SITE_NAME}`;
  return {
-  title,
+  title:{absolute:pageTitle},
   description:clean,
   alternates:{canonical:url},
-  openGraph:{type:'website',siteName:SITE_NAME,locale:'en_PK',title:title+' | '+SITE_NAME,description:clean,url,images:[{url:absoluteUrl(image),alt:SITE_NAME+' collections'}]},
-  twitter:{card:'summary_large_image',title:title+' | '+SITE_NAME,description:clean,images:[absoluteUrl(image)]}
+  openGraph:{type:'website',siteName:SITE_NAME,locale:'en_PK',title:pageTitle,description:clean,url,images:[{url:absoluteUrl(image),alt:SITE_NAME+' collections'}]},
+  twitter:{card:'summary_large_image',title:pageTitle,description:clean,images:[absoluteUrl(image)]}
  };
 }
 export function serializeJsonLd(value:unknown):string {
@@ -29,7 +30,7 @@ export function serializeJsonLd(value:unknown):string {
 export const homeStructuredData={
  '@context':'https://schema.org',
  '@graph':[
-  {'@type':'WebSite','@id':SITE_URL+'/#website',name:SITE_NAME,url:SITE_URL+'/',inLanguage:'en-PK'},
+  {'@type':'WebSite','@id':SITE_URL+'/#website',name:SITE_NAME,alternateName:'aldenrovell.com',url:SITE_URL+'/',inLanguage:'en-PK'},
   {'@type':'OnlineStore','@id':SITE_URL+'/#store',name:SITE_NAME,url:SITE_URL+'/',logo:absoluteUrl('/brand/primary-logo.png'),image:absoluteUrl('/brand/landscape-cover.png'),
     description:SITE_DESCRIPTION,
     sameAs:['https://www.facebook.com/aldenrovell/','https://www.instagram.com/aldenrovell/','https://www.tiktok.com/@aldenrovell','https://www.youtube.com/@AldenRovell','https://www.pinterest.com/aldenrovell/']}
