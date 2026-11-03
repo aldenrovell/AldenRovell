@@ -1,6 +1,7 @@
+import {pageSeo} from '@/lib/seo';
 import {ArrowUpRight,Mail,Headset,Handshake} from 'lucide-react';
 import styles from './contact.module.css';
-export const metadata={title:'Contact Alden Rovell'};
+export const metadata=pageSeo({title:"Contact Alden Rovell | Support & Collaborations",description:"Contact Alden Rovell for product collaborations, business enquiries, order support, delivery questions or return requests.",path:"/contact"});
 const boxes=[
   {title:'General enquiries & collaborations',email:'contact@aldenrovell.com',description:'Brand enquiries, partnerships, collaborations, and proposals to sell your products through Alden Rovell.',tag:'LET’S CONNECT',icon:'collab'},
   {title:'Orders & customer support',email:'support@aldenrovell.com',description:'Existing orders, delivery updates, return requests, wrong items, and help with a purchase.',tag:'HERE TO HELP',icon:'support'}

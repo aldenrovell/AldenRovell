@@ -1,6 +1,7 @@
+import {pageSeo} from '@/lib/seo';
 import Link from 'next/link';
 import {Truck,MapPin,PackageCheck,ArrowUpRight,Mail} from 'lucide-react';
-export const metadata={title:'Shipping & Delivery'};
+export const metadata=pageSeo({title:"Shipping & Delivery in Pakistan",description:"Alden Rovell delivers across Pakistan. One item costs Rs. 199 for delivery; order 2 or more items together to get free delivery.",path:"/shipping"});
 export default function Shipping(){
  return <section className="container content-page ar-policy-page">
   <div className="ar-policy-head"><span className="eyebrow">THE ALDEN ROVELL EXPERIENCE / SHIPPING</span><h1>Good finds, <span className="ar-title-soft">delivered.</span></h1><p className="content-lede">A clear and simple delivery experience from the moment you place an order.</p></div>

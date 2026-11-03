@@ -1,9 +1,10 @@
+import {pageSeo} from '@/lib/seo';
 import Image from 'next/image';
 import Link from 'next/link';
 import {ArrowUpRight, PackageCheck, Truck, HeartHandshake, Sparkles} from 'lucide-react';
 import styles from './about.module.css';
 
-export const metadata={title:'Our Story | Alden Rovell'};
+export const metadata=pageSeo({title:"Our Story | Discover Alden Rovell",description:"Discover the story behind Alden Rovell, an online store offering thoughtfully selected jewellery, footwear and everyday essentials across Pakistan.",path:"/about"});
 const pillars=[
  {number:'01',title:'A more thoughtful edit',description:'Discover jewellery, footwear and everyday essentials through a simple, considered shopping experience.',icon:Sparkles},
  {number:'02',title:'Confidence in the details',description:'Explore clear product information and place an order without unnecessary steps.',icon:PackageCheck},

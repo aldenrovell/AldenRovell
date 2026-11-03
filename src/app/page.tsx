@@ -1,3 +1,5 @@
+import type {Metadata} from 'next';
+import {SITE_URL,SITE_DESCRIPTION,homeStructuredData,serializeJsonLd} from '@/lib/seo';
 import Image from 'next/image';
 import Link from 'next/link';
 import {ArrowUpRight,ArrowDownRight,MoveUpRight,Truck,RefreshCcw,ShieldCheck} from 'lucide-react';
@@ -7,6 +9,13 @@ import {HeroProductCarousel} from '@/components/hero-product-carousel';
 import {FaqList} from '@/components/faq-list';
 
 export const dynamic='force-dynamic';
+export const metadata:Metadata={
+ title:{absolute:'Alden Rovell | Jewellery, Footwear & Massagers in Pakistan'},
+ description:SITE_DESCRIPTION,
+ alternates:{canonical:SITE_URL+'/'},
+ openGraph:{title:'Alden Rovell | Jewellery, Footwear & Massagers in Pakistan',description:SITE_DESCRIPTION,url:SITE_URL+'/',images:[{url:SITE_URL+'/brand/landscape-cover.png',alt:'Alden Rovell Online Store'}]},
+ twitter:{card:'summary_large_image',title:'Alden Rovell | Online Shopping Pakistan',description:SITE_DESCRIPTION,images:[SITE_URL+'/brand/landscape-cover.png']}
+};
 const visibleCategories=['Massagers','Jewellery','Footwear'];
 
 export default async function Home(){
@@ -18,6 +27,7 @@ export default async function Home(){
  const editorial=products.find(p=>p.id==='P07')||products.find(p=>p.images?.[0]?.src);
  const second=products.find(p=>p.id==='P06')||products.find(p=>p.id!==editorial?.id&&p.images?.[0]?.src);
  return <>
+  <script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeJsonLd(homeStructuredData)}}/>
   <section className="hero cp-public-hero ar-editorial-hero"><div className="container hero-grid">
    <div className="hero-content">
     <div className="hero-kicker"><span className="kicker-line"/>{c.eyebrow||'ALDEN ROVELL / THE CURATED EDIT'}</div>

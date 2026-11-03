@@ -1,6 +1,7 @@
+import {pageSeo} from '@/lib/seo';
 import Link from 'next/link';
 import {CalendarCheck2,PackageSearch,ShieldCheck,ArrowUpRight,Mail} from 'lucide-react';
-export const metadata={title:'Returns & Exchanges'};
+export const metadata=pageSeo({title:"Returns & Exchanges | 7-Day Requests",description:"Learn how to request a return from Alden Rovell within 7 days if your delivered order is incorrect, different or incomplete.",path:"/returns"});
 export default function Returns(){
  return <section className="container content-page ar-policy-page">
   <div className="ar-policy-head"><span className="eyebrow">THE ALDEN ROVELL EXPERIENCE / RETURNS</span><h1>Clear returns. <span className="ar-title-soft">Peace of mind.</span></h1><p className="content-lede">If something arrives wrong or incomplete, we want you to have a clear way to raise it.</p></div>
