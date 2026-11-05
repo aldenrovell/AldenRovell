@@ -520,3 +520,29 @@ html[data-ar-motion="off"] .ar-contact-orbit span,html[data-ar-motion="off"] .ar
 .ar-delivery-promo{padding:15px;border-radius:15px;background:#f9e9e6;color:#98202a;font-size:13px;font-weight:750;line-height:1.55}.ar-detail-shipping{display:grid;gap:6px;background:#f9ece6;padding:17px;border-radius:17px;border:1px solid #eed9d1;margin:18px 0}.ar-detail-shipping strong{color:#a11623}.ar-detail-shipping span{color:#705b56;font-size:12px}.ar-detail-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:20px 0}.ar-detail-highlights>div{display:grid;gap:5px;text-align:center;padding:15px 8px;background:#f8f1ed;border:1px solid #e9dcd4;border-radius:14px}.ar-detail-highlights strong{font-size:13px;color:#a31422}.ar-detail-highlights span{font-size:10px;color:#71645e}
 
 .ar-buy-now{width:100%;margin:12px 0 5px;min-height:49px;border-radius:999px}.ar-product-menu .ar-product-menu-end{background:#f5e8e4}
+
+
+/* Alden Rovell control panel: polished order management */
+.cp-order-heading{align-items:center}
+.cp-order-heading h1{margin:5px 0 8px}
+.cp-order-heading p{max-width:680px;margin:0;font-size:13px}
+.cp-order-heading>button{border:1px solid #e5d3cd;background:#faf4f0;color:#8a2430;border-radius:999px;font-size:12px;font-weight:750;padding:11px 20px;transition:background .2s,box-shadow .2s}
+.cp-order-heading>button:hover{background:#f4e7e3;box-shadow:0 4px 14px #5a1a2117}
+.cp-order-record{padding:0;overflow:hidden;border:1px solid #e9e2de;border-radius:18px;background:linear-gradient(135deg,#fff,#fdfbf9);box-shadow:0 8px 25px #24111206;transition:border-color .2s,box-shadow .25s}
+.cp-order-record:hover,.cp-order-record[open]{border-color:#d9b8b2;box-shadow:0 15px 38px #3d1b1b0d}
+.cp-order-summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:22px 25px}
+.cp-order-summary::-webkit-details-marker{display:none}
+.cp-order-summary>span:first-child>strong{font-size:15px;letter-spacing:.025em;color:#262129}
+.cp-order-summary>span:last-child{text-align:right}
+.cp-order-summary>span:last-child>strong{font-size:17px;color:#8c1625}
+.cp-order-summary>span span{line-height:1.5}
+.cp-order-summary:focus-visible{outline:3px solid #b84a54;outline-offset:-4px;border-radius:17px}
+.cp-order-details{border-top:1px solid #eee4df;padding:25px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;background:#fffaf7}
+.cp-order-details>div{border:1px solid #eee4df;background:#fff;border-radius:14px;padding:21px;min-width:0;overflow-wrap:anywhere}
+.cp-order-details>div>strong{display:block;color:#8d1d2b;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:13px}
+.cp-order-details p{color:#3b3940;line-height:1.65;font-size:13px;margin:8px 0}
+.cp-order-details a{color:#a21c2d;font-weight:720;text-decoration:underline;text-underline-offset:3px}
+.cp-order-details>div:last-child{grid-column:1/-1;background:#f9f2ed}
+.cp-order-details select{margin-left:8px;max-width:100%;padding:12px 14px;border-radius:10px;border:1px solid #d8c8c2;background:#fff;color:#2e2c30}
+.cp-order-details select:focus-visible{outline:2px solid #9e2433;outline-offset:2px}
+@media(max-width:750px){.cp-order-details{grid-template-columns:1fr;padding:14px}.cp-order-details>div:last-child{grid-column:auto}.cp-order-summary{padding:19px 16px}.cp-order-details>div{padding:17px}.cp-order-heading>button{width:100%}}
