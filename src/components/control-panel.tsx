@@ -41,18 +41,18 @@ export function ControlPanel(){
  {tab==='overview'&&<><h1>Welcome to your workspace</h1><p>One place for products, orders, website design and staff.</p><div className="cp-grid">{[['Products',String(products.length),'products'],['New messages',String(messages.filter(m=>m.status==='new').length),'messages'],['Orders',String(orders.length),'orders'],['Store design','Website Builder','builder'],['Team',String(members.length)+' staff','team'],['Categories',String(cats.length),'builder']].map(([title,value,link])=><button className="cp-tile" key={title} onClick={()=>{setTab(link);if(title==='Categories')setSection('categories');}}><span>{title}</span><strong>{value}</strong><span>Manage →</span></button>)}</div></>}
  {tab==='products'&&<div className="cp-card"><div className="cp-card-title"><div><span className="cp-eyebrow">CATALOG</span><h1>Products & pricing</h1><p>Manage product details and prices without leaving this panel.</p></div><button className="cp-save" onClick={()=>{setDraft(starter());setCreating(true);}}>+ Add product</button></div><div className="cp-products-list">{products.map(p=><article key={p.id}><img src={p.images[0]?.src||'/brand/mark-clean.png'} alt=""/><div><strong>{p.title}</strong><span>{p.category} · {formatPrice(p.pricePkr)} · Stock: {p.stock??'Not set'}</span></div><span className="cp-state">{p.published?'Live':'Draft'}</span><button onClick={()=>{setDraft({...p});setCreating(false);}}>Edit</button></article>)}</div></div>}
  {tab==='orders'&&<div className="cp-card">
-  <div className="cp-card-title"><div><span className="cp-eyebrow">CUSTOMER ORDERS</span><h1>Order management</h1><p>Open an order to review customer contact, full delivery address, purchased items and payment totals before confirming it.</p></div><button disabled={busy} onClick={()=>void run(async()=>{},'Orders refreshed')}>Refresh orders</button></div>
+  <div className="cp-card-title cp-order-heading"><div><span className="cp-eyebrow">CUSTOMER ORDERS</span><h1>Order management</h1><p>Open an order to review customer contact, full delivery address, purchased items and payment totals before confirming it.</p></div><button disabled={busy} onClick={()=>void run(async()=>{},'Orders refreshed')}>Refresh orders</button></div>
   {!orders.length&&<p>There are no orders yet.</p>}
   {orders.map(o=>{
    const phoneDigits=o.phone.replace(/\D/g,'');
    const whatsappPhone=phoneDigits.startsWith('0')?'92'+phoneDigits.slice(1):phoneDigits;
    const validPhone=/^923\d{9}$/.test(whatsappPhone);
-   return <details className="cp-record" key={o.id} style={{marginBottom:14}}>
-    <summary style={{cursor:'pointer',display:'flex',justifyContent:'space-between',alignItems:'center',gap:12,flexWrap:'wrap'}}>
+   return <details className="cp-record cp-order-record" key={o.id}>
+    <summary className="cp-order-summary">
      <span><strong>{o.reference}</strong><span style={{display:'block',marginTop:6,color:'#687384'}}>{o.customer_name} · {o.city} · {o.status.replaceAll('_',' ')}</span></span>
      <span><strong>{formatPrice(o.total_pkr)}</strong><span style={{display:'block',fontSize:12,color:'#687384'}}>View full order details</span></span>
     </summary>
-    <div style={{borderTop:'1px solid #e7e9ed',marginTop:18,paddingTop:18,display:'grid',gap:16}}>
+    <div className="cp-order-details">
      <div><strong>Customer & contact</strong><p>Name: {o.customer_name}</p><p>Phone: <a href={'tel:'+o.phone}>{o.phone}</a> {validPhone&&<> · <a href={'https://wa.me/'+whatsappPhone} target="_blank" rel="noopener noreferrer">WhatsApp customer</a></>}</p><p>Placed: {new Date(o.created_at).toLocaleString('en-PK',{dateStyle:'medium',timeStyle:'short'})}</p></div>
      <div><strong>Complete delivery address</strong><p style={{whiteSpace:'pre-wrap',overflowWrap:'anywhere'}}>{o.address||'Address not provided'}</p><p>{o.city}, {o.province}</p>{o.notes&&<p><strong>Delivery instructions:</strong> {o.notes}</p>}</div>
      <div><strong>Ordered products</strong>{Array.isArray(o.items)&&o.items.length?o.items.map((item,index)=>{const product=products.find(p=>p.id===item.id);return <p key={item.id+'-'+index}>{product?.title||item.id} · Qty {item.quantity} · {formatPrice(item.unit_price_pkr)} each · {formatPrice(item.quantity*item.unit_price_pkr)}</p>;}):<p>No items available in this order record.</p>}</div>
