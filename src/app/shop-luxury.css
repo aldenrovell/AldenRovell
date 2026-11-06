@@ -116,3 +116,11 @@ body:has(.ar-luxury-shop) .site-header{height:70px!important}
  .ar-luxury-shop .ar-shop-intro{margin-bottom:29px!important}
 }
 @media(max-width:420px){.ar-luxury-shop .ar-shop-card-image{height:275px!important}}
+
+/* HD category replacement: each image is an independently optimized 1448x1086 WebP.
+   Requires /public/shop-categories/{massagers,jewellery,footwear}.webp before release. */
+.ar-luxury-shop .ar-shop-card-image{background-image:none!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important}
+.ar-luxury-shop .ar-luxury-card-massagers .ar-shop-card-image{background-image:url('/shop-categories/massagers.webp')!important}
+.ar-luxury-shop .ar-luxury-card-jewellery .ar-shop-card-image{background-image:url('/shop-categories/jewellery.webp')!important}
+.ar-luxury-shop .ar-luxury-card-footwear .ar-shop-card-image{background-image:url('/shop-categories/footwear.webp')!important}
+.ar-luxury-shop .ar-shop-card-image img{display:none!important}
