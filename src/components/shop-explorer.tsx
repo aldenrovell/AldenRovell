@@ -30,17 +30,39 @@ export function ShopExplorer({products,categories=[]}:{products:Product[];catego
   if(sort==='za')items=[...items].sort((a,b)=>b.title.localeCompare(a.title));
   return items;
  },[products,parent,subcategory,search,sort]);
- if(!parent)return <section className="ar-shop-landing" aria-label="Shop by category">
-  <div className="ar-shop-intro"><span className="eyebrow">CHOOSE YOUR COLLECTION</span><h2>Explore our categories<span className="heading-dot">.</span></h2><p>Start with a collection to discover its products.</p></div>
-  <div className="ar-shop-category-grid">{parents.map(cat=>{
-   const photo=cat.image_url||categories.find(child=>child.visible&&child.parent_id===cat.id&&child.image_url)?.image_url||products.find(p=>p.category.split('/')[0].trim()===cat.name)?.images[0]?.src;
-   return <button key={cat.id} type="button" className="ar-shop-category-card" onClick={()=>choose(cat.name)} aria-label={'Browse '+cat.name}>
-    <span className="ar-shop-card-image">{photo?<Image src={photo} fill unoptimized alt="" sizes="(max-width:680px) 85vw,33vw"/>:<span aria-hidden="true">{cat.name.slice(0,1)}</span>}</span>
-    <span className="ar-shop-card-footer"><span><small>ALDEN ROVELL COLLECTION</small><strong>{cat.name}</strong></span><ArrowUpRight size={21}/></span>
-   </button>;
-  })}</div>
- </section>;
- return <>
+ if(!parent)return <main className="ar-luxury-shop" aria-label="Alden Rovell shop categories">
+  <span className="ar-luxury-silk ar-luxury-silk-top" aria-hidden="true"/>
+  <span className="ar-luxury-silk ar-luxury-silk-bottom" aria-hidden="true"/>
+  <span className="ar-luxury-ribbon" aria-hidden="true"/>
+  <section className="ar-shop-landing" aria-labelledby="ar-shop-title">
+   <div className="ar-shop-intro">
+    <span className="ar-luxury-eyebrow">ALDEN ROVELL COLLECTION</span>
+    <h1 id="ar-shop-title">Explore our <em>Categories</em></h1>
+    <p>Premium wellness, timeless jewellery, and refined footwear, curated for your lifestyle.</p>
+    <span className="ar-luxury-flourish" aria-hidden="true">✧</span>
+   </div>
+   <div className="ar-shop-category-grid">{SHOW_CATEGORIES.map(name=>{
+    const cat=parents.find(c=>c.name===name);
+    if(!cat)return null;
+    const photo=cat.image_url||categories.find(child=>child.visible&&child.parent_id===cat.id&&child.image_url)?.image_url||products.find(p=>p.category.split('/')[0].trim()===cat.name)?.images[0]?.src;
+    const description=name==='Massagers'?'Relax, recover and feel your best.':name==='Jewellery'?'Timeless pieces for every occasion.':'Comfort, craftsmanship and style in every step.';
+    return <button key={cat.id} type="button" className="ar-shop-category-card" onClick={()=>choose(cat.name)} aria-label={'Shop '+cat.name}>
+     <span className="ar-luxury-card-inner">
+      <span className="ar-shop-card-image">{photo?<Image src={photo} fill unoptimized alt={cat.name+' collection'} sizes="(max-width:760px) 92vw, (max-width:1060px) 31vw, 29vw"/>:<span aria-hidden="true">{cat.name.slice(0,1)}</span>}</span>
+      <span className="ar-shop-card-footer">
+       <span className="ar-luxury-card-glyph" aria-hidden="true">✧</span>
+       <small>{name==='Massagers'?'WELLNESS':'ALDEN ROVELL'} COLLECTION</small>
+       <strong>{cat.name}</strong>
+       <span className="ar-luxury-description">{description}</span>
+       <span className="ar-luxury-cta">Shop {cat.name} <ArrowUpRight aria-hidden="true" size={17}/></span>
+      </span>
+     </span>
+    </button>;
+   })}</div>
+  </section>
+ </main>;
+ return <div className="container standard-page ar-shop-category-view">
+  <div className="ar-shop-category-title"><span className="eyebrow">ALDEN ROVELL / {parent.name.toUpperCase()}</span><h1>{parent.name}<span className="heading-dot">.</span></h1><p>Discover the {parent.name.toLowerCase()} collection.</p></div>
   <div className="ar-shop-navigation"><button type="button" className="ar-back-categories" onClick={()=>choose('')}><ArrowLeft size={16}/> All categories</button><span className="eyebrow">{parent.name.toUpperCase()} COLLECTION</span></div>
   <div className="shop-tools"><div className="shop-search"><Search size={19}/><input type="search" aria-label="Search within this category" placeholder={'Search '+parent.name.toLowerCase()} value={search} onChange={e=>setSearch(e.target.value)}/>{search&&<button type="button" aria-label="Clear search" onClick={()=>setSearch('')}><X size={17}/></button>}</div><div className="sort-wrap"><SlidersHorizontal size={17}/><select aria-label="Sort products" value={sort} onChange={e=>setSort(e.target.value)}><option value="featured">Featured</option><option value="az">Name: A to Z</option><option value="za">Name: Z to A</option></select></div></div>
   {grouped?<section className="ar-categories-grouped" aria-label="Explore Footwear">
@@ -50,5 +72,5 @@ export function ShopExplorer({products,categories=[]}:{products:Product[];catego
   </section>:children.length>0&&<section className="shop-subcategories" aria-label={parent.name+' subcategories'}><div className="subcategory-heading"><strong>Explore {parent.name}</strong><span>{children.length} subcategories</span></div><div className="subcategory-scroll"><button type="button" className={'subcategory-choice '+(!subcategory?'selected':'')} onClick={()=>choose(parent.name)}><span className="subcategory-icon">✦</span><span>View All</span></button>{children.map(c=><button type="button" key={c.id} className={'subcategory-choice '+(subcategory===c.name?'selected':'')} onClick={()=>choose(parent.name,c.name)}><span className="subcategory-icon">{c.image_url?<img src={c.image_url} alt="" loading="lazy" width={88} height={88} className="subcategory-photo"/>:<span aria-hidden="true">{parent.name==='Jewellery'?'💍':'💆'}</span>}</span><span>{c.name}</span></button>)}</div></section>}
   <div className="results-line"><span aria-live="polite">{filtered.length} product{filtered.length===1?'':'s'}</span><span>{subcategory||parent.name}</span></div>
   {filtered.length?<div className="products-grid">{filtered.map((product,index)=><ProductCard key={product.id} product={product} index={index}/>)}</div>:<div className="empty-panel"><Search size={27}/><h2>No matching products</h2><p>Try another subcategory or explore the full collection.</p><button type="button" className="btn btn-dark" onClick={()=>choose(parent.name)}>View all in {parent.name} <ChevronRight size={16}/></button></div>}
- </>;
+ </div>;
 }
