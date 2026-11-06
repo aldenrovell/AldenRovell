@@ -3,6 +3,7 @@ import '@/app/globals.css';
 import '@/app/storefront-polish.css';
 import '@/app/category-groups.css';
 import '@/app/offer-ticker.css';
+import '@/app/shop-luxury.css';
 import {CartProvider} from '@/components/cart-provider';
 import {SiteFrame} from '@/components/site-frame';
 import {SiteHeader} from '@/components/site-header';
