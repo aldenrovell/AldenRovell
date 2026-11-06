@@ -1,4 +1,11 @@
-import {pageSeo}from '@/lib/seo';import {Suspense} from 'react';import {getProducts}from '@/lib/store';import {getCategories}from '@/lib/site-cms';import {ShopExplorer} from '@/components/shop-explorer';
+import {pageSeo} from '@/lib/seo';
+import {Suspense} from 'react';
+import {getProducts} from '@/lib/store';
+import {getCategories} from '@/lib/site-cms';
+import {ShopExplorer} from '@/components/shop-explorer';
 export const dynamic='force-dynamic';
-export const metadata=pageSeo({title:'Shop Jewellery, Footwear & Massagers in Pakistan',description:'Browse Alden Rovell jewellery, women’s shoes, men’s footwear and massage guns. Discover new collections online in Pakistan. Buy 2+ items for free delivery.',path:'/shop'});
-export default async function Shop(){const [products,categories]=await Promise.all([getProducts(),getCategories()]);return <div className="container standard-page"><div className="eyebrow">ALDEN ROVELL / PAKISTAN</div><div className="collection-heading"><h1 className="page-title">Shop by Category<span className="heading-dot">.</span></h1><p>Explore our Jewellery, Footwear and Massagers collections. Free delivery on 2 or more items across Pakistan.</p></div><Suspense fallback={<p>Loading collection…</p>}><ShopExplorer products={products.filter(p=>p.published)} categories={categories}/></Suspense></div>}
+export const metadata=pageSeo({title:'Shop Jewellery, Footwear & Massagers in Pakistan',description:'Explore Alden Rovell curated jewellery, footwear and wellness collections in Pakistan. Shop premium finds with free delivery on 2+ items.',path:'/shop'});
+export default async function Shop(){
+ const [products,categories]=await Promise.all([getProducts(),getCategories()]);
+ return <Suspense fallback={<div className="container standard-page"><p>Loading collections…</p></div>}><ShopExplorer products={products.filter(p=>p.published)} categories={categories}/></Suspense>;
+}
