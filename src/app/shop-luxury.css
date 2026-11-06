@@ -85,3 +85,14 @@ linear-gradient(150deg,#fbf7ef,#f7e7d5 63%,#fef9f1);overflow:hidden}
 .ar-luxury-shop .ar-luxury-card-footwear .ar-shop-card-image{background-position:100% 50%!important}
 .ar-luxury-shop .ar-shop-card-image img{visibility:hidden!important}
 .ar-luxury-shop .ar-shop-card-image::after{display:none}
+
+/* Match approved burgundy / gold navigation on the Shop All landing only. */
+body:has(.ar-luxury-shop) .ar-offer-announcement{display:none!important}
+body:has(.ar-luxury-shop) .site-header{background:linear-gradient(95deg,#27080c,#200508 55%,#3d0710)!important;border-bottom:2px solid #c69953;box-shadow:0 8px 28px #2a0b0b1c}
+body:has(.ar-luxury-shop) .site-header .desktop-nav .cp-nav-group>a{font-family:Georgia,'Times New Roman',serif;font-size:clamp(12px,1vw,16px);font-weight:600;color:#fff7ed;letter-spacing:0}
+body:has(.ar-luxury-shop) .site-header .desktop-nav .cp-nav-group:first-child>a{display:inline-flex;align-items:center;min-height:39px;padding:7px 20px;color:#fff;background:linear-gradient(#9c1427,#63030e);border:1px solid #c99a57;border-radius:9px;box-shadow:0 4px 12px #0003}
+body:has(.ar-luxury-shop) .site-header .desktop-nav .cp-nav-group:first-child>a:hover{background:#a91f30}
+body:has(.ar-luxury-shop) .site-header .desktop-nav{gap:clamp(12px,1.8vw,28px)}
+body:has(.ar-luxury-shop) .site-header .header-actions :is(a,button){color:#fff9f4}
+body:has(.ar-luxury-shop) .site-header .brand-image{object-fit:contain}
+@media(max-width:900px){body:has(.ar-luxury-shop) .site-header{border-bottom:1px solid #bc9254}}
