@@ -96,3 +96,23 @@ body:has(.ar-luxury-shop) .site-header .desktop-nav{gap:clamp(12px,1.8vw,28px)}
 body:has(.ar-luxury-shop) .site-header .header-actions :is(a,button){color:#fff9f4}
 body:has(.ar-luxury-shop) .site-header .brand-image{object-fit:contain}
 @media(max-width:900px){body:has(.ar-luxury-shop) .site-header{border-bottom:1px solid #bc9254}}
+
+/* Pixel-proportion correction after 1672x941 browser QA (approved visual reference). */
+body:has(.ar-luxury-shop) .announcement.ar-rotating-offer{display:none!important}
+body:has(.ar-luxury-shop) .site-header{height:70px!important}
+.ar-luxury-shop .ar-shop-intro h1{font-size:clamp(46px,5.1vw,84px)!important}
+.ar-luxury-shop .ar-shop-intro{margin-bottom:18px!important}
+.ar-luxury-shop .ar-shop-category-grid{margin-top:-27px!important}
+.ar-luxury-shop .ar-shop-card-image{height:340px!important}
+.ar-luxury-shop .ar-shop-card-footer{padding:8px 14px 15px!important}
+.ar-luxury-shop .ar-luxury-cta{flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:12px!important;min-height:43px!important;line-height:1.2!important}
+.ar-luxury-shop .ar-luxury-card-glyph{margin:-6px 0 4px!important}
+.ar-luxury-shop .ar-shop-card-footer strong{font-size:clamp(34px,2.6vw,43px)!important}
+@media(max-width:760px){
+ body:has(.ar-luxury-shop) .site-header{height:65px!important}
+ .ar-luxury-shop .ar-shop-category-grid{margin-top:0!important}
+ .ar-luxury-shop .ar-shop-card-image{height:310px!important}
+ .ar-luxury-shop .ar-shop-card-footer{padding:12px 13px 20px!important}
+ .ar-luxury-shop .ar-shop-intro{margin-bottom:29px!important}
+}
+@media(max-width:420px){.ar-luxury-shop .ar-shop-card-image{height:275px!important}}
