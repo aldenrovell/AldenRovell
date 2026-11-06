@@ -46,3 +46,33 @@ linear-gradient(150deg,#fbf7ef,#f7e7d5 63%,#fef9f1);overflow:hidden}
 @media(max-width:760px){.ar-luxury-shop .ar-shop-category-grid{grid-template-columns:1fr;max-width:510px;margin:0 auto;gap:25px}.ar-luxury-shop .ar-shop-landing{padding-top:43px;width:calc(100% - 34px)}.ar-luxury-shop .ar-shop-card-image{height:340px}.ar-luxury-shop .ar-shop-card-footer{min-height:190px}.ar-luxury-shop .ar-shop-card-footer strong{font-size:40px}.ar-luxury-shop .ar-shop-intro h1{font-size:clamp(42px,9.1vw,69px)}.ar-luxury-shop .ar-shop-intro p{font-size:16px}.ar-luxury-shop .ar-luxury-silk-top{opacity:.4}}
 @media(max-width:420px){.ar-luxury-shop .ar-shop-landing{width:calc(100% - 26px)}.ar-luxury-shop .ar-shop-card-image{height:270px}.ar-luxury-shop .ar-shop-intro .ar-luxury-eyebrow{font-size:9px;letter-spacing:.18em}.ar-luxury-shop .ar-shop-card-footer strong{font-size:37px}.ar-luxury-shop .ar-shop-category-card{border-radius:22px!important}.ar-luxury-shop .ar-luxury-card-inner{border-radius:18px}.ar-luxury-shop .ar-shop-card-image{border-radius:18px 18px 0 0!important}}
 @media(prefers-reduced-motion:reduce){.ar-luxury-shop .ar-shop-category-card,.ar-luxury-shop .ar-shop-card-image img{transition:none!important}.ar-luxury-shop .ar-shop-category-card:hover,.ar-luxury-shop .ar-shop-category-card:hover img{transform:none!important}}
+
+/* Reference-faithful refinement: editorial satin / floral effects */
+.ar-public-main .ar-luxury-shop{background:radial-gradient(ellipse at 50% 13%,#fffdf7 0%,#fff6e9 37%,transparent 72%),linear-gradient(120deg,#efd3b9 0%,#fff8ed 19%,#fff9ee 70%,#eec9ab 100%)!important;overflow:hidden}
+.ar-luxury-shop .ar-shop-landing{position:relative;z-index:3;padding-top:30px!important}
+.ar-luxury-shop .ar-shop-intro{margin-bottom:32px!important}
+.ar-luxury-shop .ar-shop-intro h1{font-size:clamp(45px,5.8vw,95px)!important;margin:10px 0 8px!important;font-family:Georgia,'Times New Roman',serif!important;line-height:1.06;letter-spacing:-.065em}
+.ar-luxury-shop .ar-shop-intro h1 em{font-family:Georgia,'Times New Roman',serif!important;letter-spacing:-.07em}
+.ar-luxury-shop .ar-shop-intro p{line-height:1.35!important}
+.ar-luxury-shop .ar-luxury-flourish{margin-top:10px!important}
+.ar-luxury-shop .ar-luxury-flowers{position:absolute;z-index:1;width:clamp(180px,27vw,440px);height:auto;filter:drop-shadow(0 12px 12px #6e15251f);pointer-events:none}
+.ar-luxury-shop .ar-luxury-flowers-top{top:-55px;left:-75px;transform:rotate(-5deg)}
+.ar-luxury-shop .ar-luxury-flowers-bottom{bottom:-48px;right:-75px;transform:rotate(183deg)}
+.ar-luxury-shop .ar-luxury-silk{z-index:1!important;opacity:.86!important;filter:none!important;border-radius:11% 89% 41% 59% / 58% 40% 60% 42%!important;box-shadow:inset 0 0 40px #fff, 8px 12px 55px #b47d4b36!important;background:linear-gradient(160deg,#fffdf6,#eacfae 15%,#fff5e1 31%,#dfb68e 43%,#fffaee 62%,#e9c8a8 82%,#fffaf0)!important}
+.ar-luxury-shop .ar-luxury-silk-top{width:580px!important;height:200px!important;top:-140px!important;right:-100px!important;transform:rotate(24deg)!important}
+.ar-luxury-shop .ar-luxury-silk-bottom{width:460px!important;height:180px!important;left:-150px!important;bottom:-105px!important}
+.ar-luxury-shop .ar-shop-category-grid{gap:clamp(15px,1.6vw,25px)!important}
+.ar-luxury-shop .ar-shop-category-card{background:linear-gradient(135deg,#ab783c,#fff4d0 14%,#b48140 55%,#fff7dc 85%,#aa6d30)!important;box-shadow:0 16px 21px #53200d2b,0 30px 38px #7f4d1f26!important;padding:4px!important}
+.ar-luxury-shop .ar-luxury-card-inner{background:#f8e7d4}
+.ar-luxury-shop .ar-shop-card-image{height:clamp(265px,24vw,375px)!important;isolation:isolate;background:radial-gradient(ellipse at 50% 28%,#fff5e6 0%,#f3d5bc 68%,#c59772 100%)!important}
+.ar-luxury-shop .ar-shop-card-image::before{content:"";position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(180deg,transparent,#7d2b2018);pointer-events:none}
+.ar-luxury-shop .ar-luxury-image-glow{position:absolute;inset:0;display:block;background:radial-gradient(ellipse at 45% 22%,#ffffff7c 0%,transparent 65%);z-index:1;pointer-events:none}
+.ar-luxury-shop .ar-shop-card-footer{min-height:200px!important;padding:12px 15px 24px!important;border-top:1px solid #e3c7a8!important;background:linear-gradient(#fff9ed,#f5dfc8)!important}
+.ar-luxury-shop .ar-shop-card-footer strong{font-family:Georgia,'Times New Roman',serif!important;color:#1f1311;font-size:clamp(35px,2.6vw,46px)!important;margin:4px 0 5px!important}
+.ar-luxury-shop .ar-shop-card-footer small{letter-spacing:.20em!important}
+.ar-luxury-shop .ar-luxury-description{font-family:Georgia,'Times New Roman',serif!important;margin-bottom:15px!important;min-height:28px!important;font-size:clamp(12px,1.15vw,16px)!important}
+.ar-luxury-shop .ar-luxury-cta{background:linear-gradient(#9f1427,#630410)!important;box-shadow:0 5px 12px #6612224a!important;border:1px solid #ca944c!important;font-family:Georgia,serif!important;font-size:15px!important;min-width:205px!important;padding:10px 23px!important}
+.ar-luxury-shop .ar-luxury-cta:hover{background:linear-gradient(#bb2033,#7d0b1b)!important}
+@media(max-width:900px){.ar-luxury-shop .ar-luxury-flowers-top{top:15px;left:-85px;opacity:.48}.ar-luxury-shop .ar-luxury-flowers-bottom{opacity:.58}.ar-luxury-shop .ar-shop-intro h1{font-size:clamp(40px,7vw,66px)!important}}
+@media(max-width:760px){.ar-luxury-shop .ar-shop-landing{padding-top:52px!important}.ar-luxury-shop .ar-shop-intro{margin-bottom:30px!important}.ar-luxury-shop .ar-shop-category-grid{gap:23px!important}.ar-luxury-shop .ar-shop-card-image{height:335px!important}.ar-luxury-shop .ar-shop-card-footer{min-height:185px!important}.ar-luxury-shop .ar-shop-card-footer strong{font-size:39px!important}.ar-luxury-shop .ar-luxury-flowers-top{top:-28px;left:-95px;width:220px;opacity:.35}.ar-luxury-shop .ar-luxury-flowers-bottom{width:230px;right:-85px;bottom:-40px;opacity:.48}}
+@media(max-width:420px){.ar-luxury-shop .ar-shop-card-image{height:280px!important}.ar-luxury-shop .ar-shop-intro h1{font-size:42px!important}.ar-luxury-shop .ar-shop-card-footer strong{font-size:36px!important}.ar-luxury-shop .ar-luxury-cta{min-width:180px!important}}
