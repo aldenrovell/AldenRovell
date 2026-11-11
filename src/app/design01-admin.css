@@ -68,3 +68,12 @@
 @media(max-width:950px){.ar-d1-admin-middle,.ar-d1-admin-bottom{grid-template-columns:1fr}.ar-d1-admin-bottom>:last-child{grid-column:auto}.ar-d1-admin-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.ar-d1-control-studio .cp-content{margin-left:0!important;width:100%!important}.ar-d1-control-studio .cp-side{z-index:90!important;top:0!important;bottom:0!important;left:0!important;height:100vh!important;border-radius:0 24px 24px 0!important}}
 @media(max-width:580px){.ar-d1-control-studio .cp-body{padding:13px 14px 35px!important}.ar-d1-control-studio .cp-top{padding:17px 15px!important}.ar-d1-admin-kpis{gap:9px}.ar-d1-admin-kpis button{padding:15px}.ar-d1-admin-kpis strong{font-size:29px}.ar-d1-admin-panel{padding:16px}.ar-d1-admin-category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.ar-d1-admin-category-photo{height:72px}.ar-d1-admin-shortcuts button{min-height:80px}}
 @media(prefers-reduced-motion:reduce){.ar-d1-control-studio *{transition:none!important}}
+
+/* Fixed navigation rail so it does not consume page width twice */
+.ar-d1-control-studio .cp-side{position:fixed!important;z-index:65!important;overflow-y:auto!important}
+.ar-d1-control-studio .cp-content{flex:1 1 auto!important;min-width:0!important;max-width:none!important}
+@media(max-width:950px){
+ .ar-d1-control-studio .cp-side{width:min(300px,87vw)!important;transform:translateX(-110%)!important;transition:transform .25s ease!important}
+ .ar-d1-control-studio .cp-side.open{transform:translateX(0)!important}
+ .ar-d1-control-studio .cp-menu{display:inline-flex!important;align-items:center;justify-content:center;width:38px;height:38px;color:#8d1934;border-radius:50%;border:1px solid #f2dfe3;background:#fff!important}
+}
