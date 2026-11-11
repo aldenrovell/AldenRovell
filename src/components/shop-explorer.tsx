@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import {useMemo,useState} from 'react';
 import {useSearchParams,useRouter} from 'next/navigation';
-import {Search,SlidersHorizontal,X,ChevronRight,ArrowLeft,ArrowUpRight} from 'lucide-react';
+import {Search,SlidersHorizontal,X,ChevronRight,ArrowLeft,ArrowUpRight,Watch,Shirt,Truck,RefreshCcw,CreditCard} from 'lucide-react';
 import type {Product} from '@/lib/types';
 import {ProductCard} from './product-card';
 type Category={id:string;name:string;slug:string;parent_id:string|null;visible:boolean;sort_order:number;image_url?:string|null};
@@ -49,38 +49,16 @@ export function ShopExplorer({products,categories=[]}:{products:Product[];catego
   if(sort==='za')items=[...items].sort((a,b)=>b.title.localeCompare(a.title));
   return items;
  },[products,parent,subcategory,search,sort]);
- if(!parent)return <main className="ar-luxury-shop" aria-label="Alden Rovell shop categories">
-  <LuxuryFlorals corner="top"/>
-  <LuxuryFlorals corner="bottom"/>
-  <span className="ar-luxury-silk ar-luxury-silk-top" aria-hidden="true"/>
-  <span className="ar-luxury-silk ar-luxury-silk-bottom" aria-hidden="true"/>
-  <span className="ar-luxury-ribbon" aria-hidden="true"/>
-  <section className="ar-shop-landing" aria-labelledby="ar-shop-title">
-   <div className="ar-shop-intro">
-    <span className="ar-luxury-eyebrow">ALDEN ROVELL COLLECTION</span>
-    <h1 id="ar-shop-title">Explore our <em>Categories</em></h1>
-    <p>Premium wellness, timeless jewellery, and refined footwear, curated for your lifestyle.</p>
-    <span className="ar-luxury-flourish" aria-hidden="true">✧</span>
-   </div>
-   <div className="ar-shop-category-grid">{SHOW_CATEGORIES.map(name=>{
-    const cat=parents.find(c=>c.name===name);
-    if(!cat)return null;
-    const photo=cat.image_url||categories.find(child=>child.visible&&child.parent_id===cat.id&&child.image_url)?.image_url||products.find(p=>p.category.split('/')[0].trim()===cat.name)?.images[0]?.src;
-    const description=name==='Massagers'?'Relax, recover and feel your best.':name==='Jewellery'?'Timeless pieces that add elegance to every occasion.':'Comfort, craftsmanship and style in every step.';
-    return <button key={cat.id} type="button" className={"ar-shop-category-card ar-luxury-card-"+cat.name.toLowerCase()} onClick={()=>choose(cat.name)} aria-label={'Shop '+cat.name}>
-     <span className="ar-luxury-card-inner">
-      <span className="ar-shop-card-image"><span className="ar-luxury-image-glow" aria-hidden="true"/>{photo?<Image src={photo} fill unoptimized alt={cat.name+' collection'} sizes="(max-width:760px) 92vw, (max-width:1060px) 31vw, 29vw"/>:<span aria-hidden="true">{cat.name.slice(0,1)}</span>}</span>
-      <span className="ar-shop-card-footer">
-       <span className="ar-luxury-card-glyph" aria-hidden="true">✦</span>
-       <small>{name==='Massagers'?'WELLNESS':name.toUpperCase()} COLLECTION</small>
-       <strong>{cat.name}</strong>
-       <span className="ar-luxury-description">{description}</span>
-       <span className="ar-luxury-cta">Shop {cat.name} <ArrowUpRight aria-hidden="true" size={17}/></span>
-      </span>
-     </span>
-    </button>;
-   })}</div>
-  </section>
+ if(!parent)return <main className="ar-d1-home ar-d1-shop-landing" aria-label="Alden Rovell shop collections">
+  <section className="ar-d1-width ar-d1-shop-opening"><span className="ar-d1-eyebrow">ALDEN ROVELL / THE EDIT</span><h1>Explore our <em>Collections.</em></h1><p>Discover our curated range, with ten products available to shop today.</p></section>
+  <section className="ar-d1-width ar-d1-categories" aria-label="Browse categories"><div className="ar-d1-category-grid">{['Massagers','Jewellery','Footwear',"Men's Watches","Women's Watches","Men's T-Shirts","Women's T-Shirts"].map(name=>{
+   const cat=parents.find(c=>c.name===name);
+   const src=cat?.image_url||products.find(p=>p.category.split('/')[0].trim()===name)?.images[0]?.src;
+   const ready=Boolean(cat&&['Massagers','Jewellery','Footwear'].includes(name));
+   return ready?<button key={name} className="ar-d1-category-card" onClick={()=>choose(name)}><span className="ar-d1-category-image">{src?<Image src={src} fill unoptimized alt={name} sizes="(max-width:700px) 46vw, 14vw" className="object-contain"/>:<span aria-hidden="true">✧</span>}</span><strong>{name}</strong><span>Explore collection</span></button>:<div key={name} className="ar-d1-category-card ar-d1-category-upcoming"><span className="ar-d1-category-image ar-d1-planned-art">{name.includes('Watches')?<Watch size={50} strokeWidth={1.1}/>:<Shirt size={50} strokeWidth={1.1}/>}<span className="ar-d1-coming">COMING SOON</span></span><strong>{name}</strong><span>Collection in preparation</span></div>
+  })}</div></section>
+  <section className="ar-d1-width ar-d1-policies" aria-label="Store policies"><div><Truck/><p><strong>1 Item Delivery <b>Rs. 199</b></strong><small>Across Pakistan</small></p></div><div><Truck/><p><strong>2+ Items <b>Free Delivery</b></strong><small>Across Pakistan</small></p></div><div><RefreshCcw/><p><strong>7 Day Returns</strong><small>Eligible requests</small></p></div><div><CreditCard/><p><strong>Cash on Delivery</strong><small>At checkout</small></p></div></section>
+  <section className="ar-d1-width ar-d1-featured"><div className="ar-d1-titlebar"><div><span className="ar-d1-eyebrow">CURRENT CATALOGUE</span><h2>Shop the <em>Collection.</em></h2><p>All {products.length} products currently offered by Alden Rovell.</p></div></div><div className="ar-d1-product-grid">{products.map((p,i)=><a href={'/product/'+p.slug} className="ar-d1-product-card" key={p.id}><span className="ar-d1-product-image"><Image src={p.images[0]?.src||'/brand/mark-clean.png'} fill unoptimized alt={p.title} sizes="(max-width:600px) 48vw,(max-width:1000px) 30vw,17vw" className="object-contain"/><span className="ar-d1-card-index">{String(i+1).padStart(2,'0')}</span></span><span className="ar-d1-product-info"><small>{p.category.split('/')[0]}</small><strong>{p.title}</strong><b>{p.pricePkr===null?'Price pending':'Rs. '+p.pricePkr.toLocaleString('en-PK')}</b></span></a>)}</div></section>
  </main>;
  return <div className="container standard-page ar-shop-category-view">
   <div className="ar-shop-category-title"><span className="eyebrow">ALDEN ROVELL / {parent.name.toUpperCase()}</span><h1>{parent.name}<span className="heading-dot">.</span></h1><p>Discover the {parent.name.toLowerCase()} collection.</p></div>
