@@ -6,7 +6,7 @@ export function Header({categories=[],brand={},products=[]}:{categories?:Cat[];b
  useEffect(()=>setOpen(false),[path]);
  const top=categories.filter(c=>c.visible&&!c.parent_id&&['Massagers','Jewellery','Footwear'].includes(c.name));
  const pages=[{title:'Shop all',href:'/shop'},...top.map(c=>({title:c.name,href:'/shop?category='+encodeURIComponent(c.name)})),{title:'About',href:'/about'},{title:'Contact',href:'/contact'}];
- const logo=path==='/shop'?'/brand/primary-header-white.png':'/brand/primary-header.png';
+ const logo='/brand/primary-header.png';
  return <><OfferTicker/><header className="site-header"><div className="container header-inner"><button className="icon-button mobile-only" onClick={()=>setOpen(x=>!x)} aria-label="Toggle menu" aria-expanded={open}>{open?<X size={22}/>:<Menu size={22}/>}</button><Link href="/" className="brand" onClick={()=>setOpen(false)}><Image src={logo} width={1160} height={250} unoptimized priority alt="Alden Rovell" className="brand-image"/></Link><nav className="desktop-nav" aria-label="Main navigation">{path==='/'&&<span className="ar-d1-nav-planned" title="Coming soon: watches and T-shirts">Watches & T-Shirts · Coming soon</span>}{pages.map(p=>{
   const matching=products.filter(x=>x.published&&x.category.split('/')[0].trim()===p.title).slice(0,6);
   const category=top.find(c=>c.name===p.title);
