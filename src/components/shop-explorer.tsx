@@ -7,6 +7,16 @@ import type {Product} from '@/lib/types';
 import {ProductCard} from './product-card';
 type Category={id:string;name:string;slug:string;parent_id:string|null;visible:boolean;sort_order:number;image_url?:string|null};
 const SHOW_CATEGORIES=['Massagers','Jewellery','Footwear'];
+const COLLECTION_COVERS=[
+{name:'Massagers',title:'Massagers',asset:'massagers',description:'Wellness & relaxation'},
+{name:'Jewellery',title:'Jewellery',asset:'jewellery',description:'Everyday elegance'},
+{name:'Footwear',title:"Men's Footwear",asset:'mens-footwear',audience:'men',description:'Styles coming soon'},
+{name:'Footwear',title:"Women's Footwear",asset:'womens-footwear',audience:'women',description:'Explore our styles'},
+{name:"Men's Watches",title:"Men's Watches",asset:'mens-watches',planned:true,description:'Coming soon'},
+{name:"Women's Watches",title:"Women's Watches",asset:'womens-watches',planned:true,description:'Coming soon'},
+{name:"Men's T-Shirts",title:"Men's T-Shirts",asset:'mens-tshirts',planned:true,description:'Coming soon'},
+{name:"Women's T-Shirts",title:"Women's T-Shirts",asset:'womens-tshirts',planned:true,description:'Coming soon'}
+] as const;
 function LuxuryFlorals({corner}:{corner:'top'|'bottom'}){
  const spots=corner==='top'?[[51,105,1],[126,64,.88],[159,140,.69],[234,88,.58]]:[[66,109,.88],[145,157,.95],[214,84,.73],[281,135,.53]];
  return <svg className={'ar-luxury-flowers ar-luxury-flowers-'+corner} viewBox="0 0 350 245" role="presentation" aria-hidden="true" focusable="false">
@@ -32,6 +42,7 @@ export function ShopExplorer({products,categories=[]}:{products:Product[];catego
  const parent=parents.find(c=>c.name===(params.get('category')||''));
  const children=parent?categories.filter(c=>c.visible&&c.parent_id===parent.id):[];
  const requestedSub=params.get('subcategory')||'';
+ const audience=parent?.name==='Footwear'?(params.get('audience')||''):'';
  const subcategory=children.some(c=>c.name===requestedSub)?requestedSub:'';
  const [search,setSearch]=useState(''),[sort,setSort]=useState('featured');
  const choose=(name:string,sub='')=>{
@@ -43,25 +54,32 @@ export function ShopExplorer({products,categories=[]}:{products:Product[];catego
   if(!parent)return [];
   let items=products.filter(p=>{
    const [group,...rest]=p.category.split('/');
-   return group.trim()===parent.name&&(!subcategory||rest.join('/').trim()===subcategory)&&(p.title+' '+p.category+' '+p.shortDescription).toLowerCase().includes(search.trim().toLowerCase());
+   const part=rest.join('/').trim();
+   const audienceMatch=parent.name!=='Footwear'||Boolean(subcategory)||!audience||(audience==='women'?part.startsWith("Women's"):audience==='men'?part.startsWith("Men's"):true);
+   return group.trim()===parent.name&&audienceMatch&&(!subcategory||part===subcategory)&&(p.title+' '+p.category+' '+p.shortDescription).toLowerCase().includes(search.trim().toLowerCase());
   });
   if(sort==='az')items=[...items].sort((a,b)=>a.title.localeCompare(b.title));
   if(sort==='za')items=[...items].sort((a,b)=>b.title.localeCompare(a.title));
   return items;
- },[products,parent,subcategory,search,sort]);
+ },[products,parent,subcategory,audience,search,sort]);
  if(!parent)return <main className="ar-d1-home ar-d1-shop-landing" aria-label="Alden Rovell shop collections">
-  <section className="ar-d1-width ar-d1-shop-opening"><span className="ar-d1-eyebrow">ALDEN ROVELL / THE EDIT</span><h1>Explore our <em>Collections.</em></h1><p>Discover our curated range, with ten products available to shop today.</p></section>
-  <section className="ar-d1-width ar-d1-categories" aria-label="Browse categories"><div className="ar-d1-category-grid">{['Massagers','Jewellery','Footwear',"Men's Watches","Women's Watches","Men's T-Shirts","Women's T-Shirts"].map(name=>{
-   const cat=parents.find(c=>c.name===name);
-   const src=cat?.image_url||products.find(p=>p.category.split('/')[0].trim()===name)?.images[0]?.src;
-   const ready=Boolean(cat&&['Massagers','Jewellery','Footwear'].includes(name));
-   return ready?<button key={name} className="ar-d1-category-card" onClick={()=>choose(name)}><span className="ar-d1-category-image">{src?<Image src={src} fill unoptimized alt={name} sizes="(max-width:700px) 46vw, 14vw" className="object-contain"/>:<span aria-hidden="true">✧</span>}</span><strong>{name}</strong><span>Explore collection</span></button>:<div key={name} className="ar-d1-category-card ar-d1-category-upcoming"><span className="ar-d1-category-image ar-d1-planned-art">{name.includes('Watches')?<Watch size={50} strokeWidth={1.1}/>:<Shirt size={50} strokeWidth={1.1}/>}<span className="ar-d1-coming">COMING SOON</span></span><strong>{name}</strong><span>Collection in preparation</span></div>
+  <section className="ar-d1-width ar-d1-shop-opening"><span className="ar-d1-eyebrow">ALDEN ROVELL / THE EDIT</span><h1>Explore our <em>Collections.</em></h1><p>Discover our curated range of {products.length} real products, and what's coming next.</p>
+   <div className="ar-d1-shop-hero"><Image src="/collection-covers/collections-hero.webp" fill priority unoptimized alt="Alden Rovell collections showcase: jewellery, footwear, wellness, watches, and shirts" sizes="(max-width:780px) 96vw,90vw"/><span className="ar-d1-banner-sheen" aria-hidden="true"/></div>
+  </section>
+  <section className="ar-d1-width ar-d1-categories" aria-label="Browse categories"><div className="ar-d1-category-grid">{COLLECTION_COVERS.map(c=>{
+   const cat=parents.find(x=>x.name===c.name);
+   const enabled=Boolean(cat&& !('planned' in c&&c.planned));
+   const path='/collection-covers/'+c.asset+'.webp';
+   return enabled?<button type="button" key={c.title} className="ar-d1-category-card" onClick={()=>{setSearch('');router.push('/shop?category='+encodeURIComponent(c.name)+('audience' in c?'&audience='+c.audience:''),{scroll:false})}}>
+    <span className="ar-d1-category-image"><Image src={path} fill unoptimized alt={c.title+' category cover'} sizes="(max-width:700px) 46vw,15vw" className="object-cover"/></span><strong>{c.title}</strong><span>{c.description}</span>
+   </button>:<div key={c.title} className="ar-d1-category-card ar-d1-category-upcoming"><span className="ar-d1-category-image ar-d1-planned-art"><Image src={path} fill unoptimized alt={c.title+' upcoming collection concept'} sizes="(max-width:700px) 46vw,15vw" className="object-cover"/><span className="ar-d1-coming">COMING SOON</span></span><strong>{c.title}</strong><span>{c.description}</span></div>
   })}</div></section>
   <section className="ar-d1-width ar-d1-policies" aria-label="Store policies"><div><Truck/><p><strong>1 Item Delivery <b>Rs. 199</b></strong><small>Across Pakistan</small></p></div><div><Truck/><p><strong>2+ Items <b>Free Delivery</b></strong><small>Across Pakistan</small></p></div><div><RefreshCcw/><p><strong>7 Day Returns</strong><small>Eligible requests</small></p></div><div><CreditCard/><p><strong>Cash on Delivery</strong><small>At checkout</small></p></div></section>
-  <section className="ar-d1-width ar-d1-featured"><div className="ar-d1-titlebar"><div><span className="ar-d1-eyebrow">CURRENT CATALOGUE</span><h2>Shop the <em>Collection.</em></h2><p>All {products.length} products currently offered by Alden Rovell.</p></div></div><div className="ar-d1-product-grid">{products.map((p,i)=><a href={'/product/'+p.slug} className="ar-d1-product-card" key={p.id}><span className="ar-d1-product-image"><Image src={p.images[0]?.src||'/brand/mark-clean.png'} fill unoptimized alt={p.title} sizes="(max-width:600px) 48vw,(max-width:1000px) 30vw,17vw" className="object-contain"/><span className="ar-d1-card-index">{String(i+1).padStart(2,'0')}</span></span><span className="ar-d1-product-info"><small>{p.category.split('/')[0]}</small><strong>{p.title}</strong><b>{p.pricePkr===null?'Price pending':'Rs. '+p.pricePkr.toLocaleString('en-PK')}</b></span></a>)}</div></section>
+  <section className="ar-d1-width ar-d1-featured"><div className="ar-d1-titlebar"><div><span className="ar-d1-eyebrow">CURRENT CATALOGUE</span><h2>Shop the <em>Collection.</em></h2><p>All {products.length} products currently offered by Alden Rovell.</p></div></div><div className="ar-d1-product-grid">{products.map((p,i)=><a href={'/product/'+p.slug} className="ar-d1-product-card" key={p.id}><span className="ar-d1-product-image" style={{display:'block',position:'relative',width:'100%'}}><Image src={p.images[0]?.src||'/brand/mark-clean.png'} fill unoptimized alt={p.title} sizes="(max-width:600px) 48vw,(max-width:1000px) 30vw,17vw" className="object-contain"/><span className="ar-d1-card-index">{String(i+1).padStart(2,'0')}</span></span><span className="ar-d1-product-info"><small>{p.category.split('/')[0]}</small><strong>{p.title}</strong><b>{p.pricePkr===null?'Price pending':'Rs. '+p.pricePkr.toLocaleString('en-PK')}</b></span></a>)}</div></section>
  </main>;
  return <div className="container standard-page ar-shop-category-view">
-  <div className="ar-shop-category-title"><span className="eyebrow">ALDEN ROVELL / {parent.name.toUpperCase()}</span><h1>{parent.name}<span className="heading-dot">.</span></h1><p>Discover the {parent.name.toLowerCase()} collection.</p></div>
+  <div className="ar-shop-category-title"><span className="eyebrow">ALDEN ROVELL / {parent.name.toUpperCase()}</span><h1>{audience?(audience==='women'?"Women's Footwear":"Men's Footwear"):parent.name}<span className="heading-dot">.</span></h1><p>Discover the {audience?audience+"'s footwear":parent.name.toLowerCase()} collection.</p></div>
+  {parent.name==='Footwear'&&<div className="ar-d1-gender-tabs" aria-label="Footwear selection"><button className={!audience?'selected':''} onClick={()=>choose('Footwear')}>All Footwear</button><button className={audience==='women'?'selected':''} onClick={()=>router.push('/shop?category=Footwear&audience=women')}>Women's Footwear</button><button className={audience==='men'?'selected':''} onClick={()=>router.push('/shop?category=Footwear&audience=men')}>Men's Footwear</button></div>}
   <div className="ar-shop-navigation"><button type="button" className="ar-back-categories" onClick={()=>choose('')}><ArrowLeft size={16}/> All categories</button><span className="eyebrow">{parent.name.toUpperCase()} COLLECTION</span></div>
   <div className="shop-tools"><div className="shop-search"><Search size={19}/><input type="search" aria-label="Search within this category" placeholder={'Search '+parent.name.toLowerCase()} value={search} onChange={e=>setSearch(e.target.value)}/>{search&&<button type="button" aria-label="Clear search" onClick={()=>setSearch('')}><X size={17}/></button>}</div><div className="sort-wrap"><SlidersHorizontal size={17}/><select aria-label="Sort products" value={sort} onChange={e=>setSort(e.target.value)}><option value="featured">Featured</option><option value="az">Name: A to Z</option><option value="za">Name: Z to A</option></select></div></div>
   {grouped?<section className="ar-categories-grouped" aria-label="Explore Footwear">
@@ -70,6 +88,6 @@ export function ShopExplorer({products,categories=[]}:{products:Product[];catego
     {([['Women',grouped.women],['Men',grouped.men],['Accessories',grouped.other]] as [string,Category[]][]).filter(([,items])=>items.length).map(([label,items])=><div className="ar-category-group" key={label} id={'footwear-'+label.toLowerCase()}><h3>{label==='Accessories'?'Footwear Accessories':label+"'s Footwear"}</h3><div className="ar-category-grid"><div className="ar-category-grid-items">{items.map(c=><button type="button" key={c.id} className={'subcategory-choice '+(subcategory===c.name?'selected':'')} onClick={()=>choose(parent.name,c.name)}><span className="subcategory-icon">{c.image_url?<img src={c.image_url} alt="" loading="lazy" width={88} height={88} className="subcategory-photo"/>:<span aria-hidden="true">👟</span>}</span><span>{c.name}</span></button>)}</div></div></div>)}
   </section>:children.length>0&&<section className="shop-subcategories" aria-label={parent.name+' subcategories'}><div className="subcategory-heading"><strong>Explore {parent.name}</strong><span>{children.length} subcategories</span></div><div className="subcategory-scroll"><button type="button" className={'subcategory-choice '+(!subcategory?'selected':'')} onClick={()=>choose(parent.name)}><span className="subcategory-icon">✦</span><span>View All</span></button>{children.map(c=><button type="button" key={c.id} className={'subcategory-choice '+(subcategory===c.name?'selected':'')} onClick={()=>choose(parent.name,c.name)}><span className="subcategory-icon">{c.image_url?<img src={c.image_url} alt="" loading="lazy" width={88} height={88} className="subcategory-photo"/>:<span aria-hidden="true">{parent.name==='Jewellery'?'💍':'💆'}</span>}</span><span>{c.name}</span></button>)}</div></section>}
   <div className="results-line"><span aria-live="polite">{filtered.length} product{filtered.length===1?'':'s'}</span><span>{subcategory||parent.name}</span></div>
-  {filtered.length?<div className="products-grid">{filtered.map((product,index)=><ProductCard key={product.id} product={product} index={index}/>)}</div>:<div className="empty-panel"><Search size={27}/><h2>No matching products</h2><p>Try another subcategory or explore the full collection.</p><button type="button" className="btn btn-dark" onClick={()=>choose(parent.name)}>View all in {parent.name} <ChevronRight size={16}/></button></div>}
+  {filtered.length?<div className="products-grid">{filtered.map((product,index)=><ProductCard key={product.id} product={product} index={index}/>)}</div>:<div className="empty-panel"><Search size={27}/><h2>{audience==='men'?"Men's footwear coming soon":'No matching products'}</h2><p>{audience==='men'?"We're preparing this collection. No men's footwear products are listed yet.":'Try another subcategory or explore the full collection.'}</p><button type="button" className="btn btn-dark" onClick={()=>choose(parent.name)}>View all in {parent.name} <ChevronRight size={16}/></button></div>}
  </div>;
 }
