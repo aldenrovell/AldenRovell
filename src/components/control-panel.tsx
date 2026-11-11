@@ -48,10 +48,18 @@ export function ControlPanel(){
   </div>
   <div className="ar-d1-admin-middle">
    <section className="ar-d1-admin-panel ar-d1-admin-catalog"><div className="ar-d1-panel-title"><h2>Catalog by category</h2><button onClick={()=>{setTab('builder');setSection('categories');}}>Manage categories ↗</button></div>
-   <div className="ar-d1-admin-category-grid">{['Massagers','Jewellery','Footwear',"Men's Watches","Women's Watches","Men's T-Shirts","Women's T-Shirts"].map((name,index)=>{
-    const related=products.filter(p=>p.published&&p.category.split('/')[0].trim()===name);
-    const photo=related[0]?.images[0]?.src;
-    return <button key={name} onClick={()=>{setTab('products');}}><span className="ar-d1-admin-category-photo">{photo?<img src={photo} alt=""/>:<span aria-hidden="true">{name.includes('Watches')?'⌚':'♢'}</span>}</span><strong>{name}</strong><small>{related.length?related.length+' products':'Coming soon'}</small></button>;
+   <div className="ar-d1-admin-category-grid">{[
+    {title:'Massagers',group:'Massagers',cover:'massagers'},
+    {title:'Jewellery',group:'Jewellery',cover:'jewellery'},
+    {title:"Men's Footwear",group:'Footwear',cover:'mens-footwear',audience:'men'},
+    {title:"Women's Footwear",group:'Footwear',cover:'womens-footwear',audience:'women'},
+    {title:"Men's Watches",group:"Men's Watches",cover:'mens-watches'},
+    {title:"Women's Watches",group:"Women's Watches",cover:'womens-watches'},
+    {title:"Men's T-Shirts",group:"Men's T-Shirts",cover:'mens-tshirts'},
+    {title:"Women's T-Shirts",group:"Women's T-Shirts",cover:'womens-tshirts'}
+   ].map(item=>{
+    const related=products.filter(p=>p.published&&p.category.split('/')[0].trim()===item.group&&(!('audience' in item)||('audience' in item &&(item.audience==='women'?p.category.includes("Women's"):p.category.includes("Men's")))));
+    return <button key={item.title} onClick={()=>{setTab('products');}}><span className="ar-d1-admin-category-photo"><img src={'/collection-covers/'+item.cover+'.webp'} alt=""/></span><strong>{item.title}</strong><small>{related.length?related.length+' products':'Coming soon'}</small></button>;
    })}</div></section>
    <section className="ar-d1-admin-panel ar-d1-admin-policies"><div className="ar-d1-panel-title"><h2>Store policies</h2><button onClick={()=>{setTab('builder');setSection('shipping');}}>View policies ↗</button></div>
     <div><span>♧</span><p>1 Item Delivery <strong>Rs. 199</strong></p></div><div><span>♧</span><p>2+ Items <strong>Free Delivery Across Pakistan</strong></p></div><div><span>◯</span><p>Returns <strong>7 Days · Eligible requests</strong></p></div><div><span>▣</span><p>Cash on Delivery <strong>Checkout</strong></p></div>

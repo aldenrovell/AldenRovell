@@ -1,7 +1,7 @@
 import type {Metadata} from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import {ArrowUpRight,Truck,RefreshCcw,CreditCard,Watch,Shirt,ShieldCheck} from 'lucide-react';
+import {ArrowUpRight,Truck,RefreshCcw,CreditCard,ShieldCheck} from 'lucide-react';
 import {getProducts} from '@/lib/store';
 import {getCategories} from '@/lib/site-cms';
 import {FaqList} from '@/components/faq-list';
@@ -9,26 +9,26 @@ import {SITE_URL,SITE_DESCRIPTION,homeStructuredData,serializeJsonLd} from '@/li
 import {formatPrice,type Product} from '@/lib/types';
 export const dynamic='force-dynamic';
 export const metadata:Metadata={title:{absolute:'Alden Rovell | Curated Jewellery, Footwear & Massagers in Pakistan'},description:SITE_DESCRIPTION,alternates:{canonical:SITE_URL+'/'},openGraph:{title:'Alden Rovell | The Curated Collection',description:SITE_DESCRIPTION,url:SITE_URL+'/',images:[{url:SITE_URL+'/brand/landscape-cover.png',alt:'Alden Rovell'}]}};
-type Cat={name:string;label:string;description:string;kind:'existing'|'planned';icon?:'watch'|'shirt'};
+type Cat={name:string;label:string;description:string;kind:'existing'|'planned';cover:string;audience?:'men'|'women'};
 const collections:Cat[]=[
-{name:'Massagers',label:'Massagers',description:'Wellness & relaxation',kind:'existing'},
-{name:'Jewellery',label:'Jewellery',description:'Timeless accents',kind:'existing'},
-{name:'Footwear',label:'Footwear',description:'Everyday elegance',kind:'existing'},
-{name:"Men's Watches",label:"Men's Watches",description:'Launching soon',kind:'planned',icon:'watch'},
-{name:"Women's Watches",label:"Women's Watches",description:'Launching soon',kind:'planned',icon:'watch'},
-{name:"Men's T-Shirts",label:"Men's T-Shirts",description:'Launching soon',kind:'planned',icon:'shirt'},
-{name:"Women's T-Shirts",label:"Women's T-Shirts",description:'Launching soon',kind:'planned',icon:'shirt'}
+{name:'Massagers',label:'Massagers',description:'Wellness & relaxation',kind:'existing',cover:'massagers'},
+{name:'Jewellery',label:'Jewellery',description:'Timeless accents',kind:'existing',cover:'jewellery'},
+{name:'Footwear',label:"Men's Footwear",description:'Discover the selection',kind:'existing',cover:'mens-footwear',audience:'men'},
+{name:'Footwear',label:"Women's Footwear",description:'Refined everyday styles',kind:'existing',cover:'womens-footwear',audience:'women'},
+{name:"Men's Watches",label:"Men's Watches",description:'Launching soon',kind:'planned',cover:'mens-watches'},
+{name:"Women's Watches",label:"Women's Watches",description:'Launching soon',kind:'planned',cover:'womens-watches'},
+{name:"Men's T-Shirts",label:"Men's T-Shirts",description:'Launching soon',kind:'planned',cover:'mens-tshirts'},
+{name:"Women's T-Shirts",label:"Women's T-Shirts",description:'Launching soon',kind:'planned',cover:'womens-tshirts'}
 ];
 const category=(p:Product)=>p.category.split('/')[0].trim();
 export default async function Home(){
- const [all,cats]=await Promise.all([getProducts(),getCategories()]);
+ const all=await getProducts();
  const products=all.filter(p=>p.published&&!('is_archived' in p&&p.is_archived)).filter(p=>p.images[0]?.src);
  const pick=(id:string)=>products.find(p=>p.id===id);
  const massager=pick('PNECK4D2026')||products.find(p=>category(p)==='Massagers');
  const necklace=pick('P07')||products.find(p=>category(p)==='Jewellery');
  const shoes=pick('P05')||products.find(p=>category(p)==='Footwear');
  const intro=[massager,necklace,shoes].filter((p):p is Product=>Boolean(p));
- const catImage=(name:string)=>cats.find(c=>c.name===name&&!c.parent_id)?.image_url||products.find(p=>category(p)===name)?.images[0]?.src;
  return <div className="ar-d1-home">
   <script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeJsonLd(homeStructuredData)}}/>
   <section className="ar-d1-hero" aria-label="Alden Rovell curated collection">
@@ -50,14 +50,15 @@ export default async function Home(){
    </div>
   </section>
   <section className="ar-d1-width ar-d1-categories" aria-label="Shop our collections">
-   <div className="ar-d1-sectionline"><span>DISCOVER OUR COLLECTIONS</span><span>01 / 07</span></div>
-   <div className="ar-d1-category-grid">{collections.map((c,i)=>{
-     const src=c.kind==='existing'?catImage(c.name):null;
-     return c.kind==='existing'?<Link href={'/shop?category='+encodeURIComponent(c.name)} key={c.name} className="ar-d1-category-card">
-      <div className="ar-d1-category-image">{src&&<Image src={src} fill unoptimized alt={c.name} sizes="(max-width:700px) 46vw, 14vw" className="object-contain"/>}</div>
+   <div className="ar-d1-sectionline"><span>DISCOVER OUR COLLECTIONS</span><span>01 / 08</span></div>
+   <Link href="/shop" className="ar-d1-collection-banner" aria-label="Explore all Alden Rovell collections"><Image src="/collection-covers/collections-hero.webp" fill unoptimized priority alt="Editorial concept of Alden Rovell collections including jewellery, massagers, footwear, watches and T-shirts" sizes="(max-width:780px) 100vw, 90vw"/><span className="ar-d1-banner-sheen" aria-hidden="true"/></Link>
+   <div className="ar-d1-category-grid">{collections.map(c=>{
+     const cover='/collection-covers/'+c.cover+'.webp';
+     return c.kind==='existing'?<Link href={'/shop?category='+encodeURIComponent(c.name)+(c.audience?'&audience='+c.audience:'')} key={c.label} className="ar-d1-category-card">
+      <div className="ar-d1-category-image"><Image src={cover} fill unoptimized alt={c.label+' collection cover'} sizes="(max-width:700px) 46vw, 15vw" className="object-cover"/></div>
       <strong>{c.label}</strong><span>{c.description}</span>
-     </Link>:<div className="ar-d1-category-card ar-d1-category-upcoming" key={c.name}>
-      <div className="ar-d1-category-image ar-d1-planned-art">{c.icon==='watch'?<Watch size={52} strokeWidth={1.1}/>:<Shirt size={52} strokeWidth={1.1}/>}<span className="ar-d1-coming">COMING SOON</span></div>
+     </Link>:<div className="ar-d1-category-card ar-d1-category-upcoming" key={c.label}>
+      <div className="ar-d1-category-image ar-d1-planned-art"><Image src={cover} fill unoptimized alt={c.label+' upcoming collection concept'} sizes="(max-width:700px) 46vw, 15vw" className="object-cover"/><span className="ar-d1-coming">COMING SOON</span></div>
       <strong>{c.label}</strong><span>{c.description}</span>
      </div>;
    })}</div>
