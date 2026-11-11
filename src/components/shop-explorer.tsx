@@ -50,7 +50,7 @@ export function ShopExplorer({products,categories=[]}:{products:Product[];catego
   router.push(!name?'/shop':'/shop?category='+encodeURIComponent(name)+(sub?'&subcategory='+encodeURIComponent(sub):''),{scroll:false});
  };
  const grouped=parent?.name==='Footwear'?{women:children.filter(c=>c.name.startsWith("Women's")),men:children.filter(c=>c.name.startsWith("Men's")),other:children.filter(c=>!c.name.startsWith("Women's")&&!c.name.startsWith("Men's"))}:null;
- const visibleFootwearGroups=grouped?(audience==='men'?[['Men',grouped.men]]:audience==='women'?[['Women',grouped.women]]:[['Women',grouped.women],['Men',grouped.men],['Accessories',grouped.other]]) as [string,Category[]][]):[];
+ const visibleFootwearGroups: [string,Category[]][] = !grouped ? [] : audience==='men' ? [['Men',grouped.men]] : audience==='women' ? [['Women',grouped.women]] : [['Women',grouped.women],['Men',grouped.men],['Accessories',grouped.other]];
  const filtered=useMemo(()=>{
   if(!parent)return [];
   let items=products.filter(p=>{
