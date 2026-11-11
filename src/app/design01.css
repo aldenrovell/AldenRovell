@@ -120,3 +120,43 @@ body:has(.ar-d1-home) .site-header .desktop-nav .cp-nav-group>a:hover{color:#8e1
 @media(max-width:780px){.ar-d1-category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.ar-d1-collection-banner,.ar-d1-shop-hero{aspect-ratio:2/1;min-height:165px}.ar-d1-product-image,.ar-d1-shop-landing .ar-d1-product-image{height:190px!important}}
 @media(max-width:460px){.ar-d1-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ar-d1-collection-banner,.ar-d1-shop-hero{aspect-ratio:1.55/1;min-height:180px}.ar-d1-product-image,.ar-d1-shop-landing .ar-d1-product-image{height:160px!important}}
 @media(prefers-reduced-motion:reduce){.ar-d1-collection-banner img,.ar-d1-shop-hero img,.ar-d1-banner-sheen{animation:none!important}.ar-d1-banner-sheen{display:none}}
+
+/* Collection banner: native 2400x1350 ratio, no cropped product edges.
+   Overrides older desktop/mobile max-height and zoom rules intentionally. */
+.ar-d1-collection-banner,
+.ar-d1-shop-hero,
+.ar-d1-shop-landing .ar-d1-shop-hero{
+  width:100%;
+  aspect-ratio:16 / 9 !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  overflow:hidden;
+  background:#ead8c8;
+}
+.ar-d1-collection-banner img,
+.ar-d1-shop-hero img,
+.ar-d1-shop-landing .ar-d1-shop-hero img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  transform:none !important;
+  animation:none !important;
+  will-change:auto !important;
+}
+@media(max-width:780px){
+  .ar-d1-collection-banner,.ar-d1-shop-hero{
+    aspect-ratio:16 / 9 !important;
+    min-height:0 !important;
+    max-height:none !important;
+  }
+}
+@media(max-width:460px){
+  .ar-d1-collection-banner,.ar-d1-shop-hero{
+    aspect-ratio:16 / 9 !important;
+    min-height:0 !important;
+    max-height:none !important;
+    border-radius:15px;
+  }
+}
