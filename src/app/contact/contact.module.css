@@ -30,3 +30,10 @@
 .light .action:hover,.dark .action:hover{background:#8e0d1e;color:white}
 .card h2,.card p,.card .mail{color:#fff!important}
 .card p{opacity:.84}
+
+/* Single contact destination: centered luxury card */
+.cards{grid-template-columns:minmax(0,760px);justify-content:center}
+.card{width:100%;min-height:355px;padding:clamp(30px,5vw,55px)}
+.icons{display:flex;gap:12px;align-items:center;margin-bottom:26px}
+.icons .icon{margin:0}
+@media(max-width:540px){.card{min-height:0}.icons{gap:10px}}
