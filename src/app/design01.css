@@ -160,3 +160,17 @@ body:has(.ar-d1-home) .site-header .desktop-nav .cp-nav-group>a:hover{color:#8e1
     border-radius:15px;
   }
 }
+
+/* Header contrast correction: ivory header should never inherit dark-theme white nav links */
+body:not(:has(.ar-luxury-shop)) .site-header .desktop-nav .cp-nav-group > a{
+ color:#30242a !important; opacity:1 !important; -webkit-text-fill-color:#30242a; font-weight:700 !important; text-shadow:none !important;
+}
+body:not(:has(.ar-luxury-shop)) .site-header .desktop-nav .cp-nav-group > a:hover,
+body:not(:has(.ar-luxury-shop)) .site-header .desktop-nav .cp-nav-group:focus-within > a{
+ color:#961732 !important;-webkit-text-fill-color:#961732;
+}
+body:not(:has(.ar-luxury-shop)) .site-header .header-actions :is(a,button),
+body:not(:has(.ar-luxury-shop)) .site-header .mobile-only{color:#30242a !important;opacity:1 !important}
+body:not(:has(.ar-luxury-shop)) .site-header .header-actions :is(a,button):hover{color:#961732 !important;background:#f3e6e4 !important}
+body:not(:has(.ar-luxury-shop)) .site-header .desktop-nav .cp-nav-group > a:focus-visible,
+body:not(:has(.ar-luxury-shop)) .site-header .header-actions :is(a,button):focus-visible{outline:2px solid #961732;outline-offset:5px;border-radius:4px}
