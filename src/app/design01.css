@@ -81,3 +81,16 @@ body:has(.ar-d1-home) .site-header .desktop-nav .cp-nav-group>a{font-size:12px;c
 body:has(.ar-d1-home) .site-header .desktop-nav .cp-nav-group>a:hover{color:#8e1532}
 .ar-d1-nav-planned{display:inline-flex;align-items:center;font-size:10px;color:#9a6e71;background:#f9ece8;border:1px solid #f1ded5;border-radius:999px;padding:10px 12px;white-space:nowrap}
 @media(max-width:1250px){.ar-d1-nav-planned{display:none}}
+
+/* Shop All uses the same polished design as the storefront */
+.ar-d1-shop-landing{min-height:100vh;padding-top:48px}
+.ar-d1-shop-opening{text-align:center;margin-bottom:25px}
+.ar-d1-shop-opening h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(40px,5.6vw,78px);letter-spacing:-.065em;font-weight:500;line-height:1.14;margin:8px 0}
+.ar-d1-shop-opening h1 em{font-weight:400;color:#8c1833}
+.ar-d1-shop-opening p{font-family:'DM Sans',sans-serif;color:#76625b;font-size:14px}
+.ar-d1-shop-landing .ar-d1-categories{padding-top:4px}
+.ar-d1-shop-landing .ar-d1-category-card{appearance:none;text-align:center;color:inherit;cursor:pointer;font-family:inherit}
+.ar-d1-shop-landing .ar-d1-category-upcoming{cursor:default}
+.ar-d1-shop-landing .ar-d1-category-image{width:100%}
+.ar-d1-shop-landing .ar-d1-category-card>span:last-child{font-size:10px}
+.ar-d1-shop-landing .ar-d1-featured{padding-bottom:70px}
