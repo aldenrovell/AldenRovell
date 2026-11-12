@@ -54,7 +54,7 @@ export default async function Home(){
    <Link href="/shop" className="ar-d1-collection-banner" aria-label="Explore all Alden Rovell collections"><Image src="/collection-covers/collections-hero.webp" fill unoptimized priority alt="Editorial concept of Alden Rovell collections including jewellery, massagers, footwear, watches and T-shirts" sizes="(max-width:780px) 100vw, 90vw"/><span className="ar-d1-banner-sheen" aria-hidden="true"/></Link>
    <div className="ar-d1-category-grid">{collections.map(c=>{
      const cover='/collection-covers/'+c.cover+'.webp';
-     return c.kind==='existing'?<Link href={'/shop?category='+encodeURIComponent(c.name)+(c.audience?'&audience='+c.audience:'')} key={c.label} className="ar-d1-category-card">
+     return (c.kind==='existing'||(c.name==="Men's Watches"&&products.some(p=>category(p)==="Men's Watches")))?<Link href={'/shop?category='+encodeURIComponent(c.name)+(c.audience?'&audience='+c.audience:'')} key={c.label} className="ar-d1-category-card">
       <div className="ar-d1-category-image"><Image src={cover} fill unoptimized alt={c.label+' collection cover'} sizes="(max-width:700px) 46vw, 15vw" className="object-cover"/></div>
       <strong>{c.label}</strong><span>{c.description}</span>
      </Link>:<div className="ar-d1-category-card ar-d1-category-upcoming" key={c.label}>
