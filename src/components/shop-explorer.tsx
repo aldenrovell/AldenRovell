@@ -6,7 +6,7 @@ import {Search,SlidersHorizontal,X,ChevronRight,ArrowLeft,ArrowUpRight,Watch,Shi
 import type {Product} from '@/lib/types';
 import {ProductCard} from './product-card';
 type Category={id:string;name:string;slug:string;parent_id:string|null;visible:boolean;sort_order:number;image_url?:string|null};
-const SHOW_CATEGORIES=['Massagers','Jewellery','Footwear'];
+const SHOW_CATEGORIES=['Massagers','Jewellery','Footwear',"Men's Watches"];
 const COLLECTION_COVERS=[
 {name:'Massagers',title:'Massagers',asset:'massagers',description:'Wellness & relaxation'},
 {name:'Jewellery',title:'Jewellery',asset:'jewellery',description:'Everyday elegance'},
@@ -69,7 +69,7 @@ export function ShopExplorer({products,categories=[]}:{products:Product[];catego
   </section>
   <section className="ar-d1-width ar-d1-categories" aria-label="Browse categories"><div className="ar-d1-category-grid">{COLLECTION_COVERS.map(c=>{
    const cat=parents.find(x=>x.name===c.name);
-   const enabled=Boolean(cat&& !('planned' in c&&c.planned));
+   const enabled=Boolean(cat&&(!('planned' in c&&c.planned)||products.some(p=>p.category.split('/')[0].trim()===c.name)));
    const path='/collection-covers/'+c.asset+'.webp';
    return enabled?<button type="button" key={c.title} className="ar-d1-category-card" onClick={()=>{setSearch('');router.push('/shop?category='+encodeURIComponent(c.name)+('audience' in c?'&audience='+c.audience:''),{scroll:false})}}>
     <span className="ar-d1-category-image"><Image src={path} fill unoptimized alt={c.title+' category cover'} sizes="(max-width:700px) 46vw,15vw" className="object-cover"/></span><strong>{c.title}</strong><span>{c.description}</span>
