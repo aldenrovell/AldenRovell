@@ -47,7 +47,7 @@ export function ShopExplorer({products,categories=[]}:{products:Product[];catego
  const [search,setSearch]=useState(''),[sort,setSort]=useState('featured');
  const choose=(name:string,sub='')=>{
   setSearch('');
-  router.push(!name?'/shop':'/shop?category='+encodeURIComponent(name)+(sub?'&subcategory='+encodeURIComponent(sub):''),{scroll:false});
+  router.push(!name?'/shop':'/shop?category='+encodeURIComponent(name)+(sub?'&subcategory='+encodeURIComponent(sub):''),{scroll:true});
  };
  const grouped=parent?.name==='Footwear'?{women:children.filter(c=>c.name.startsWith("Women's")),men:children.filter(c=>c.name.startsWith("Men's")),other:children.filter(c=>!c.name.startsWith("Women's")&&!c.name.startsWith("Men's"))}:null;
  const visibleFootwearGroups: [string,Category[]][] = !grouped ? [] : audience==='men' ? [['Men',grouped.men]] : audience==='women' ? [['Women',grouped.women]] : [['Women',grouped.women],['Men',grouped.men],['Accessories',grouped.other]];
@@ -63,20 +63,43 @@ export function ShopExplorer({products,categories=[]}:{products:Product[];catego
   if(sort==='za')items=[...items].sort((a,b)=>b.title.localeCompare(a.title));
   return items;
  },[products,parent,subcategory,audience,search,sort]);
- if(!parent)return <main className="ar-d1-home ar-d1-shop-landing" aria-label="Alden Rovell shop collections">
-  <section className="ar-d1-width ar-d1-shop-opening"><span className="ar-d1-eyebrow">ALDEN ROVELL / THE EDIT</span><h1>Explore our <em>Collections.</em></h1><p>Discover our curated range of {products.length} real products in signature Alden Rovell style.</p>
-   <div className="ar-d1-shop-hero"><Image src="/collection-covers/collections-hero.webp" fill priority unoptimized alt="Alden Rovell collections showcase: jewellery, footwear, wellness, watches, and shirts" sizes="(max-width:780px) 96vw,90vw"/><span className="ar-d1-banner-sheen" aria-hidden="true"/></div>
+ const enabledCovers=COLLECTION_COVERS.filter(c=>{
+  const cat=parents.find(x=>x.name===c.name);
+  return Boolean(cat&&(!('planned' in c&&c.planned)||products.some(p=>p.category.split('/')[0].trim()===c.name)));
+ });
+ const upcomingCovers=COLLECTION_COVERS.filter(c=>!enabledCovers.includes(c));
+ const goToCollection=(c:typeof COLLECTION_COVERS[number])=>{
+  setSearch('');
+  router.push('/shop?category='+encodeURIComponent(c.name)+('audience' in c?'&audience='+c.audience:''),{scroll:true});
+ };
+ if(!parent)return <main className="ar-d1-home ar-d1-shop-landing ar-luxe-collections-page" aria-label="Alden Rovell shop collections">
+  <section className="ar-d1-width ar-luxe-collections-hero" aria-label="Discover Alden Rovell">
+   <div className="ar-luxe-collections-copy">
+    <span className="ar-d1-eyebrow">ALDEN ROVELL / THE CURATED EDIT</span>
+    <h1>Explore our <em>Collections.</em></h1>
+    <p>Discover jewellery, footwear, watches and wellness essentials in our signature luxury collection.</p>
+    <span className="ar-luxe-collections-note">{enabledCovers.length} CURATED COLLECTIONS <span aria-hidden="true">✦</span> ELEGANCE FOR EVERYDAY</span>
+   </div>
+   <div className="ar-luxe-collections-visual">
+    <Image src="/collection-covers/collections-hero.webp" fill priority unoptimized className="ar-luxe-collections-photo" alt="Alden Rovell curated jewellery, footwear, watches and wellness collection" sizes="(max-width:780px) 100vw, 55vw"/>
+   </div>
   </section>
-  <section className="ar-d1-width ar-d1-categories" aria-label="Browse categories"><div className="ar-d1-category-grid">{COLLECTION_COVERS.map(c=>{
-   const cat=parents.find(x=>x.name===c.name);
-   const enabled=Boolean(cat&&(!('planned' in c&&c.planned)||products.some(p=>p.category.split('/')[0].trim()===c.name)));
-   const path='/collection-covers/'+c.asset+'.webp';
-   return enabled?<button type="button" key={c.title} className="ar-d1-category-card" onClick={()=>{setSearch('');router.push('/shop?category='+encodeURIComponent(c.name)+('audience' in c?'&audience='+c.audience:''),{scroll:false})}}>
-    <span className="ar-d1-category-image"><Image src={path} fill unoptimized alt={c.title+' category cover'} sizes="(max-width:700px) 46vw,15vw" className="object-cover"/></span><strong>{c.title}</strong><span>{c.description}</span>
-   </button>:<div key={c.title} className="ar-d1-category-card ar-d1-category-upcoming"><span className="ar-d1-category-image ar-d1-planned-art"><Image src={path} fill unoptimized alt={c.title+' upcoming collection concept'} sizes="(max-width:700px) 46vw,15vw" className="object-cover"/><span className="ar-d1-coming">COMING SOON</span></span><strong>{c.title}</strong><span>{c.description}</span></div>
-  })}</div></section>
-  <section className="ar-d1-width ar-d1-policies" aria-label="Store policies"><div><Truck/><p><strong>1 Item Delivery <b>Rs. 199</b></strong><small>Across Pakistan</small></p></div><div><Truck/><p><strong>2+ Items <b>Free Delivery</b></strong><small>Across Pakistan</small></p></div><div><RefreshCcw/><p><strong>7 Day Returns</strong><small>Eligible requests</small></p></div><div><CreditCard/><p><strong>Cash on Delivery</strong><small>At checkout</small></p></div></section>
-  <section className="ar-d1-width ar-luxe-shop-signoff"><span className="ar-d1-eyebrow">ALDEN ROVELL COLLECTIONS</span><h2>Find your next favourite.</h2><p>Choose a category above to discover the real products available in that collection.</p></section>
+  <section className="ar-d1-width ar-d1-categories ar-luxe-shop-collection-section" aria-label="Shop our categories">
+   <div className="ar-luxe-section-heading"><span className="ar-d1-eyebrow">HANDPICKED FOR YOU</span><h2>Shop by <em>Category</em></h2><p>Choose your collection and discover the pieces inside.</p></div>
+   <div className="ar-d1-category-grid ar-luxe-shop-active-grid">{enabledCovers.map(c=><button type="button" key={c.title} className="ar-d1-category-card ar-luxe-shop-collection-card" onClick={()=>goToCollection(c)} aria-label={'Explore '+c.title}>
+    <span className="ar-d1-category-image"><Image src={'/collection-covers/'+c.asset+'.webp'} fill unoptimized alt={c.title+' collection'} sizes="(max-width:650px) 46vw,(max-width:1100px) 30vw,30vw" className="object-cover"/></span>
+    <span className="ar-luxe-shop-card-caption"><strong>{c.title}</strong><ArrowUpRight size={18} aria-hidden="true"/></span>
+    <span className="ar-luxe-shop-card-description">{c.description}</span>
+   </button>)}</div>
+   {upcomingCovers.length>0&&<div className="ar-luxe-shop-upcoming" aria-label="Upcoming collections">
+    <div className="ar-luxe-shop-upcoming-heading"><span className="ar-d1-eyebrow">WHAT'S NEXT</span><strong>Coming soon</strong></div>
+    <div className="ar-luxe-shop-upcoming-list">{upcomingCovers.map(c=><div key={c.title} className="ar-luxe-shop-upcoming-card">
+     <span className="ar-luxe-shop-upcoming-image"><Image src={'/collection-covers/'+c.asset+'.webp'} fill unoptimized alt={c.title+' preview'} sizes="68px"/></span>
+     <span className="ar-luxe-shop-upcoming-label"><strong>{c.title}</strong><small>Coming soon</small></span>
+    </div>)}</div>
+   </div>}
+  </section>
+  <section className="ar-d1-width ar-d1-policies ar-luxe-shop-policies" aria-label="Store policies"><div><Truck/><p><strong>1 Item Delivery <b>Rs. 199</b></strong><small>Across Pakistan</small></p></div><div><Truck/><p><strong>2+ Items <b>Free Delivery</b></strong><small>Across Pakistan</small></p></div><div><RefreshCcw/><p><strong>7 Day Returns</strong><small>Eligible requests</small></p></div><div><CreditCard/><p><strong>Cash on Delivery</strong><small>At checkout</small></p></div></section>
  </main>;
  return <div className="container standard-page ar-shop-category-view">
   <div className="ar-shop-category-title"><span className="eyebrow">ALDEN ROVELL / {parent.name.toUpperCase()}</span><h1>{audience?(audience==='women'?"Women's Footwear":"Men's Footwear"):parent.name}<span className="heading-dot">.</span></h1><p>Discover the {audience?audience+"'s footwear":parent.name.toLowerCase()} collection.</p></div>
