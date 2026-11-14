@@ -1,0 +1,822 @@
+{
+  "products": [
+    {
+      "id": "P01",
+      "slug": "multi-head-massage-gun",
+      "title": "Multi-Head Massage Gun",
+      "category": "Massagers / Massage Guns",
+      "sku": "AR-DRAFT-001",
+      "shortDescription": "A black handheld massage-gun design with a textured grip, chrome-tone details and a multi-ball head shown in the reference imagery.",
+      "description": "This handheld massage-gun design combines a textured black handle with a sculpted body and chrome-tone trim. The supplied images show a multi-ball attachment fitted at the front, while the original promotional artwork also depicts other attachment shapes. The gallery highlights the visible grip, housing and head design. Confirm the exact model, included attachments and operating specifications before ordering or publishing technical claims.",
+      "features": [
+        "Handheld format with a textured black grip",
+        "Chrome-tone details around the housing",
+        "Multi-ball attachment shown in the references",
+        "Separate attachment shapes pictured in the supplier artwo"
+      ],
+      "images": [
+        {
+          "alt": "Black massage gun with a textured grip and chrome-tone trim on a warm ivory background.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p01/afb4d263-0a93-4d71-ae21-384e64116f50.png",
+          "role": "Hero"
+        },
+        {
+          "alt": "Three-quarter view of a black massage gun and its pictured multi-ball head.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p01/36867d46-72e5-49a1-988f-523728737d61.png",
+          "role": "Alternate view"
+        },
+        {
+          "alt": "Attachment-facing view of a massage gun with its multi-ball head.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p01/2f6c1c92-92ea-4e67-84fc-8ee61e68fa20.png",
+          "role": "Angle study"
+        },
+        {
+          "alt": "Close-up of the massage gun grip, housing join and chrome-tone collar.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p01/b2e97a70-0b64-4316-9b72-7689f27c66d1.png",
+          "role": "Detail close-up"
+        },
+        {
+          "alt": "Massage gun feature card showing handheld design, textured grip, multi-ball head and chrome-tone trim.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p01/31ab8cb9-eb4e-44b0-8bca-d7020a0c0133.png",
+          "role": "Feature card"
+        }
+      ],
+      "pricePkr": 3801,
+      "stock": 17,
+      "published": true,
+      "imagesApproved": true,
+      "salesUnitVerified": true,
+      "seoTitle": "Multi-Head Massage Gun | Alden Rovell",
+      "metaDescription": "Explore a handheld massage-gun design with a textured black grip, chrome-tone trim and a pictured multi-ball attachment at Alden Rovell. pack of 9 \n"
+    },
+    {
+      "id": "P02",
+      "slug": "cross-wrap-ring-design",
+      "title": "Cross-Wrap Ring Design",
+      "category": "Jewellery / Rings",
+      "sku": "AR-DRAFT-002",
+      "shortDescription": "A silver-tone ring design with crossing bands and a rectangular center detail, shown in smooth and clear-stone-accent styling.",
+      "description": "Crossing curved bands create the defining shape of this ring design, gathered around a small rectangular center detail. The references show both a smooth version and a version with a line of clear decorative stones. The polished, silver-tone appearance gives the design a clean, contemporary look. Confirm whether these are separate variants, a pair or another sales configuration before setting up purchase options.",
+      "features": [
+        "Crossing curved band design",
+        "Small rectangular keeper-style center",
+        "Silver-tone appearance in the main reference",
+        "Smooth and clear-stone-accent styling shown"
+      ],
+      "images": [
+        {
+          "alt": "Two silver-tone cross-wrap ring designs with rectangular center details.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p02/88989c8d-dbd0-4509-967e-12147c061438.png",
+          "role": "Hero"
+        },
+        {
+          "alt": "Alternate view of smooth and stone-accent cross-wrap ring designs.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p02/95966391-03c7-44aa-aa6c-45703f9882b9.png",
+          "role": "Alternate view"
+        },
+        {
+          "alt": "Overhead arrangement of two cross-wrap rings on a warm ivory background.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p02/0e21eef9-5ebc-4a21-b5df-f9dd272e5680.png",
+          "role": "Angle study"
+        },
+        {
+          "alt": "Close-up of a cross-wrap ring rectangular center and decorative stone stripe.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p02/f65f3860-067c-4167-a1ad-ca40e9c412c8.png",
+          "role": "Detail close-up"
+        },
+        {
+          "alt": "Cross-wrap ring feature card showing crossing bands, rectangular center, silver-tone look and stone accents.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p02/7ba51032-234f-4797-9bf5-4177a6fd4c50.png",
+          "role": "Feature card"
+        }
+      ],
+      "pricePkr": 1199,
+      "stock": 996,
+      "published": true,
+      "imagesApproved": true,
+      "salesUnitVerified": true,
+      "seoTitle": "Cross-Wrap Ring Design | Alden Rovell",
+      "metaDescription": "Discover a cross-wrap ring design with curved crossing bands, a rectangular center detail and silver-tone styling at Alden Rovell."
+    },
+    {
+      "id": "P03",
+      "slug": "heart-detail-ring-design",
+      "title": "Heart-Detail Ring Design",
+      "category": "Jewellery / Rings",
+      "sku": "AR-DRAFT-003",
+      "shortDescription": "A silver-tone heart-detail ring design featuring layered band styling, a smooth heart and a decorative stone-filled heart accent.",
+      "description": "This heart-detail ring design brings together a smooth heart accent, a stone-filled outlined heart and layered band styling. A row of clear decorative stones adds detail along the upper band, while the other visible surfaces have a polished silver-tone appearance. The gallery focuses on the heart shapes and band arrangement. Confirm the physical construction and the number of sellable pieces before describing it as a set.",
+      "features": [
+        "Smooth and outlined heart-shaped accents",
+        "Layered band styling",
+        "Clear decorative-stone details",
+        "Polished silver-tone appearance"
+      ],
+      "images": [
+        {
+          "alt": "Silver-tone heart-detail ring design with smooth and decorative-stone heart accents.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p03/0b304bdc-823d-4d0b-bbc2-0c44095d2860.png",
+          "role": "Hero"
+        },
+        {
+          "alt": "Front-oblique view of the layered heart-detail ring design.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p03/12ff9aba-5ac6-49fa-997b-5570793d0fa7.png",
+          "role": "Alternate view"
+        },
+        {
+          "alt": "Alternate oblique view showing heart accents and layered ring bands.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p03/ea23de10-404f-42c1-b175-073ab6e154dd.png",
+          "role": "Angle study"
+        },
+        {
+          "alt": "Close-up of smooth and stone-filled heart accents with a decorative stone band.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p03/c2dc4a1c-1227-4204-bfac-d7df9d5c2e99.png",
+          "role": "Detail close-up"
+        },
+        {
+          "alt": "Heart-detail ring feature card showing heart accents, layered styling, silver-tone look and stone accents.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p03/8f1c2c85-6cf7-4c26-8760-94566eaec2e8.png",
+          "role": "Feature card"
+        }
+      ],
+      "pricePkr": 1199,
+      "stock": 99,
+      "published": true,
+      "imagesApproved": true,
+      "salesUnitVerified": true,
+      "seoTitle": "Heart-Detail Ring Design | Alden Rovell",
+      "metaDescription": "Explore a silver-tone heart-detail ring design with layered bands, smooth heart styling and clear decorative stone accents at Alden Rovell."
+    },
+    {
+      "id": "P04",
+      "slug": "brown-thong-sandals",
+      "title": "Brown Thong Sandals",
+      "category": "Men's Footwear / Men's slipers",
+      "sku": "AR-DRAFT-004",
+      "shortDescription": "Brown toe-post sandals with stitched V-shaped straps, a ribbed footbed and a contrasting layered sole edge.",
+      "description": "These brown thong sandals feature a toe-post shape with V-shaped straps and visible stitching. The footbed has a ribbed texture, and the side profile shows a tan-colored edge above a dark outsole. The gallery presents the pair from above, at a low side angle and in close-up so the visible construction can be reviewed. Confirm the material, size range and manufacturer before publishing a full specification.",
+      "features": [
+        "Brown V-shaped straps with visible stitching",
+        "Toe-post construction",
+        "Ribbed footbed surface",
+        "Tan and dark layered sole edge"
+      ],
+      "images": [
+        {
+          "alt": "Pair of brown thong sandals with stitched V-shaped straps on a warm ivory background.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p04/b5c5133c-997e-4f78-9ad2-c731df07f379.png",
+          "role": "Hero"
+        },
+        {
+          "alt": "Overhead view of brown toe-post sandals and ribbed footbeds.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p04/6035adb5-1826-403b-bf52-4b84c6972b8e.png",
+          "role": "Alternate view"
+        },
+        {
+          "alt": "Low side view of brown sandals showing the layered tan and dark sole edge.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p04/7541e100-865f-40b0-9547-40440f087c90.png",
+          "role": "Angle study"
+        },
+        {
+          "alt": "Close-up of sandal strap stitching, toe post and ribbed footbed.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p04/a0d3d469-efa2-4c0b-820d-1256cfc6b774.png",
+          "role": "Detail close-up"
+        },
+        {
+          "alt": "Brown sandal feature card showing V-shaped straps, visible stitching, ribbed footbed and layered sole edge.",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p04/0020507d-f7ad-4fdb-a375-1fc80f5b82cc.png",
+          "role": "Feature card"
+        }
+      ],
+      "pricePkr": 1699,
+      "stock": 83,
+      "published": true,
+      "imagesApproved": true,
+      "salesUnitVerified": true,
+      "seoTitle": "Brown Thong Sandals | Alden Rovell",
+      "metaDescription": "View brown thong sandals with stitched V-shaped straps, a ribbed footbed and a layered sole edge at Alden Rovell."
+    },
+    {
+      "id": "P05",
+      "slug": "elegant-black-flat-mules-for-women",
+      "title": "Elegant Black Flat Mules for Women",
+      "category": "Footwear / Women's Flats",
+      "sku": "AR-FW-P05",
+      "shortDescription": "Pointed-toe women's flat mules in Grey/Black and Maroon/Black. Sizes 36–41.",
+      "description": "Elegant slip-on pointed-toe flat mules with a contrasting black front panel and decorative trim. Colors: Grey/Black and Maroon/Black. Sizes: 36, 37, 38, 39, 40 and 41. Illustrative studio images: verify against actual stock before publication.",
+      "features": [
+        "Colors: Grey/Black, Maroon/Black",
+        "Sizes: 36, 37, 38, 39, 40, 41",
+        "Pointed-toe slip-on flat mule",
+        "Decorative front trim",
+        "Illustrative photos; confirm physical stock"
+      ],
+      "images": [
+        {
+          "alt": "grey black hero flat mules",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p05/6e775c25-5662-4096-b260-1b6fd5c6aad4.png",
+          "role": "hero"
+        },
+        {
+          "alt": "maroon black hero flat mules",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p05/110dcef0-8a61-4c80-85b5-a8301cc572ce.png",
+          "role": "color"
+        },
+        {
+          "alt": "maroon black rear flat mules",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p05/f593d564-b112-4c30-8159-c1e282c813af.png",
+          "role": "angle"
+        },
+        {
+          "alt": "grey black detail flat mules",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p05/2ddcd7bf-9860-407e-88d0-7e6743027ed9.png",
+          "role": "detail"
+        },
+        {
+          "alt": "maroon black detail flat mules",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p05/193b7efe-2f4c-41b7-a920-eaf5f14b4bdb.png",
+          "role": "detail"
+        }
+      ],
+      "pricePkr": 2999,
+      "stock": 500,
+      "published": true,
+      "imagesApproved": true,
+      "salesUnitVerified": true,
+      "seoTitle": "Elegant Flat Mules for Women | Alden Rovell",
+      "metaDescription": "Elegant women's flat mules in Grey/Black and Maroon/Black, sizes 36–41. Price and availability to be confirmed."
+    },
+    {
+      "id": "P06",
+      "slug": "stylish-new-fancy-womens-slippers",
+      "title": "Stylish New Fancy Women's Slippers",
+      "category": "Footwear / Women's Sandals",
+      "sku": "AR-FW-P06",
+      "shortDescription": "Multicolor cross-strap women's flat slippers in sizes 7, 8 and 10.",
+      "description": "Stylish women's open-toe flat slide slippers with an interwoven multicolor strap design. Available sizes: 7, 8 and 10. Colors and base shades shown in gallery are illustrative. Verify size scale, colors, materials, comfort, stock and photos against the physical supplier item before publishing.",
+      "features": [
+        "Colors: Multi (assorted base shades shown)",
+        "Sizes: 7, 8, 10 (supplier size scale to be confirmed)",
+        "Open-toe slip-on slide design",
+        "Multicolor crisscross straps",
+        "AI studio visuals are illustrative; verify against supplier product"
+      ],
+      "images": [
+        {
+          "alt": "Multicolor flat slippers in white, pink, black and tan",
+          "src": "/products/p06/01-collection-hero.webp",
+          "role": "hero"
+        },
+        {
+          "alt": "White base multicolor cross strap slippers",
+          "src": "/products/p06/02-white-multicolor.webp",
+          "role": "color"
+        },
+        {
+          "alt": "Pink base multicolor cross strap slippers",
+          "src": "/products/p06/03-pink-multicolor.webp",
+          "role": "color"
+        },
+        {
+          "alt": "Black base multicolor cross strap slippers",
+          "src": "/products/p06/04-black-multicolor.webp",
+          "role": "color"
+        },
+        {
+          "alt": "Tan base multicolor cross strap slippers",
+          "src": "/products/p06/05-tan-multicolor.webp",
+          "role": "color"
+        }
+      ],
+      "pricePkr": 1799,
+      "stock": 100,
+      "published": true,
+      "imagesApproved": true,
+      "salesUnitVerified": true,
+      "seoTitle": "Stylish Multicolor Women's Flat Slippers | Alden Rovell",
+      "metaDescription": "Explore stylish multicolor cross-strap women's slide slippers. Sizes 7, 8 and 10; final price and availability to be confirmed."
+    },
+    {
+      "id": "P07",
+      "slug": "golden-heart-wings-pendant-necklace",
+      "title": "Golden Heart & Wings Pendant Necklace",
+      "category": "Jewellery / Necklace",
+      "sku": "AR-JW-P07",
+      "shortDescription": "Golden-tone heart pendant necklace with wing-shaped sparkling stone accents. Standard size.",
+      "description": "Elegant golden-tone pendant necklace featuring a heart motif framed by two wing-shaped sections with clear, sparkling stone accents. Color: Golden. Size: Standard. Supplied photos show front and angled views. Metal composition, stone material, plating, chain length and packaging are not verified and must be confirmed before publication.",
+      "features": [
+        "Color: Golden",
+        "Size: Standard",
+        "Heart-shaped central pendant",
+        "Wing-inspired decorative design",
+        "Clear sparkling stone detailing (material not confirmed)"
+      ],
+      "images": [
+        {
+          "alt": "Golden heart and wings necklace front view",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p07/147f3085-9b3e-441f-90a4-371673428412.png",
+          "role": "hero"
+        },
+        {
+          "alt": "Golden heart and wings necklace angled view",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p07/d769c077-2582-4d45-8fb4-3bf78c921d6a.png",
+          "role": "angle"
+        },
+        {
+          "alt": "Golden heart pendant close-up",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p07/118bf398-bd72-4265-8ae9-83b5cd298bdf.png",
+          "role": "detail"
+        },
+        {
+          "alt": "Golden wing detail close-up",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p07/e76be540-697c-45b5-9100-2cd9df1790eb.png",
+          "role": "detail"
+        }
+      ],
+      "pricePkr": 1999,
+      "stock": 199,
+      "published": true,
+      "imagesApproved": true,
+      "salesUnitVerified": true,
+      "seoTitle": "Golden Heart & Wings Pendant Necklace | Alden Rovell",
+      "metaDescription": "Explore a golden-tone heart and wings pendant necklace with sparkling accents, standard size. Price and availability pending confirmation."
+    },
+    {
+      "id": "P08",
+      "slug": "golden-butterfly-pearl-earrings",
+      "title": "Golden Butterfly Pearl Earrings",
+      "category": "Jewellery / Earrings",
+      "sku": "AR-JW-P08",
+      "shortDescription": "Golden-tone butterfly earrings with openwork wings, clear decorative stones and white pearl-style accents.",
+      "description": "A butterfly-inspired earring design featuring golden-tone openwork wings, delicate spoke details, clear decorative stones and white pearl-style accents. The contrasting stone-set and openwork sections create a detailed, elegant finish. Color: Golden. Supplier-listed size: Free Size.",
+      "features": [
+        "Color: Golden",
+        "Supplier-listed size: Free Size",
+        "Butterfly-inspired wing design",
+        "Openwork golden-tone detailing",
+        "Clear decorative stones and white pearl-style accents"
+      ],
+      "images": [
+        {
+          "alt": "Golden Butterfly Pearl Earrings",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p08/128b9abc-f5cc-46d9-8866-45864337706a.png",
+          "role": "Hero"
+        }
+      ],
+      "pricePkr": 1199,
+      "stock": 99,
+      "published": true,
+      "imagesApproved": true,
+      "salesUnitVerified": true,
+      "seoTitle": "Golden Butterfly Pearl Earrings | Alden Rovell",
+      "metaDescription": "Explore golden-tone butterfly earrings with openwork wings, clear decorative stones and white pearl-style accents at Alden Rovell."
+    },
+    {
+      "id": "P2E18917EB8B3",
+      "slug": "white-textured-flat-slides",
+      "title": "White Textured Flat Slides",
+      "category": "Footwear / Women's Flats",
+      "sku": "AR-FW-WTS01",
+      "shortDescription": "White open-toe flat slides with a textured strap and gold-tone detail.",
+      "description": "These white slip-on slides feature a wide croc-embossed strap with a gold-tone ornament, an open toe, and a flat sole with a contrasting black edge. Available in White, sizes 7, 8, 9, and 10.",
+      "features": [
+        "Sizes: 7, 8, 9, 10",
+        "Color: White"
+      ],
+      "images": [
+        {
+          "alt": "White Textured Flat Slides",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/p2e18917eb8b3/7cb6f5b4-5757-4f68-b9fa-787bbb38e5c9.png",
+          "role": "Alternate view"
+        }
+      ],
+      "pricePkr": 2999,
+      "stock": 99,
+      "published": true,
+      "imagesApproved": true,
+      "salesUnitVerified": true,
+      "seoTitle": "White Textured Flat Slides",
+      "metaDescription": "White open-toe flat slides with a textured strap and gold-tone detail."
+    },
+    {
+      "id": "PCOUPLEWATCH26",
+      "slug": "mens-couple-watch-red-green-champagne",
+      "title": "Men Best for Couples Watch Pack Of 1",
+      "category": "Men's Watches / Couple Watches",
+      "sku": "AR-COUPLE-WATCH-01",
+      "shortDescription": "Silver-tone couple-style watches with red, green and champagne dial designs.",
+      "description": "Elegant silver-tone watch designs with polished linked bracelets. Three dial colors are pictured: ruby red, emerald green and champagne. Each styled gallery visual includes two watches to demonstrate matching designs. The original listing specifies Pack of 1; delivered quantity, available colors, precise materials, branding and stock must be confirmed before checkout is enabled.",
+      "features": [
+        "Silver-tone linked bracelet design",
+        "Red, green and champagne dial designs pictured",
+        "Couple-inspired matching watch styling",
+        "Original supplier listing states Pack of 1"
+      ],
+      "images": [
+        {
+          "alt": "Men Best for Couples Watch Pack Of 1",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/pcouplewatch26/56161d74-a610-49af-a611-9e31ffbfdc56.png",
+          "role": "Hero"
+        },
+        {
+          "alt": "Men Best for Couples Watch Pack Of 1",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/pcouplewatch26/8f8a6502-abb5-4b50-9618-04a40ad87ef8.png",
+          "role": "Alternate view"
+        },
+        {
+          "alt": "Men Best for Couples Watch Pack Of 1",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/pcouplewatch26/05b4607c-22fd-48f8-8a99-4a6c03c01b48.png",
+          "role": "Alternate view"
+        }
+      ],
+      "pricePkr": 3999,
+      "stock": 99,
+      "published": true,
+      "imagesApproved": true,
+      "salesUnitVerified": true,
+      "seoTitle": "Couple Style Watches in Three Dial Colours | Alden Rovell",
+      "metaDescription": "Explore silver-tone watch designs with red, green and champagne dials. Rs. 3,999 at Alden Rovell Pakistan. Availability pending confirmation."
+    },
+    {
+      "id": "PNECK4D2026",
+      "slug": "portable-neck-shoulder-massager-with-heat",
+      "title": "Portable Neck and Shoulder Massager with Heat",
+      "category": "Massagers / Neck & Shoulder Massagers",
+      "sku": "AR-NECK-4D-GREEN",
+      "shortDescription": "Olive-green portable 4D kneading neck and shoulder massager with heat, multiple massage modes and a wearable strap.",
+      "description": "A portable neck and shoulder massager with an olive-green textured body, finger-style kneading heads, heat control, and a brown wearable strap. Designed for use around the neck and shoulders and shown in supplier references being used on other body areas. Green color, Standard Size. Rechargeable and multiple-mode features are described in the supplier artwork; follow the included product instructions for safe operation.",
+      "features": [
+        "4D kneading-style finger massage heads",
+        "Heat function and adjustable massage modes",
+        "Wearable brown strap for neck and shoulder use",
+        "Rechargeable design as described in supplier material",
+        "Color: Green",
+        "Size: Standard Size"
+      ],
+      "images": [
+        {
+          "alt": "Green 4D neck and shoulder massager with brown strap and packaging in ivory luxury display",
+          "src": "/products/green-neck-massager/01-hero.webp",
+          "role": "Hero"
+        },
+        {
+          "alt": "Demonstration of green neck massager placed on neck and shoulder area",
+          "src": "/products/green-neck-massager/02-neck-use.webp",
+          "role": "Neck and shoulder use"
+        },
+        {
+          "alt": "Green neck and shoulder massager with examples of shoulder and arm use",
+          "src": "/products/green-neck-massager/03-multi-use.webp",
+          "role": "Multi-use display"
+        }
+      ],
+      "pricePkr": 4999,
+      "stock": 99,
+      "published": true,
+      "imagesApproved": true,
+      "salesUnitVerified": true,
+      "seoTitle": "Portable Neck and Shoulder Massager with Heat | Alden Rovell",
+      "metaDescription": "Shop the green portable 4D kneading neck and shoulder massager with heat at Alden Rovell Pakistan. Standard size. Rs. 5,299."
+    },
+    {
+      "id": "PWOMWATCH01",
+      "slug": "womens-water-resistant-daily-use-watch-1",
+      "title": "Women's Water Resistant For Daily Use Watch 1",
+      "category": "Women's Watches",
+      "sku": "AR-WOM-WATCH-001",
+      "shortDescription": "Elegant gold-tone everyday watch with a black oval dial, Roman numeral accents and patterned bracelet. Golden, Standard Size.",
+      "description": "A refined everyday wristwatch with a gold-tone oval case, black dial, crisp Roman numeral accents and a decorative gold-tone link bracelet. Its minimalist profile pairs beautifully with both casual and dressier outfits. Color: Golden. Size: Standard Size.",
+      "features": [
+        "Color: Golden",
+        "Size: Standard Size",
+        "Gold-tone oval watch case",
+        "Black dial with Roman numeral hour markers",
+        "Patterned gold-tone bracelet",
+        "Water resistance: supplier title only; rating and testing not yet verified"
+      ],
+      "images": [
+        {
+          "alt": "Women's Water Resistant For Daily Use Watch 1",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/pwomwatch01/917096b5-a34e-4cc9-8db3-9c9a5f31b60e.png",
+          "role": "Hero"
+        },
+        {
+          "alt": "Women's Water Resistant For Daily Use Watch 1",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/pwomwatch01/7dc99c2d-e6ca-4d1d-b4b5-4f79f1ebbc85.png",
+          "role": "Alternate view"
+        },
+        {
+          "alt": "Women's Water Resistant For Daily Use Watch 1",
+          "src": "https://vgwrvdgenovgegejsxbv.supabase.co/storage/v1/object/public/product-images/pwomwatch01/29e5eb25-c264-4a2d-8c2f-1ff76a5aa482.png",
+          "role": "Alternate view"
+        }
+      ],
+      "pricePkr": 3199,
+      "stock": 55,
+      "published": true,
+      "imagesApproved": true,
+      "salesUnitVerified": true,
+      "seoTitle": "Women's Gold-Tone Oval Watch | Alden Rovell",
+      "metaDescription": "Shop a golden women's oval-dial watch with a black face, Roman numeral accents and patterned bracelet at Alden Rovell."
+    }
+  ],
+  "categories": [
+    {
+      "id": "989ed978-9247-445e-97b5-0f24789e381e",
+      "name": "Lifestyle",
+      "slug": "lifestyle",
+      "parent_id": null,
+      "visible": true,
+      "sort_order": 10,
+      "image_url": null
+    },
+    {
+      "id": "67fc738f-806e-4e73-953d-107e82e64a61",
+      "name": "Massage Guns",
+      "slug": "massagers-massage-guns",
+      "parent_id": "cb54e0fa-eeed-472a-8158-b96cc35f58f8",
+      "visible": true,
+      "sort_order": 10,
+      "image_url": "/categories/massagers-massage-guns.webp"
+    },
+    {
+      "id": "2bf618e0-2d22-4456-92d9-8bbda5d0a7ab",
+      "name": "Necklace",
+      "slug": "jewellery-necklace",
+      "parent_id": "ccd9a99e-3700-4462-8ffd-24d004cc796c",
+      "visible": true,
+      "sort_order": 10,
+      "image_url": "/categories/jewellery-necklace.webp"
+    },
+    {
+      "id": "9fa04eaf-8cfa-4d93-90d0-d8cf19a22fc7",
+      "name": "Women's Khussa",
+      "slug": "footwear-women-s-khussa",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 10,
+      "image_url": "/categories/footwear-women-s-khussa.webp"
+    },
+    {
+      "id": "cb54e0fa-eeed-472a-8158-b96cc35f58f8",
+      "name": "Massagers",
+      "slug": "massagers",
+      "parent_id": null,
+      "visible": true,
+      "sort_order": 15,
+      "image_url": null
+    },
+    {
+      "id": "5ce355f4-fcaf-44ff-a7ee-dfd1a6baf1a9",
+      "name": "Accessories",
+      "slug": "accessories",
+      "parent_id": null,
+      "visible": true,
+      "sort_order": 20,
+      "image_url": null
+    },
+    {
+      "id": "8ef7b732-0b04-425a-b957-4ba8e8f2e9a2",
+      "name": "Artificial Sets",
+      "slug": "jewellery-artificial-sets",
+      "parent_id": "ccd9a99e-3700-4462-8ffd-24d004cc796c",
+      "visible": true,
+      "sort_order": 20,
+      "image_url": "/categories/jewellery-artificial-sets.webp"
+    },
+    {
+      "id": "6995dbd3-31d0-4c4c-b662-280c3bff046c",
+      "name": "Neck & Shoulder Massagers",
+      "slug": "massagers-neck-shoulder",
+      "parent_id": "cb54e0fa-eeed-472a-8158-b96cc35f58f8",
+      "visible": true,
+      "sort_order": 20,
+      "image_url": null
+    },
+    {
+      "id": "ecab18ad-3006-4e54-bbb0-c055641e55d6",
+      "name": "Women's Flats",
+      "slug": "footwear-women-s-flats",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 20,
+      "image_url": "/categories/footwear-women-s-flats.webp"
+    },
+    {
+      "id": "ccd9a99e-3700-4462-8ffd-24d004cc796c",
+      "name": "Jewellery",
+      "slug": "jewellery",
+      "parent_id": null,
+      "visible": true,
+      "sort_order": 25,
+      "image_url": null
+    },
+    {
+      "id": "63281831-17bb-4dfd-91c0-274da7386875",
+      "name": "Earrings",
+      "slug": "jewellery-earrings",
+      "parent_id": "ccd9a99e-3700-4462-8ffd-24d004cc796c",
+      "visible": true,
+      "sort_order": 30,
+      "image_url": "/categories/jewellery-earrings.webp"
+    },
+    {
+      "id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "name": "Footwear",
+      "slug": "footwear",
+      "parent_id": null,
+      "visible": true,
+      "sort_order": 30,
+      "image_url": null
+    },
+    {
+      "id": "038cb134-ca85-4ded-92dc-3ac9754c7026",
+      "name": "Women's Sandals",
+      "slug": "footwear-women-s-sandals",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 30,
+      "image_url": "/categories/footwear-women-s-sandals.webp"
+    },
+    {
+      "id": "a0bafd9f-32c4-4a6c-bffc-7073a435d5d5",
+      "name": "Men's Watches",
+      "slug": "mens-watches",
+      "parent_id": null,
+      "visible": true,
+      "sort_order": 40,
+      "image_url": "/collection-covers/mens-watches.webp"
+    },
+    {
+      "id": "00b36ef0-902f-414c-a85a-d63ec9b3dcce",
+      "name": "Rings",
+      "slug": "jewellery-rings",
+      "parent_id": "ccd9a99e-3700-4462-8ffd-24d004cc796c",
+      "visible": true,
+      "sort_order": 40,
+      "image_url": "/categories/jewellery-rings.webp"
+    },
+    {
+      "id": "b204faee-82c3-487a-99d6-07c01e9d1146",
+      "name": "Women's Pumps",
+      "slug": "footwear-women-s-pumps",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 40,
+      "image_url": "/categories/footwear-women-s-pumps.webp"
+    },
+    {
+      "id": "b5289fd3-92e5-450d-af95-e80ac774c8fd",
+      "name": "Couple Watches",
+      "slug": "mens-watches-couple",
+      "parent_id": "a0bafd9f-32c4-4a6c-bffc-7073a435d5d5",
+      "visible": true,
+      "sort_order": 41,
+      "image_url": "/products/couple-watch-set/red.webp"
+    },
+    {
+      "id": "7b5d2268-a92f-4ba4-b6ba-d0a08f8f7336",
+      "name": "Women's Watches",
+      "slug": "womens-watches",
+      "parent_id": null,
+      "visible": true,
+      "sort_order": 45,
+      "image_url": "/collection-covers/womens-watches.webp"
+    },
+    {
+      "id": "a41db2f5-2dfa-47d0-bd41-162cf9f416ae",
+      "name": "Bangles & Bracelets",
+      "slug": "jewellery-bangles-and-bracelets",
+      "parent_id": "ccd9a99e-3700-4462-8ffd-24d004cc796c",
+      "visible": true,
+      "sort_order": 50,
+      "image_url": "/categories/jewellery-bangles-and-bracelets.webp"
+    },
+    {
+      "id": "64911b97-69bb-4fbf-9ae7-d88b586b1c59",
+      "name": "Women's Heels",
+      "slug": "footwear-women-s-heels",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 50,
+      "image_url": "/categories/footwear-women-s-heels.webp"
+    },
+    {
+      "id": "3df0d9b9-6dc2-451e-bd5f-0dbf2415de17",
+      "name": "Men's Shoes",
+      "slug": "footwear-men-s-shoes",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 60,
+      "image_url": "/categories/footwear-men-s-shoes.webp"
+    },
+    {
+      "id": "aa99cfcf-9c37-4809-bcda-69eb15a9618e",
+      "name": "Tikka",
+      "slug": "jewellery-tikka",
+      "parent_id": "ccd9a99e-3700-4462-8ffd-24d004cc796c",
+      "visible": true,
+      "sort_order": 60,
+      "image_url": "/categories/jewellery-tikka.webp"
+    },
+    {
+      "id": "c8d8be1e-3b0b-4fc6-91ea-ffb521bc2295",
+      "name": "Jewellery Accessories",
+      "slug": "jewellery-jewellery-accessories",
+      "parent_id": "ccd9a99e-3700-4462-8ffd-24d004cc796c",
+      "visible": true,
+      "sort_order": 70,
+      "image_url": "/categories/jewellery-jewellery-accessories.webp"
+    },
+    {
+      "id": "2b5f071c-1a9d-4785-8a54-958b02007489",
+      "name": "Men's Slippers",
+      "slug": "footwear-men-s-slippers",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 70,
+      "image_url": "/categories/footwear-men-s-slippers.webp"
+    },
+    {
+      "id": "a194defe-df3e-4ce0-a7d4-11d4639e27a5",
+      "name": "Anklets",
+      "slug": "jewellery-anklets",
+      "parent_id": "ccd9a99e-3700-4462-8ffd-24d004cc796c",
+      "visible": true,
+      "sort_order": 80,
+      "image_url": "/categories/jewellery-anklets.webp"
+    },
+    {
+      "id": "f1a04589-4779-403e-aa41-1fa039547978",
+      "name": "Men's Sandals",
+      "slug": "footwear-men-s-sandals",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 80,
+      "image_url": "/categories/footwear-men-s-sandals.webp"
+    },
+    {
+      "id": "75444635-11c4-46a8-a1fd-6947576e1986",
+      "name": "Jewellery Organizers",
+      "slug": "jewellery-jewellery-organizers",
+      "parent_id": "ccd9a99e-3700-4462-8ffd-24d004cc796c",
+      "visible": true,
+      "sort_order": 90,
+      "image_url": "/categories/jewellery-jewellery-organizers.webp"
+    },
+    {
+      "id": "0c7339de-1b60-4902-a8b5-b7d80adb9d4c",
+      "name": "Men's Joggers",
+      "slug": "footwear-men-s-joggers",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 90,
+      "image_url": "/categories/footwear-men-s-joggers.webp"
+    },
+    {
+      "id": "cce0fc01-34ca-4a52-b295-8c5816bf4030",
+      "name": "hadi",
+      "slug": "hadi",
+      "parent_id": "989ed978-9247-445e-97b5-0f24789e381e",
+      "visible": true,
+      "sort_order": 100,
+      "image_url": null
+    },
+    {
+      "id": "6c21b4f6-c611-4b2f-8ec8-6ff939e9c004",
+      "name": "Women's Joggers",
+      "slug": "footwear-women-s-joggers",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 100,
+      "image_url": "/categories/footwear-women-s-joggers.webp"
+    },
+    {
+      "id": "c40af9db-103b-4d1d-bd40-5e63928f9f84",
+      "name": "Shoes Accessories",
+      "slug": "footwear-shoes-accessories",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 110,
+      "image_url": "/categories/footwear-shoes-accessories.webp"
+    },
+    {
+      "id": "39e72abb-fff7-42fe-ab62-8d6722e9c46a",
+      "name": "Men's Chappals",
+      "slug": "footwear-men-s-chappals",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 120,
+      "image_url": "/categories/footwear-men-s-chappals.webp"
+    },
+    {
+      "id": "fc1da400-2398-4cbe-9ada-05415c444b1e",
+      "name": "Men's Boots",
+      "slug": "footwear-men-s-boots",
+      "parent_id": "57879db1-f98c-4727-8573-6d9defe22379",
+      "visible": true,
+      "sort_order": 130,
+      "image_url": "/categories/footwear-men-s-boots.webp"
+    }
+  ]
+}
