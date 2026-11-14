@@ -17,7 +17,7 @@ const collections:Cat[]=[
 {name:'Footwear',label:"Women's Footwear",description:'Refined everyday styles',kind:'existing',cover:'womens-footwear',audience:'women'},
 {name:"Men's Watches",label:"Men's Watches",description:'Launching soon',kind:'planned',cover:'mens-watches'},
 {name:"Women's Watches",label:"Women's Watches",description:'Launching soon',kind:'planned',cover:'womens-watches'},
-{name:"Men's T-Shirts",label:"Men's T-Shirts",description:'Launching soon',kind:'planned',cover:'mens-tshirts'},
+{name:"Men's T-Shirts",label:"Men's T-Shirts",description:'Everyday streetwear',kind:'planned',cover:'mens-tshirts'},
 {name:"Women's T-Shirts",label:"Women's T-Shirts",description:'Launching soon',kind:'planned',cover:'womens-tshirts'}
 ];
 const category=(p:Product)=>p.category.split('/')[0].trim();
