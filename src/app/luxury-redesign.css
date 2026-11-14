@@ -345,3 +345,35 @@ body:not(:has(.ar-luxury-shop)) .site-header .desktop-nav .cp-nav-group>a{font-s
 .ar-cart-variant{font-size:12px!important;color:#8a1930!important;font-weight:700!important}
 @media(max-width:500px){.detail-panel .ar-variant-choice{font-size:11px;min-height:40px;padding:10px 13px}}
 @media(prefers-reduced-motion:reduce){.detail-panel .ar-variant-choice{transition:none}}
+
+
+/* Shop All compact category thumbnails, without changing any other page or product cards */
+.ar-public-main .ar-d1-shop-landing .ar-luxe-shop-active-grid{
+ grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ gap:14px!important;
+}
+.ar-public-main .ar-d1-shop-landing .ar-luxe-shop-collection-card{
+ padding:5px 5px 12px!important;
+ border-radius:16px!important;
+ gap:4px!important;
+}
+.ar-public-main .ar-d1-shop-landing .ar-luxe-shop-collection-card .ar-d1-category-image{
+ height:clamp(134px,12vw,182px)!important;
+ border-radius:11px!important;
+}
+.ar-public-main .ar-d1-shop-landing .ar-luxe-shop-card-caption{padding:8px 10px 0;}
+.ar-public-main .ar-d1-shop-landing .ar-luxe-shop-card-caption strong{font-size:13px;}
+.ar-public-main .ar-d1-shop-landing .ar-luxe-shop-collection-card .ar-luxe-shop-card-description{padding:0 10px!important;font-size:10px;}
+@media(max-width:1100px){
+ .ar-public-main .ar-d1-shop-landing .ar-luxe-shop-active-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important}
+ .ar-public-main .ar-d1-shop-landing .ar-luxe-shop-collection-card .ar-d1-category-image{height:clamp(125px,17vw,170px)!important}
+}
+@media(max-width:780px){
+ .ar-public-main .ar-d1-shop-landing .ar-luxe-shop-active-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ .ar-public-main .ar-d1-shop-landing .ar-luxe-shop-collection-card .ar-d1-category-image{height:clamp(115px,31vw,155px)!important}
+ .ar-public-main .ar-d1-shop-landing .ar-luxe-shop-card-caption strong{font-size:12px}
+}
+@media(max-width:460px){
+ .ar-public-main .ar-d1-shop-landing .ar-luxe-shop-collection-card .ar-d1-category-image{height:clamp(105px,32vw,137px)!important}
+ .ar-public-main .ar-d1-shop-landing .ar-luxe-shop-card-caption strong{font-size:11px}
+}
