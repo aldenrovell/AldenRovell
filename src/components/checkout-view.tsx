@@ -6,7 +6,7 @@ import Link from 'next/link';
 import {ArrowRight,ArrowLeft,CheckCircle2,ShieldCheck,Truck,LockKeyhole,Check} from 'lucide-react';
 import {useCart} from './cart-provider';
 import type {Product,StoreSettings} from '@/lib/types';
-import {canPurchase,formatPrice,getDeliveryFee} from '@/lib/types';
+import {itemsAvailable,validVariant,matchingImage,cartItemKey,formatPrice,getDeliveryFee} from '@/lib/types';
 import {validatePkPhone} from '@/lib/validate';
 const provinces=['Sindh','Punjab','Khyber Pakhtunkhwa','Balochistan','Islamabad Capital Territory','Gilgit-Baltistan','Azad Jammu & Kashmir'];
 type Receipt={reference:string;subtotalPkr:number;totalPkr:number|null;shippingPkr:number|null};
@@ -15,7 +15,7 @@ export function CheckoutView({products,settings}:{products:Product[];settings:St
  const [form,setForm]=useState({name:'',phone:'',city:'',province:'Sindh',address:'',notes:''});
  const [agree,setAgree]=useState(false),[sending,setSending]=useState(false),[error,setError]=useState(''),[receipt,setReceipt]=useState<Receipt|null>(null),[idempotency,setIdempotency]=useState('');
  const lines=items.map(x=>({...x,product:products.find(p=>p.id===x.id)}));
- const eligible=items.length>0&&lines.every(x=>x.product&&canPurchase(x.product)&&x.quantity<=(x.product.stock??0));
+ const eligible=itemsAvailable(items,products);
  const subtotal=lines.reduce((a,x)=>a+(x.product?.pricePkr??0)*x.quantity,0);
  const quantity=items.reduce((sum,x)=>sum+x.quantity,0),shipping=getDeliveryFee(quantity);
  const feeKnown=settings.codEnabled;
@@ -27,7 +27,7 @@ export function CheckoutView({products,settings}:{products:Product[];settings:St
   setSending(true);
   let key=idempotency;if(!key){key=crypto.randomUUID();setIdempotency(key);}
   try{
-   const response=await fetch('/api/orders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({customer:form,items:items.map(({id,quantity})=>({id,quantity})),idempotencyKey:key})});
+   const response=await fetch('/api/orders',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({customer:form,items:items.map(({id,quantity,color,size})=>({id,quantity,...(color&&size?{color,size}:{})})),idempotencyKey:key})});
    const data=await response.json();
    if(!response.ok)throw new Error(data.error||'Your request could not be saved.');
    setReceipt({reference:data.reference,subtotalPkr:data.subtotalPkr,shippingPkr:data.shippingPkr,totalPkr:data.totalPkr});clear();
@@ -55,7 +55,7 @@ export function CheckoutView({products,settings}:{products:Product[];settings:St
     <p className="ar-checkout-privacy"><ShieldCheck size={17}/> Private order details. No payment charged online.</p></div>
    </form>
    <aside className={"ar-easy-review "+styles.review} aria-label="Your order summary"><div className="ar-review-top"><span className="eyebrow">02 / ORDER SUMMARY</span><h2>Your selection</h2><p>{quantity} {quantity===1?'item':'items'} in your bag</p></div>
-    <div className={"ar-review-products "+styles.products}>{lines.map(({id,quantity:qty,product})=><div className="ar-review-item" key={id}><div className="ar-review-thumb">{product?.images[0]?.src&&<Image src={product.images[0].src} alt="" fill sizes="65px" unoptimized/>}</div><div><strong>{product?.title||id}</strong><span>Qty: {qty}</span></div><b>{formatPrice((product?.pricePkr??0)*qty)}</b></div>)}</div>
+    <div className={"ar-review-products "+styles.products}>{lines.map(({id,quantity:qty,color,size,product})=><div className="ar-review-item" key={cartItemKey({id,color,size})}><div className="ar-review-thumb">{product?.images[0]?.src&&<Image src={matchingImage(product,color).src} alt="" fill sizes="65px" unoptimized/>}</div><div><strong>{product?.title||id}</strong>{(color||size)&&<span>{color||'No color'} / {size||'No size'}</span>}<span>Qty: {qty}</span></div><b>{formatPrice((product?.pricePkr??0)*qty)}</b></div>)}</div>
     <div className={"ar-review-totals "+styles.totals}><div><span>Subtotal</span><b>{formatPrice(subtotal)}</b></div><div><span>Delivery</span><b className={shipping===0?'ar-free':''}>{feeKnown?(shipping===0?'FREE':formatPrice(shipping)):'To be confirmed'}</b></div><div className="ar-review-final"><span>Estimated total</span><strong>{feeKnown?formatPrice(subtotal+shipping):'To be confirmed'}</strong></div></div>
     <div className={"ar-review-offer "+styles.offer}><Truck size={21}/><div><strong>{quantity>=2?'Free delivery unlocked':'One more item = FREE delivery'}</strong><span>{quantity>=2?'2+ items ship free across Pakistan.':'Single-item delivery Rs. 199.'}</span></div></div>
     <Link href="/cart" className="ar-edit-bag">Edit shopping bag <ArrowRight size={15}/></Link>
