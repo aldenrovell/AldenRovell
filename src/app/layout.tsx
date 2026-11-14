@@ -6,6 +6,7 @@ import '@/app/offer-ticker.css';
 import '@/app/shop-luxury.css';
 import '@/app/design01.css';
 import '@/app/design01-admin.css';
+import '@/app/luxury-redesign.css';
 import {CartProvider} from '@/components/cart-provider';
 import {SiteFrame} from '@/components/site-frame';
 import {SiteHeader} from '@/components/site-header';
