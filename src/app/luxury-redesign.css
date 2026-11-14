@@ -125,3 +125,102 @@ body:not(:has(.ar-luxury-shop)) .site-header .desktop-nav .cp-nav-group>a{font-s
  .ar-public-main .ar-d1-shop-landing .ar-d1-category-image{height:145px}
 }
 @media(prefers-reduced-motion:reduce){.ar-public-main .ar-d1-category-card,.ar-public-main .ar-d1-product-card,.ar-public-main .ar-luxe-hero-actions a{transition:none}}
+
+
+/* Mockup fidelity pass — all selectors intentionally scoped to the public storefront */
+.ar-public-main .ar-d1-hero{padding:14px 0 8px;background:linear-gradient(115deg,#f9eee5,#f5e5d8)}
+.ar-public-main .ar-d1-hero-shell{height:350px;min-height:350px;max-height:350px;grid-template-columns:40% 60%;border-radius:24px;background:linear-gradient(100deg,#fff6ed,#f3dfd0);box-shadow:0 16px 45px #6f31201a}
+.ar-public-main .ar-d1-hero-copy{padding:25px 15px 25px clamp(30px,3.3vw,62px);background:linear-gradient(90deg,#fff5e9 20%,#fff3e5 76%,#fff3e52e 100%);z-index:2}
+.ar-public-main .ar-d1-hero-copy h1{font-size:clamp(39px,3.6vw,62px)!important;margin:10px 0 13px}
+.ar-public-main .ar-d1-hero-copy p{font-size:13px;line-height:1.65;margin-bottom:15px}
+.ar-public-main .ar-d1-smallnote{margin-top:14px}
+.ar-public-main .ar-d1-hero-stage{height:350px;min-height:350px}
+.ar-public-main .ar-d1-hero-stage .ar-luxe-hero-art{object-fit:cover!important;object-position:center 54%!important}
+.ar-public-main .ar-d1-hero-stage::after{background:linear-gradient(90deg,#fff2e7 0%,#fff2e71c 16%,transparent 33%)}
+.ar-public-main .ar-luxe-mobile-watch-art{display:none!important}
+.ar-public-main .ar-d1-categories{padding-top:31px}
+.ar-public-main .ar-luxe-section-heading{margin:0 0 19px}
+.ar-public-main .ar-luxe-active-categories{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.ar-public-main .ar-luxe-active-categories .ar-d1-category-card{padding:5px 5px 11px;border-radius:17px;box-shadow:0 10px 24px #8b412118}
+.ar-public-main .ar-luxe-active-categories .ar-d1-category-image{height:clamp(140px,15vw,209px);border-radius:13px 13px 9px 9px}
+.ar-public-main .ar-luxe-active-categories .ar-d1-category-card strong{font-size:12px}
+.ar-public-main .ar-luxe-active-categories .ar-d1-category-card>span{font-size:10px}
+.ar-public-main .ar-luxe-coming-row{display:flex;justify-content:center;flex-wrap:wrap;gap:13px;margin-top:17px}
+.ar-public-main .ar-luxe-coming-item{display:flex;align-items:center;gap:11px;min-width:195px;border:1px solid #e9d8ce;border-radius:12px;background:#fff8f2;padding:7px 18px 7px 7px;box-shadow:0 6px 16px #7d402015}
+.ar-public-main .ar-luxe-coming-image{display:block;position:relative;flex:none;width:52px;height:52px;background:#edddd1;border-radius:8px;overflow:hidden}
+.ar-public-main .ar-luxe-coming-image img{object-fit:cover!important}
+.ar-public-main .ar-luxe-coming-item>div:last-child{display:grid;gap:2px}
+.ar-public-main .ar-luxe-coming-item strong{font-size:12px;color:#47252b}
+.ar-public-main .ar-luxe-coming-item span{font-size:9px;letter-spacing:.12em;color:#9a5262;text-transform:uppercase}
+.ar-public-main .ar-d1-policies{margin-top:21px}
+.ar-public-main .ar-d1-policies>div{min-height:75px}
+.ar-public-main .ar-d1-featured{padding-top:42px}
+.ar-public-main .ar-d1-product-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:15px}
+.ar-public-main .ar-d1-product-image{height:clamp(178px,17vw,245px)!important}
+.ar-public-main .ar-d1-product-info{min-height:115px}
+.ar-public-main .ar-d1-product-card{box-shadow:0 10px 23px #6b351618}
+.ar-public-main .ar-luxe-promise-band{margin-top:42px;min-height:92px}
+.ar-public-main .detail-layout{grid-template-columns:minmax(0,1fr) minmax(0,.89fr);gap:clamp(28px,4vw,60px);max-width:1250px;margin:0 auto 65px}
+.ar-public-main .detail-gallery{display:grid;grid-template-columns:74px minmax(0,1fr);grid-template-rows:auto auto;align-items:start;gap:12px}
+.ar-public-main .detail-featured{grid-column:2;grid-row:1;width:100%;aspect-ratio:1;border-radius:18px}
+.ar-public-main .detail-gallery .thumb-row{grid-column:1;grid-row:1;display:flex;flex-direction:column;gap:9px;margin-top:0}
+.ar-public-main .detail-gallery .thumb-row button{width:74px;height:74px;aspect-ratio:1;border-radius:11px;flex:none}
+.ar-public-main .gallery-warning{grid-column:1/-1;grid-row:2;margin:2px 0 0}
+.ar-public-main .detail-panel{padding:0 0 10px}
+.ar-public-main .breadcrumbs{max-width:1250px;margin:25px auto 29px}
+.ar-public-main .detail-panel h1{font-size:clamp(32px,3vw,46px)!important;margin:15px 0 12px}
+.ar-public-main .detail-lede{font-size:13px;line-height:1.72;color:#6b544a}
+.ar-public-main .detail-price{margin:16px 0;font-size:31px}
+.ar-public-main .ar-detail-shipping{padding:12px 16px;margin:13px 0}
+.ar-public-main .detail-divider{margin:15px 0}
+.ar-public-main .detail-panel .quantity-row{gap:10px}
+.ar-public-main .detail-panel .btn-accent{min-height:48px}
+.ar-public-main .ar-buy-now{min-height:47px}
+.ar-public-main .ar-detail-highlights{margin:15px 0}
+.ar-public-main .ar-detail-highlights>div{padding:11px 6px}
+@media(max-width:1100px){
+ .ar-public-main .ar-luxe-active-categories{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .ar-public-main .ar-luxe-active-categories .ar-d1-category-image{height:clamp(155px,23vw,235px)}
+ .ar-public-main .detail-layout{grid-template-columns:1fr 1fr;gap:26px}
+ .ar-public-main .detail-gallery{grid-template-columns:58px minmax(0,1fr)}
+ .ar-public-main .detail-gallery .thumb-row button{width:58px;height:58px}
+}
+@media(max-width:780px){
+ .ar-public-main .ar-d1-hero{padding:10px 0}
+ .ar-public-main .ar-d1-hero-shell{display:flex;flex-direction:column;height:393px;min-height:393px;max-height:393px;border-radius:19px}
+ .ar-public-main .ar-d1-hero-copy{height:226px;min-height:226px;flex:none;width:100%;padding:24px 24px 14px;background:linear-gradient(95deg,#fff5eb,#f9ebdf)}
+ .ar-public-main .ar-d1-hero-copy h1{font-size:clamp(35px,7.1vw,48px)!important;margin:7px 0}
+ .ar-public-main .ar-d1-hero-copy p{font-size:11px;line-height:1.48;max-width:440px;margin:0 0 10px}
+ .ar-public-main .ar-d1-hero-copy .ar-d1-eyebrow{font-size:8px}
+ .ar-public-main .ar-d1-smallnote{display:none}
+ .ar-public-main .ar-d1-hero-stage{height:167px;min-height:167px;flex:none;width:100%;overflow:hidden}
+ .ar-public-main .ar-d1-hero-stage .ar-luxe-hero-art{object-fit:cover!important;object-position:center 57%!important}
+ .ar-public-main .ar-d1-hero-stage::after{background:linear-gradient(180deg,#fff2e627,transparent 35%)}
+ .ar-public-main .ar-luxe-active-categories{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+ .ar-public-main .ar-luxe-active-categories .ar-d1-category-image{height:clamp(110px,28vw,185px)}
+ .ar-public-main .ar-luxe-active-categories .ar-d1-category-card strong{font-size:11px}
+ .ar-public-main .ar-luxe-coming-item{min-width:160px}
+ .ar-public-main .detail-layout{grid-template-columns:1fr;display:grid;gap:18px}
+ .ar-public-main .detail-gallery{display:flex;flex-direction:column;gap:9px}
+ .ar-public-main .detail-featured{width:100%;aspect-ratio:1}
+ .ar-public-main .detail-gallery .thumb-row{display:flex;flex-direction:row;width:100%;overflow-x:auto;gap:7px}
+ .ar-public-main .detail-gallery .thumb-row button{width:clamp(58px,15vw,78px);height:clamp(58px,15vw,78px)}
+ .ar-public-main .detail-panel{padding:18px 0}
+}
+@media(max-width:460px){
+ .ar-public-main .ar-d1-hero-shell{height:370px;min-height:370px;max-height:370px}
+ .ar-public-main .ar-d1-hero-copy{height:214px;min-height:214px;padding:18px 18px 12px}
+ .ar-public-main .ar-d1-hero-copy h1{font-size:35px!important;margin:6px 0}
+ .ar-public-main .ar-d1-hero-copy p{font-size:10px;line-height:1.5;max-width:320px;margin-bottom:9px}
+ .ar-public-main .ar-d1-hero-stage{height:156px;min-height:156px}
+ .ar-public-main .ar-luxe-hero-actions a{min-height:39px;padding:9px 14px;font-size:10px}
+ .ar-public-main .ar-luxe-active-categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .ar-public-main .ar-luxe-active-categories .ar-d1-category-image{height:clamp(125px,40vw,170px)}
+ .ar-public-main .ar-luxe-coming-row{gap:8px}
+ .ar-public-main .ar-luxe-coming-item{width:calc(50% - 4px);min-width:0;padding:6px;gap:7px}
+ .ar-public-main .ar-luxe-coming-image{width:40px;height:40px}
+ .ar-public-main .ar-luxe-coming-item strong{font-size:10px}
+ .ar-public-main .ar-luxe-coming-item span{font-size:8px}
+ .ar-public-main .ar-d1-product-image{height:155px!important}
+ .ar-public-main .detail-panel h1{font-size:31px!important}
+}
