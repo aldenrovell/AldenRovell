@@ -1,52 +1,123 @@
-.page{width:min(1220px,calc(100% - 48px));margin:0 auto;padding:90px 0 105px;box-sizing:border-box}
-.intro{margin-bottom:47px;max-width:820px}.kicker,.tag{font-size:11px;font-weight:750;letter-spacing:.16em;color:#ab1b2d}
-.intro h1{font-family:'Outfit','Nunito',system-ui,sans-serif!important;font-size:clamp(44px,5.8vw,80px);line-height:1.1;letter-spacing:-.055em;font-weight:800;margin:20px 0 17px;color:#211c1b}
-.intro h1 span{color:#b21728}.intro p{font-size:15px;line-height:1.8;color:#71665f;max-width:630px}
-.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
-.card{padding:clamp(29px,4.5vw,59px);border-radius:32px;min-width:0;min-height:405px;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 15px 42px rgba(48,28,19,.08);transition:transform .3s ease,box-shadow .3s ease}
-.card:hover{transform:translateY(-5px);box-shadow:0 23px 48px rgba(48,28,19,.14)}
-.light{background:#f0e8e0;color:#251f1c;border:1px solid #e8dcd3}.dark{background:#211e20;color:#fff;border:1px solid #332e30}
-.icon{width:64px;height:64px;display:grid;place-items:center;border-radius:18px;margin-bottom:35px;background:#fff;color:#ab1828}
-.dark .icon{background:#403238;color:#f9ced2}
-.dark .tag{color:#ec9ea7}.card h2{font-family:'Outfit','Nunito',system-ui,sans-serif!important;font-weight:750;font-size:clamp(25px,3vw,38px);letter-spacing:-.035em;line-height:1.18;color:inherit;margin:14px 0 12px}
-.card p{font-size:13px;line-height:1.9;max-width:420px;margin:0 0 29px;color:inherit;opacity:.8}
-.mail{display:flex;gap:10px;align-items:center;color:inherit;font-weight:700;font-size:clamp(14px,1.5vw,20px);max-width:100%;overflow-wrap:anywhere;line-height:1.5}
-.mail>span{overflow-wrap:anywhere}.mail svg{flex:none}
-.action{display:inline-flex;align-items:center;gap:9px;border-radius:999px;background:#ad1325;color:#fff;padding:13px 21px;font-size:12px;font-weight:750;margin-top:24px;transition:background .3s,transform .3s}
-.action:hover{background:#891022;transform:translateY(-2px)}
-.dark .action{background:#fff;color:#241e1e}.dark .action:hover{background:#f2dce0}
-.note{font-size:12px;line-height:1.7;color:#81736e;text-align:center;max-width:720px;margin:24px auto 0}
-@media(max-width:800px){.cards{grid-template-columns:1fr}.card{min-height:0}.page{padding-top:58px}.intro{margin-bottom:30px}}
-@media(max-width:540px){.page{width:calc(100% - 32px)}.card{padding:28px 24px;border-radius:23px}.intro h1{font-size:46px}.mail{font-size:16px}}
-@media(prefers-reduced-motion:reduce){.card,.action{transition:none}.card:hover,.action:hover{transform:none}}
-/* Restore the original premium dark inbox feeling, in two intentional cards. */
-.card{position:relative;isolation:isolate;overflow:hidden;box-shadow:0 21px 55px #281c1c19;min-height:445px}
-.card:before{content:'';pointer-events:none;position:absolute;z-index:-1;right:-130px;bottom:-160px;width:310px;height:310px;border:1px solid #c46a844a;border-radius:50%;box-shadow:0 0 0 55px #c45c7710}
-.light{background:radial-gradient(circle at 95% 0%,#4c3e43,#2a2125 66%);color:white;border:1px solid #3d3136}
-.dark{background:radial-gradient(circle at 85% 8%,#4f3e44,#201a1e 66%);color:white;border:1px solid #403034}
-.light .tag,.dark .tag{color:#f0a0ad}
-.light .icon,.dark .icon{background:#ffffff15;color:#fac2cb;border:1px solid #ffffff25}
-.light .action,.dark .action{background:#b30e23;color:white;border:1px solid #d6394b}
-.light .action:hover,.dark .action:hover{background:#8e0d1e;color:white}
-.card h2,.card p,.card .mail{color:#fff!important}
-.card p{opacity:.84}
-
-/* Single contact destination: centered luxury card */
-.cards{grid-template-columns:minmax(0,760px);justify-content:center}
-.card{width:100%;min-height:355px;padding:clamp(30px,5vw,55px)}
-.icons{display:flex;gap:12px;align-items:center;margin-bottom:26px}
-.icons .icon{margin:0}
-@media(max-width:540px){.card{min-height:0}.icons{gap:10px}}
-
-/* 2026 Alden Rovell luxury concept refinement */
-.page{width:min(1350px,calc(100% - 48px));padding:62px 0 95px;min-height:630px;background:radial-gradient(ellipse at 90% 15%,#f2dbca70,transparent 45%)}
-.intro{max-width:920px;margin-bottom:36px}
-.intro h1{font-family:'Playfair Display',Georgia,serif!important;font-weight:500!important;font-size:clamp(42px,5vw,70px)!important}
-.intro h1 span{color:#8c1029}
-.cards{grid-template-columns:minmax(0,1fr);max-width:850px}
-.card{min-height:350px;border-radius:24px;padding:clamp(27px,4vw,50px);box-shadow:0 15px 38px #65322116}
-.light{background:linear-gradient(120deg,#fffaf3,#f0ddce);border-color:#f9eee5}
-.card h2{font-family:'Playfair Display',Georgia,serif!important;font-weight:500!important;font-size:clamp(25px,3vw,37px)!important}
-.mail{background:#fffaf6;border:1px solid #e8c9b8;border-radius:12px;padding:13px 18px;color:#7c162a}
-.action{background:linear-gradient(115deg,#a00b26,#650a20)}
-@media(max-width:700px){.page{width:calc(100% - 32px);padding:40px 0 65px}.card{min-height:0}.intro h1{font-size:42px!important}}
+/* Alden Rovell Contact: entirely page-scoped, no shared layout overrides */
+.page{
+ width:min(1260px,calc(100% - 48px));
+ margin:0 auto;
+ padding:64px 0 94px;
+ box-sizing:border-box;
+ color:#2f2021;
+}
+.intro{text-align:center;max-width:850px;margin:0 auto 39px;}
+.kicker,.tag,.directLabel{
+ display:inline-block;font-family:'Poppins',sans-serif;font-size:10px;
+ font-weight:750;letter-spacing:.19em;
+}
+.kicker{color:#95102c;}
+.intro h1{
+ font-family:'Playfair Display',Georgia,serif!important;
+ font-size:clamp(42px,5.1vw,70px)!important;
+ line-height:1.12;letter-spacing:-.052em;font-weight:500!important;
+ color:#2b1c20;margin:15px 0 15px;
+}
+.intro h1 span{color:#8b0b29;}
+.intro p{color:#705953;font-size:14px;line-height:1.8;max-width:660px;margin:0 auto;}
+.panel{
+ display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+ border:1px solid #ead4c7;border-radius:26px;
+ overflow:hidden;background:#fff8f1;
+ box-shadow:0 18px 55px #6d352321;
+ isolation:isolate;
+}
+.panelInfo{
+ min-width:0;padding:clamp(36px,4.2vw,65px);
+ display:flex;flex-direction:column;align-items:flex-start;
+ justify-content:center;
+ background:radial-gradient(circle at 100% 0%,#f0dccc 0%,transparent 45%),linear-gradient(125deg,#fffaf4,#f5e7dc);
+}
+.icons{display:flex;align-items:center;gap:12px;margin-bottom:25px;}
+.icon{
+ width:49px;height:49px;border-radius:14px;
+ display:grid;place-items:center;
+ background:#fff8f2;color:#92102c;border:1px solid #ead2c4;
+ box-shadow:0 5px 14px #8d492014;
+}
+.tag{color:#91142e;}
+.panelInfo h2{
+ font-family:'Playfair Display',Georgia,serif!important;
+ font-size:clamp(30px,3.05vw,45px)!important;
+ line-height:1.18;letter-spacing:-.035em;font-weight:500!important;
+ color:#332024!important;margin:16px 0 16px;max-width:550px;
+}
+.panelInfo h2 span{color:#8d0d29;}
+.panelInfo p{
+ font-family:'Poppins',sans-serif;font-size:13px;
+ line-height:1.9;color:#664f4a!important;
+ max-width:510px;margin:0;
+}
+.contactBox{
+ min-width:0;display:flex;align-items:flex-start;
+ flex-direction:column;justify-content:center;
+ padding:clamp(34px,4vw,60px);
+ color:#fff9f5;
+ background:radial-gradient(circle at 100% 0%,#b32d4a 0%,transparent 47%),linear-gradient(135deg,#820b27,#520b1e);
+}
+.directLabel{color:#f1c5b0;}
+.mailSymbol{
+ width:57px;height:57px;border-radius:17px;
+ display:grid;place-items:center;
+ margin:22px 0 17px;
+ background:#ffffff1c;border:1px solid #ffffff42;
+ color:#fff6ed;
+}
+.contactBox h3{
+ font-family:'Playfair Display',Georgia,serif!important;
+ font-size:clamp(25px,2.4vw,35px)!important;
+ line-height:1.18;font-weight:500!important;
+ color:#fff9f5!important;margin:0 0 11px;
+}
+.contactBox p{
+ font-family:'Poppins',sans-serif;font-size:12px;
+ color:#f7e5df!important;line-height:1.75;
+ max-width:350px;margin:0 0 22px;
+}
+.email{
+ display:flex;gap:10px;align-items:center;
+ max-width:100%;width:100%;
+ padding:14px 16px;border-radius:12px;
+ border:1px solid #ffffff65;background:#ffffff1b;
+ color:#fffaf5!important;font-weight:700;font-size:clamp(13px,1.35vw,17px);
+ line-height:1.5;text-decoration:none;
+ overflow-wrap:anywhere;
+}
+.email span{overflow-wrap:anywhere;min-width:0;}
+.email svg{flex:none;}
+.email:hover,.email:focus-visible{background:#ffffff28;border-color:#fff7ee;}
+.action{
+ display:inline-flex;justify-content:center;align-items:center;gap:12px;
+ border:1px solid #fff7ed;border-radius:999px;
+ background:#fff8f0;color:#800a27!important;
+ text-decoration:none;padding:13px 22px;margin-top:20px;
+ font-size:12px;font-family:'Poppins',sans-serif;font-weight:750;
+ transition:transform .2s ease,background .2s ease;
+}
+.action:hover{transform:translateY(-2px);background:#f6e3d3;}
+.action:focus-visible,.email:focus-visible{outline:3px solid #f3bd94;outline-offset:3px;}
+@media(max-width:800px){
+ .page{padding:45px 0 70px;}
+ .intro{margin-bottom:28px;}
+ .panel{grid-template-columns:1fr;border-radius:21px;}
+ .panelInfo,.contactBox{padding:36px;}
+ .panelInfo h2{font-size:35px!important;}
+}
+@media(max-width:540px){
+ .page{width:calc(100% - 30px);padding:36px 0 55px;}
+ .intro h1{font-size:43px!important;}
+ .intro p{font-size:12px;}
+ .panelInfo,.contactBox{padding:27px 23px;}
+ .icons{gap:8px;margin-bottom:20px;}
+ .icon{height:44px;width:44px;}
+ .panelInfo h2{font-size:31px!important;}
+ .panelInfo p{font-size:12px;line-height:1.75;}
+ .contactBox h3{font-size:29px!important;}
+ .email{font-size:14px;padding:13px 12px;}
+}
+@media(prefers-reduced-motion:reduce){.action{transition:none}.action:hover{transform:none}}
