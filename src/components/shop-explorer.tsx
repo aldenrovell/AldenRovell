@@ -1,9 +1,10 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import {useMemo,useState} from 'react';
 import {useSearchParams,useRouter} from 'next/navigation';
-import {Search,SlidersHorizontal,X,ChevronRight,ArrowLeft,ArrowUpRight,Watch,Shirt,Truck,RefreshCcw,CreditCard} from 'lucide-react';
-import type {Product} from '@/lib/types';
+import {Search,SlidersHorizontal,X,ChevronRight,ArrowLeft,ArrowUpRight,ShoppingBag,Watch,Shirt,Truck,RefreshCcw,CreditCard} from 'lucide-react';
+import {formatPrice,type Product} from '@/lib/types';
 import {ProductCard} from './product-card';
 type Category={id:string;name:string;slug:string;parent_id:string|null;visible:boolean;sort_order:number;image_url?:string|null};
 const SHOW_CATEGORIES=['Massagers','Jewellery','Footwear',"Men's Watches","Women's Watches"];
@@ -98,6 +99,19 @@ export function ShopExplorer({products,categories=[]}:{products:Product[];catego
      <span className="ar-luxe-shop-upcoming-label"><strong>{c.title}</strong><small>Coming soon</small></span>
     </div>)}</div>
    </div>}
+  </section>
+  <section className="ar-d1-width ar-d1-featured ar-luxe-shop-all-products" aria-label="All Alden Rovell products">
+   <div className="ar-d1-titlebar">
+    <div><span className="ar-d1-eyebrow">THE ALDEN ROVELL COLLECTION</span><h2>Explore All <em>Products</em></h2><p>Browse all {products.length} products available in our catalogue.</p></div>
+    <span className="ar-luxe-shop-product-count">{products.length} PRODUCTS</span>
+   </div>
+   <div className="ar-d1-product-grid ar-luxe-shop-products-grid">{products.map(p=><Link href={'/product/'+p.slug} className="ar-d1-product-card" key={p.id} aria-label={'View '+p.title}>
+    <div className="ar-d1-product-image">
+     <Image src={p.images[0]?.src||'/brand/mark-clean.png'} alt={p.images[0]?.alt||p.title} fill unoptimized sizes="(max-width:600px) 48vw,(max-width:1000px) 30vw,22vw" className="object-contain"/>
+     <span className="ar-luxe-card-icon"><ShoppingBag size={17}/></span>
+    </div>
+    <div className="ar-d1-product-info"><small>{p.category.split('/')[0].trim()}</small><strong>{p.title}</strong><b>{formatPrice(p.pricePkr)}</b></div>
+   </Link>)}</div>
   </section>
   <section className="ar-d1-width ar-d1-policies ar-luxe-shop-policies" aria-label="Store policies"><div><Truck/><p><strong>1 Item Delivery <b>Rs. 199</b></strong><small>Across Pakistan</small></p></div><div><Truck/><p><strong>2+ Items <b>Free Delivery</b></strong><small>Across Pakistan</small></p></div><div><RefreshCcw/><p><strong>7 Day Returns</strong><small>Eligible requests</small></p></div><div><CreditCard/><p><strong>Cash on Delivery</strong><small>At checkout</small></p></div></section>
  </main>;
