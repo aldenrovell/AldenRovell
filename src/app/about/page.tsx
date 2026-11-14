@@ -14,15 +14,13 @@ export default function About(){
  return <div className={styles.about}>
   <section className={styles.hero}>
    <div className={styles.copy}><span className={styles.eyebrow}>THE ALDEN ROVELL STORY</span>
-    <h1>Everyday finds.<br/><span>Thoughtfully chosen.</span></h1>
+    <h1>Style, quality &amp;<br/><span>Everyday luxury.</span></h1>
     <p>We believe the joy of shopping lives in the details. Alden Rovell brings together carefully selected collections and makes exploring them feel effortless.</p>
     <Link href="/shop" className={styles.primary}>Discover the collections <ArrowUpRight size={18}/></Link>
    </div>
    <div className={styles.brandPanel}>
-    <div className={styles.halo} aria-hidden="true"/>
-    <span className={styles.panelEyebrow}>EST. IN PAKISTAN / CURATED FOR YOU</span>
-    <Image className={styles.logo} src="/brand/primary-header-white.png" alt="Alden Rovell" width={1160} height={250} unoptimized priority/>
-    <span className={styles.panelCaption}>A DIFFERENT WAY TO DISCOVER</span>
+    <Image src="/collection-covers/collections-hero.webp" fill unoptimized priority alt="Alden Rovell curated fashion and accessories collection" sizes="(max-width:780px) 100vw, 45vw" className={styles.storyImage}/>
+    <span className={styles.panelCaption}>THE ALDEN ROVELL EDIT</span>
    </div>
   </section>
   <section className={styles.manifesto}>
