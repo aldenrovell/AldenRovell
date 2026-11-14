@@ -1,12 +1,13 @@
 import 'server-only';
 import {createClient,type SupabaseClient} from '@supabase/supabase-js';
 import draftData from '@/data/catalog.json';
+import previewData from '@/data/preview-store.json';
 import type {Product,StoreSettings} from '@/lib/types';
 const draft=draftData as Product[];
 export function adminDb():SupabaseClient|null {const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.SUPABASE_SERVICE_ROLE_KEY;return url&&key?createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false}}):null;}
 export function publicAuth(){const url=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;return url&&key?createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false}}):null;}
 export async function getProducts():Promise<Product[]>{
- const db=adminDb();if(!db)return draft;
+ const db=adminDb();if(!db)return process.env.VERCEL_ENV==='preview'?(previewData.products as Product[]):draft;
  const {data,error}=await db.from('store_products').select('id,price_pkr,stock,is_published,images_approved,sales_unit_verified,details,images,is_archived').order('id');
  if(error){console.error('Catalog unavailable',error.message);return draft;}
  const original=new Map(draft.map(p=>[p.id,p]));
