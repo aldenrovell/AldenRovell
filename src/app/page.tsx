@@ -24,11 +24,6 @@ const category=(p:Product)=>p.category.split('/')[0].trim();
 export default async function Home(){
  const all=await getProducts();
  const products=all.filter(p=>p.published&&!('is_archived' in p&&p.is_archived)).filter(p=>p.images[0]?.src);
- const pick=(id:string)=>products.find(p=>p.id===id);
- const massager=pick('PNECK4D2026')||products.find(p=>category(p)==='Massagers');
- const necklace=pick('P07')||products.find(p=>category(p)==='Jewellery');
- const shoes=pick('P05')||products.find(p=>category(p)==='Footwear');
- const intro=[massager,necklace,shoes].filter((p):p is Product=>Boolean(p));
  return <div className="ar-d1-home">
   <script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeJsonLd(homeStructuredData)}}/>
   <section className="ar-d1-hero" aria-label="Alden Rovell curated collection">
@@ -40,12 +35,8 @@ export default async function Home(){
      <div className="ar-luxe-hero-actions"><Link href="/shop" className="ar-d1-button">Shop Collection <ArrowUpRight size={19}/></Link><Link href="#ar-collections" className="ar-luxe-outline">Explore Categories</Link></div>
      <span className="ar-d1-smallnote">ALDEN ROVELL · THE CURATED EDIT</span>
     </div>
-    <div className="ar-d1-hero-stage" aria-label="Selected Alden Rovell products">
-     <span className="ar-d1-halo" aria-hidden="true"/>
-     {intro.map((p,i)=><Link key={p.id} href={'/product/'+p.slug} className={'ar-d1-stage-item ar-d1-stage-item-'+i} aria-label={'View '+p.title}>
-      <Image src={p.images[0].src} alt={p.title} fill unoptimized sizes="(max-width:750px) 40vw, 20vw" className="object-contain"/>
-     </Link>)}
-     <div className="ar-d1-stage-caption">CURATED FINDS <span>✦</span> ALDEN ROVELL</div>
+    <div className="ar-d1-hero-stage" aria-label="The Alden Rovell collections">
+     <Image src="/collection-covers/collections-hero.webp" alt="Alden Rovell jewellery, footwear, watches and wellness collection" fill unoptimized priority sizes="(max-width:780px) 100vw, 58vw" className="ar-luxe-hero-art"/>
     </div>
    </div>
   </section>
