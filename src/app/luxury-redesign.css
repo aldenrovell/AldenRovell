@@ -304,3 +304,8 @@ body:not(:has(.ar-luxury-shop)) .site-header .desktop-nav .cp-nav-group>a{font-s
 @media(prefers-reduced-motion:reduce){
  .ar-public-main .ar-luxe-shop-collection-card,.ar-public-main .ar-luxe-shop-collection-card .ar-d1-category-image img{transition:none!important}
 }
+
+/* Override legacy Shop All grid at equal/higher specificity */
+.ar-public-main .ar-d1-shop-landing .ar-luxe-shop-active-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important}
+@media(max-width:1050px){.ar-public-main .ar-d1-shop-landing .ar-luxe-shop-active-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}}
+@media(max-width:780px){.ar-public-main .ar-d1-shop-landing .ar-luxe-shop-active-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:11px!important}}
