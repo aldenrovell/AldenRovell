@@ -6,14 +6,14 @@ import {Search,SlidersHorizontal,X,ChevronRight,ArrowLeft,ArrowUpRight,Watch,Shi
 import type {Product} from '@/lib/types';
 import {ProductCard} from './product-card';
 type Category={id:string;name:string;slug:string;parent_id:string|null;visible:boolean;sort_order:number;image_url?:string|null};
-const SHOW_CATEGORIES=['Massagers','Jewellery','Footwear',"Men's Watches"];
+const SHOW_CATEGORIES=['Massagers','Jewellery','Footwear',"Men's Watches","Women's Watches"];
 const COLLECTION_COVERS=[
 {name:'Massagers',title:'Massagers',asset:'massagers',description:'Wellness & relaxation'},
 {name:'Jewellery',title:'Jewellery',asset:'jewellery',description:'Everyday elegance'},
 {name:'Footwear',title:"Men's Footwear",asset:'mens-footwear',audience:'men',description:'Styles coming soon'},
 {name:'Footwear',title:"Women's Footwear",asset:'womens-footwear',audience:'women',description:'Explore our styles'},
 {name:"Men's Watches",title:"Men's Watches",asset:'mens-watches',planned:true,description:'Coming soon'},
-{name:"Women's Watches",title:"Women's Watches",asset:'womens-watches',planned:true,description:'Coming soon'},
+{name:"Women's Watches",title:"Women's Watches",asset:'womens-watches',planned:true,description:'Timeless everyday watches'},
 {name:"Men's T-Shirts",title:"Men's T-Shirts",asset:'mens-tshirts',planned:true,description:'Coming soon'},
 {name:"Women's T-Shirts",title:"Women's T-Shirts",asset:'womens-tshirts',planned:true,description:'Coming soon'}
 ] as const;
