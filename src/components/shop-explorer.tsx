@@ -16,7 +16,7 @@ const COLLECTION_COVERS=[
 {name:"Men's Watches",title:"Men's Watches",asset:'mens-watches',planned:true,description:'Coming soon'},
 {name:"Women's Watches",title:"Women's Watches",asset:'womens-watches',planned:true,description:'Timeless everyday watches'},
 {name:"Men's T-Shirts",title:"Men's T-Shirts",asset:'mens-tshirts',planned:true,description:'Everyday streetwear'},
-{name:"Women's T-Shirts",title:"Women's T-Shirts",asset:'womens-tshirts',planned:true,description:'Soft everyday essentials'}
+{name:"Women's T-Shirts",title:"Women's T-Shirts",asset:'womens-tshirts',description:'Shop the collection'}
 ] as const;
 function LuxuryFlorals({corner}:{corner:'top'|'bottom'}){
  const spots=corner==='top'?[[51,105,1],[126,64,.88],[159,140,.69],[234,88,.58]]:[[66,109,.88],[145,157,.95],[214,84,.73],[281,135,.53]];
@@ -90,7 +90,7 @@ export function ShopExplorer({products,categories=[]}:{products:Product[];catego
    <div className="ar-d1-category-grid ar-luxe-shop-active-grid">{enabledCovers.map(c=><button type="button" key={c.title} className="ar-d1-category-card ar-luxe-shop-collection-card" onClick={()=>goToCollection(c)} aria-label={'Explore '+c.title}>
     <span className="ar-d1-category-image"><Image src={'/collection-covers/'+c.asset+'.webp'} fill unoptimized alt={c.title+' collection'} sizes="(max-width:650px) 46vw,(max-width:1100px) 30vw,30vw" className="object-cover"/></span>
     <span className="ar-luxe-shop-card-caption"><strong>{c.title}</strong><ArrowUpRight size={18} aria-hidden="true"/></span>
-    <span className="ar-luxe-shop-card-description">{c.description}</span>
+    <span className="ar-luxe-shop-card-description">{c.name==="Women's T-Shirts"?`${products.filter(p=>p.category.split('/')[0].trim()===c.name).length} product(s) available`:c.description}</span>
    </button>)}</div>
    {upcomingCovers.length>0&&<div className="ar-luxe-shop-upcoming" aria-label="Upcoming collections">
     <div className="ar-luxe-shop-upcoming-heading"><span className="ar-d1-eyebrow">WHAT'S NEXT</span><strong>Coming soon</strong></div>
