@@ -1,12 +1,15 @@
 export type GalleryImage={src:string;alt:string;role:string};
 export type ProductVariant={color:string;size:string;sku?:string;materialLabel?:string;stock?:number|null};
-export type Product={id:string;slug:string;title:string;category:string;shortDescription:string;description:string;features:string[];reviewNote:string;sku:string;seoTitle:string;metaDescription:string;images:GalleryImage[];pricePkr:number|null;stock:number|null;published:boolean;imagesApproved:boolean;salesUnitVerified:boolean;colors?:string[];sizes?:string[];variants?:ProductVariant[]};
+export type Product={id:string;slug:string;title:string;category:string;shortDescription:string;description:string;features:string[];reviewNote:string;sku:string;seoTitle:string;metaDescription:string;images:GalleryImage[];pricePkr:number|null;stock:number|null;published:boolean;imagesApproved:boolean;salesUnitVerified:boolean;colors?:string[];sizes?:string[];variants?:ProductVariant[];packSize?:number};
 export type CartItem={id:string;quantity:number;color?:string;size?:string};
 export type StoreSettings={codEnabled:boolean;shippingFeePkr:number|null;notice:string|null};
 export const formatPrice=(n:number|null)=> n===null?'Price pending':`Rs. ${n.toLocaleString('en-PK')}`;
 export const canPurchase=(p:Product)=>p.published&&p.imagesApproved&&p.salesUnitVerified&&p.pricePkr!==null&&p.stock!==null&&p.stock>0;
 export const hasVariants=(p:Product)=>Array.isArray(p.variants)&&p.variants.length>0;
-export const validVariant=(p:Product,item:Pick<CartItem,'color'|'size'>)=>!hasVariants(p)?(!item.color&&!item.size):!!item.color&&!!item.size&&p.variants!.some(v=>v.color===item.color&&v.size===item.size);
+export const packColorOptions=(p:Product)=>Array.isArray(p.colors)?p.colors:[];
+export const parsePackColors=(selection?:string)=>typeof selection==='string'?selection.split(' + ').map(v=>v.trim()):[];
+export const validPackSelection=(p:Product,item:Pick<CartItem,'color'|'size'>)=>{const selected=parsePackColors(item.color);return p.packSize===3&&selected.length===3&&selected.every(c=>packColorOptions(p).includes(c))&&!!item.size&&!!p.sizes?.includes(item.size);};
+export const validVariant=(p:Product,item:Pick<CartItem,'color'|'size'>)=>p.packSize===3?validPackSelection(p,item):!hasVariants(p)?(!item.color&&!item.size):!!item.color&&!!item.size&&p.variants!.some(v=>v.color===item.color&&v.size===item.size);
 export const cartItemKey=(item:Pick<CartItem,'id'|'color'|'size'>)=>[item.id,item.color||'',item.size||''].join('::');
 export const matchingImage=(p:Product,color?:string)=>color?p.images.find(i=>i.role.toLowerCase().includes(color.toLowerCase()))??p.images[0]:p.images[0];
 export const itemsAvailable=(items:CartItem[],products:Product[])=>items.length>0&&items.every(item=>{const p=products.find(p=>p.id===item.id);return !!p&&canPurchase(p)&&validVariant(p,item)&&Number.isInteger(item.quantity)&&item.quantity>0&&item.quantity<=10;})&&products.every(p=>items.filter(i=>i.id===p.id).reduce((a,i)=>a+i.quantity,0)<=(p.stock??0));
