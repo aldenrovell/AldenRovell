@@ -7,7 +7,7 @@ import {Search,SlidersHorizontal,X,ChevronRight,ArrowLeft,ArrowUpRight,ShoppingB
 import {formatPrice,type Product} from '@/lib/types';
 import {ProductCard} from './product-card';
 type Category={id:string;name:string;slug:string;parent_id:string|null;visible:boolean;sort_order:number;image_url?:string|null};
-const SHOW_CATEGORIES=['Massagers','Jewellery','Footwear',"Men's Watches","Women's Watches","Men's T-Shirts"];
+const SHOW_CATEGORIES=['Massagers','Jewellery','Footwear',"Men's Watches","Women's Watches","Men's T-Shirts","Women's T-Shirts"];
 const COLLECTION_COVERS=[
 {name:'Massagers',title:'Massagers',asset:'massagers',description:'Wellness & relaxation'},
 {name:'Jewellery',title:'Jewellery',asset:'jewellery',description:'Everyday elegance'},
@@ -16,7 +16,7 @@ const COLLECTION_COVERS=[
 {name:"Men's Watches",title:"Men's Watches",asset:'mens-watches',planned:true,description:'Coming soon'},
 {name:"Women's Watches",title:"Women's Watches",asset:'womens-watches',planned:true,description:'Timeless everyday watches'},
 {name:"Men's T-Shirts",title:"Men's T-Shirts",asset:'mens-tshirts',planned:true,description:'Everyday streetwear'},
-{name:"Women's T-Shirts",title:"Women's T-Shirts",asset:'womens-tshirts',planned:true,description:'Coming soon'}
+{name:"Women's T-Shirts",title:"Women's T-Shirts",asset:'womens-tshirts',planned:true,description:'Soft everyday essentials'}
 ] as const;
 function LuxuryFlorals({corner}:{corner:'top'|'bottom'}){
  const spots=corner==='top'?[[51,105,1],[126,64,.88],[159,140,.69],[234,88,.58]]:[[66,109,.88],[145,157,.95],[214,84,.73],[281,135,.53]];
