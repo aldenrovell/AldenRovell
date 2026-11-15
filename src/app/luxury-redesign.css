@@ -377,3 +377,11 @@ body:not(:has(.ar-luxury-shop)) .site-header .desktop-nav .cp-nav-group>a{font-s
  .ar-public-main .ar-d1-shop-landing .ar-luxe-shop-collection-card .ar-d1-category-image{height:clamp(105px,32vw,137px)!important}
  .ar-public-main .ar-d1-shop-landing .ar-luxe-shop-card-caption strong{font-size:11px}
 }
+
+/* Three-piece bundle selector: scoped to product options only */
+.ar-pack-instruction{color:#72555a;font-size:12px;line-height:1.65;margin:0 0 17px}
+.ar-product-variants:has(.ar-pack-instruction){background:#fffbf6;border:1px solid #ead6c7;padding:21px;border-radius:17px}
+.ar-product-variants:has(.ar-pack-instruction) .ar-variant-field{padding:12px 0;border-bottom:1px solid #ebdcd4;margin:0 0 10px}
+.ar-product-variants:has(.ar-pack-instruction) .ar-variant-field:last-of-type{border-bottom:0}
+.ar-product-variants:has(.ar-pack-instruction) .ar-variant-choice.ar-variant-selected{background:#880e2b;border-color:#880e2b;color:#fff}
+@media(max-width:600px){.ar-product-variants:has(.ar-pack-instruction){padding:15px 12px}}
